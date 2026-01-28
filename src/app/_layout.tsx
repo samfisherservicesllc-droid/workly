@@ -67,6 +67,8 @@ function RootLayoutNav() {
         <Stack.Screen name="create-post" options={{ presentation: 'modal' }} />
         <Stack.Screen name="conversation/[id]" options={{ presentation: 'card' }} />
         <Stack.Screen name="profile/[id]" options={{ presentation: 'card' }} />
+        <Stack.Screen name="write-review/[professionalId]" options={{ presentation: 'modal' }} />
+        <Stack.Screen name="edit-portfolio" options={{ presentation: 'modal' }} />
       </Stack>
     </ThemeProvider>
   );

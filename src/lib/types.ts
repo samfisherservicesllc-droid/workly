@@ -23,6 +23,15 @@ export interface ClientProfile extends BaseUser {
   role: 'client';
 }
 
+// Media item for portfolio and reviews
+export interface MediaItem {
+  id: string;
+  type: 'image' | 'video';
+  uri: string;
+  thumbnailUri?: string; // For videos
+  createdAt: string;
+}
+
 export interface ProfessionalProfile extends BaseUser {
   role: 'professional';
   trade: string;
@@ -33,6 +42,8 @@ export interface ProfessionalProfile extends BaseUser {
   description: string;
   rating?: number;
   reviewCount?: number;
+  // Portfolio media (photos and videos)
+  portfolioMedia?: MediaItem[];
 }
 
 export type User = ClientProfile | ProfessionalProfile;
@@ -98,4 +109,19 @@ export interface FeedFilters {
   type: FeedFilter;
   categoryId?: string;
   city?: string;
+}
+
+// Reviews
+export interface Review {
+  id: string;
+  professionalId: string;
+  clientId: string;
+  clientName: string;
+  clientPhotoUrl?: string;
+  rating: number; // 1-5 stars
+  description: string; // Up to 250 words
+  media: MediaItem[]; // Photos and videos
+  serviceCategoryId?: string;
+  serviceCategoryName?: string;
+  createdAt: string;
 }

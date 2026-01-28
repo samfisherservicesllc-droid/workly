@@ -16,7 +16,7 @@ A mobile-first app connecting clients with local service professionals. No gener
 - Profile completion flow for professionals
 
 #### Profiles
-- **Clients**: Name, location, optional photo
+- **Clients**: Name, location, optional photo, member since date
 - **Professionals**:
   - Service categories (multi-select from extensible list)
   - Trade/profession
@@ -24,6 +24,9 @@ A mobile-first app connecting clients with local service professionals. No gener
   - License number (optional)
   - Service areas (multiple cities)
   - Description
+  - Portfolio media (photos and videos)
+  - Member since date
+  - Reviews from clients
 
 #### Service Categories (Extensible)
 - Landscaping, Flooring, Roofing
@@ -48,10 +51,23 @@ A mobile-first app connecting clients with local service professionals. No gener
 - Share post link
 - Direct 1-to-1 messaging between clients and professionals
 
+#### Reviews System
+- 5-star rating system
+- Written reviews (up to 250 words)
+- Photo and video attachments on reviews
+- Service category tagging
+- Reviews displayed on professional profiles
+- Average rating calculation
+
+#### Portfolio
+- Professionals can add up to 12 photos/videos
+- Showcase completed work visually
+- Videos limited to 2 minutes
+
 ### Navigation
 - **Feed Tab**: Main feed with posts and filters
 - **Messages Tab**: Direct conversations with badge for unread
-- **Profile Tab**: View and edit your profile
+- **Profile Tab**: View and edit your profile, portfolio, see reviews
 
 ## Project Structure
 
@@ -68,8 +84,10 @@ src/
 │   ├── register.tsx       # Registration with role selection
 │   ├── complete-profile.tsx # Professional profile setup
 │   ├── create-post.tsx    # Create new post (modal)
+│   ├── edit-portfolio.tsx # Edit portfolio media (modal)
+│   ├── write-review/[professionalId].tsx # Write review (modal)
 │   ├── conversation/[id].tsx # Chat screen
-│   └── profile/[id].tsx   # View other profiles
+│   └── profile/[id].tsx   # View other profiles + reviews
 ├── components/            # Reusable UI components
 └── lib/
     ├── types.ts           # TypeScript interfaces
@@ -78,7 +96,8 @@ src/
     └── state/
         ├── auth-store.ts  # Authentication state (Zustand)
         ├── posts-store.ts # Posts and reactions (Zustand)
-        └── messages-store.ts # Conversations (Zustand)
+        ├── messages-store.ts # Conversations (Zustand)
+        └── reviews-store.ts # Reviews (Zustand)
 ```
 
 ## Data Models
@@ -98,7 +117,7 @@ src/
   name, city, photoUrl?, createdAt,
   trade, serviceCategories[], yearsExperience,
   licenseNumber?, serviceArea[], description,
-  rating?, reviewCount?
+  rating?, reviewCount?, portfolioMedia[]
 }
 ```
 
@@ -110,6 +129,23 @@ src/
   title, description, images[],
   serviceCategoryId, serviceCategoryName,
   city, createdAt, likes, dislikes
+}
+```
+
+### Review
+```typescript
+{
+  id, professionalId, clientId, clientName,
+  clientPhotoUrl?, rating (1-5), description,
+  media[], serviceCategoryId?, createdAt
+}
+```
+
+### MediaItem
+```typescript
+{
+  id, type: 'image' | 'video',
+  uri, thumbnailUri?, createdAt
 }
 ```
 
@@ -129,7 +165,7 @@ src/
 - **Styling**: NativeWind (Tailwind for RN)
 - **State Management**: Zustand with AsyncStorage persistence
 - **Async State**: React Query
-- **UI Components**: FlashList, expo-image, lucide-react-native
+- **UI Components**: FlashList, expo-image, expo-av, lucide-react-native
 - **Animations**: react-native-reanimated
 
 ## Sample Data
@@ -147,3 +183,5 @@ The app comes pre-loaded with sample professionals, clients, and posts to demons
 - Mobile-optimized touch interactions
 - Haptic feedback on actions
 - Clean, professional aesthetic inspired by iOS HIG
+- Video thumbnails with play icons
+- Star rating display components

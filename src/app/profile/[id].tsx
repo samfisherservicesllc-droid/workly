@@ -1,6 +1,7 @@
 import { View, Text, Pressable, ScrollView } from 'react-native';
 import { useLocalSearchParams, useRouter, Stack } from 'expo-router';
 import { Image } from 'expo-image';
+import { Video, ResizeMode } from 'expo-av';
 import { LinearGradient } from 'expo-linear-gradient';
 import {
   ArrowLeft,
@@ -12,13 +13,19 @@ import {
   FileText,
   MessageSquare,
   Star,
+  Calendar,
+  Play,
+  Images,
+  PenLine,
 } from 'lucide-react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useQuery } from '@tanstack/react-query';
 import { useAuthStore } from '@/lib/state/auth-store';
 import { useMessagesStore } from '@/lib/state/messages-store';
+import { useReviewsStore } from '@/lib/state/reviews-store';
 import { getCategoryById } from '@/lib/categories';
-import { User, ProfessionalProfile } from '@/lib/types';
+import { User, ProfessionalProfile, Review } from '@/lib/types';
+import { format, formatDistanceToNow } from 'date-fns';
 import * as Haptics from 'expo-haptics';
 
 export default function ProfileViewScreen() {
@@ -27,6 +34,11 @@ export default function ProfileViewScreen() {
   const currentUser = useAuthStore((s) => s.user);
   const startConversation = useMessagesStore((s) => s.startConversation);
   const findExistingConversation = useMessagesStore((s) => s.findExistingConversation);
+  const getReviewsForProfessional = useReviewsStore((s) => s.getReviewsForProfessional);
+  const getAverageRating = useReviewsStore((s) => s.getAverageRating);
+  const hasClientReviewed = useReviewsStore((s) =>
+    s.hasClientReviewedProfessional(currentUser?.id ?? '', profileId ?? '')
+  );
 
   // Fetch user from stored users
   const { data: profileUser, isLoading } = useQuery({
@@ -65,6 +77,15 @@ export default function ProfileViewScreen() {
     }
   };
 
+  const handleWriteReview = () => {
+    if (!profileUser) return;
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+    router.push({
+      pathname: '/write-review/[professionalId]',
+      params: { professionalId: profileUser.id, professionalName: profileUser.name },
+    });
+  };
+
   if (isLoading) {
     return (
       <View className="flex-1 bg-slate-900 items-center justify-center">
@@ -84,6 +105,103 @@ export default function ProfileViewScreen() {
   const isProfessional = profileUser.role === 'professional';
   const professionalUser = profileUser as ProfessionalProfile;
   const isOwnProfile = currentUser?.id === profileUser.id;
+  const reviews = isProfessional ? getReviewsForProfessional(profileUser.id) : [];
+  const ratingData = isProfessional ? getAverageRating(profileUser.id) : { rating: 0, count: 0 };
+  const canReview =
+    !isOwnProfile && currentUser?.role === 'client' && isProfessional && !hasClientReviewed;
+
+  // Calculate member since
+  const memberSince = format(new Date(profileUser.createdAt), 'MMMM yyyy');
+
+  const renderStars = (rating: number, size: number = 14) => {
+    return (
+      <View className="flex-row">
+        {[1, 2, 3, 4, 5].map((star) => (
+          <Star
+            key={star}
+            size={size}
+            color={star <= rating ? '#F59E0B' : '#475569'}
+            fill={star <= rating ? '#F59E0B' : 'transparent'}
+          />
+        ))}
+      </View>
+    );
+  };
+
+  const renderReview = (review: Review) => {
+    const timeAgo = formatDistanceToNow(new Date(review.createdAt), { addSuffix: true });
+
+    return (
+      <View key={review.id} className="bg-slate-800 rounded-xl p-4 mb-3">
+        {/* Review Header */}
+        <View className="flex-row items-center mb-3">
+          <View className="w-10 h-10 rounded-full bg-blue-500/20 items-center justify-center">
+            {review.clientPhotoUrl ? (
+              <Image
+                source={{ uri: review.clientPhotoUrl }}
+                style={{ width: 40, height: 40, borderRadius: 20 }}
+              />
+            ) : (
+              <UserCircle color="#3B82F6" size={20} />
+            )}
+          </View>
+          <View className="ml-3 flex-1">
+            <Text className="text-white font-medium">{review.clientName}</Text>
+            <View className="flex-row items-center mt-0.5">
+              {renderStars(review.rating)}
+              <Text className="text-slate-500 text-xs ml-2">{timeAgo}</Text>
+            </View>
+          </View>
+        </View>
+
+        {/* Service Category */}
+        {review.serviceCategoryName && (
+          <View className="mb-2">
+            <View className="bg-slate-700/50 px-2 py-1 rounded self-start">
+              <Text className="text-slate-400 text-xs">{review.serviceCategoryName}</Text>
+            </View>
+          </View>
+        )}
+
+        {/* Description */}
+        <Text className="text-slate-300 leading-5">{review.description}</Text>
+
+        {/* Media */}
+        {review.media.length > 0 && (
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            className="mt-3"
+            style={{ flexGrow: 0 }}
+          >
+            {review.media.map((item) => (
+              <View key={item.id} className="mr-2">
+                {item.type === 'image' ? (
+                  <Image
+                    source={{ uri: item.uri }}
+                    style={{ width: 80, height: 80, borderRadius: 8 }}
+                    contentFit="cover"
+                  />
+                ) : (
+                  <View className="w-20 h-20 rounded-lg bg-slate-700 items-center justify-center overflow-hidden">
+                    <Video
+                      source={{ uri: item.uri }}
+                      style={{ width: 80, height: 80 }}
+                      resizeMode={ResizeMode.COVER}
+                      shouldPlay={false}
+                    />
+                    <View className="absolute bg-black/50 rounded-full p-1">
+                      <Play color="white" size={12} fill="white" />
+                    </View>
+                  </View>
+                )}
+              </View>
+            ))}
+          </ScrollView>
+        )}
+      </View>
+    );
+  };
 
   return (
     <View className="flex-1 bg-slate-900">
@@ -148,28 +266,43 @@ export default function ProfileViewScreen() {
               <Text className="text-slate-400 ml-1">{profileUser.city}</Text>
             </View>
 
-            {/* Message Button */}
+            {/* Member Since */}
+            <View className="flex-row items-center mt-2">
+              <Calendar color="#64748B" size={14} />
+              <Text className="text-slate-500 text-sm ml-1">Member since {memberSince}</Text>
+            </View>
+
+            {/* Action Buttons */}
             {!isOwnProfile && (
-              <Pressable
-                onPress={handleMessage}
-                className="mt-6 flex-row items-center"
-              >
-                <LinearGradient
-                  colors={['#F59E0B', '#D97706']}
-                  start={{ x: 0, y: 0 }}
-                  end={{ x: 1, y: 0 }}
-                  style={{
-                    borderRadius: 12,
-                    paddingVertical: 12,
-                    paddingHorizontal: 24,
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                  }}
-                >
-                  <MessageSquare color="white" size={20} />
-                  <Text className="text-white font-semibold ml-2">Send Message</Text>
-                </LinearGradient>
-              </Pressable>
+              <View className="flex-row mt-6 gap-3">
+                <Pressable onPress={handleMessage}>
+                  <LinearGradient
+                    colors={['#F59E0B', '#D97706']}
+                    start={{ x: 0, y: 0 }}
+                    end={{ x: 1, y: 0 }}
+                    style={{
+                      borderRadius: 12,
+                      paddingVertical: 12,
+                      paddingHorizontal: 20,
+                      flexDirection: 'row',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <MessageSquare color="white" size={18} />
+                    <Text className="text-white font-semibold ml-2">Message</Text>
+                  </LinearGradient>
+                </Pressable>
+
+                {canReview && (
+                  <Pressable
+                    onPress={handleWriteReview}
+                    className="bg-slate-700 rounded-xl px-5 py-3 flex-row items-center"
+                  >
+                    <PenLine color="#94A3B8" size={18} />
+                    <Text className="text-slate-300 font-semibold ml-2">Review</Text>
+                  </Pressable>
+                )}
+              </View>
             )}
           </View>
         </LinearGradient>
@@ -200,17 +333,22 @@ export default function ProfileViewScreen() {
                 </Text>
               </View>
 
-              {professionalUser.rating && (
-                <View className="flex-1 bg-slate-800 rounded-xl p-4 ml-2">
-                  <View className="flex-row items-center mb-1">
-                    <Star color="#94A3B8" size={16} />
-                    <Text className="text-slate-400 text-sm ml-1">Rating</Text>
-                  </View>
-                  <Text className="text-white text-xl font-bold">
-                    {professionalUser.rating.toFixed(1)}
-                  </Text>
+              <View className="flex-1 bg-slate-800 rounded-xl p-4 ml-2">
+                <View className="flex-row items-center mb-1">
+                  <Star color="#94A3B8" size={16} />
+                  <Text className="text-slate-400 text-sm ml-1">Rating</Text>
                 </View>
-              )}
+                <View className="flex-row items-center">
+                  <Text className="text-white text-xl font-bold">
+                    {ratingData.count > 0 ? ratingData.rating.toFixed(1) : 'N/A'}
+                  </Text>
+                  {ratingData.count > 0 && (
+                    <Text className="text-slate-500 text-sm ml-1">
+                      ({ratingData.count})
+                    </Text>
+                  )}
+                </View>
+              </View>
             </View>
 
             {/* License */}
@@ -265,6 +403,89 @@ export default function ProfileViewScreen() {
                 <Text className="text-slate-300 leading-6">{professionalUser.description}</Text>
               </View>
             )}
+
+            {/* Portfolio */}
+            {professionalUser.portfolioMedia && professionalUser.portfolioMedia.length > 0 && (
+              <View className="mb-4">
+                <View className="flex-row items-center mb-3">
+                  <Images color="#94A3B8" size={20} />
+                  <Text className="text-white font-semibold ml-2">Portfolio</Text>
+                </View>
+                <ScrollView
+                  horizontal
+                  showsHorizontalScrollIndicator={false}
+                  style={{ flexGrow: 0 }}
+                >
+                  {professionalUser.portfolioMedia.map((item) => (
+                    <View key={item.id} className="mr-3">
+                      {item.type === 'image' ? (
+                        <Image
+                          source={{ uri: item.uri }}
+                          style={{ width: 150, height: 150, borderRadius: 12 }}
+                          contentFit="cover"
+                        />
+                      ) : (
+                        <View className="w-[150px] h-[150px] rounded-xl bg-slate-800 items-center justify-center overflow-hidden">
+                          <Video
+                            source={{ uri: item.uri }}
+                            style={{ width: 150, height: 150 }}
+                            resizeMode={ResizeMode.COVER}
+                            shouldPlay={false}
+                          />
+                          <View className="absolute bg-black/50 rounded-full p-3">
+                            <Play color="white" size={24} fill="white" />
+                          </View>
+                        </View>
+                      )}
+                    </View>
+                  ))}
+                </ScrollView>
+              </View>
+            )}
+
+            {/* Reviews Section */}
+            <View className="mt-2">
+              <View className="flex-row items-center justify-between mb-4">
+                <View className="flex-row items-center">
+                  <Star color="#F59E0B" size={20} fill="#F59E0B" />
+                  <Text className="text-white font-semibold ml-2">
+                    Reviews ({reviews.length})
+                  </Text>
+                </View>
+                {ratingData.count > 0 && (
+                  <View className="flex-row items-center">
+                    <Text className="text-amber-400 font-bold mr-1">
+                      {ratingData.rating.toFixed(1)}
+                    </Text>
+                    {renderStars(Math.round(ratingData.rating), 12)}
+                  </View>
+                )}
+              </View>
+
+              {reviews.length > 0 ? (
+                reviews.map(renderReview)
+              ) : (
+                <View className="bg-slate-800/50 rounded-xl p-6 items-center">
+                  <Star color="#64748B" size={32} />
+                  <Text className="text-slate-400 text-center mt-2">
+                    No reviews yet. Be the first to leave a review!
+                  </Text>
+                </View>
+              )}
+            </View>
+          </View>
+        )}
+
+        {/* Client profile - just show member since prominently */}
+        {!isProfessional && (
+          <View className="px-6 mt-6">
+            <View className="bg-slate-800 rounded-xl p-4">
+              <View className="flex-row items-center">
+                <Calendar color="#3B82F6" size={20} />
+                <Text className="text-white font-semibold ml-2">Member Since</Text>
+              </View>
+              <Text className="text-slate-300 mt-2">{memberSince}</Text>
+            </View>
           </View>
         )}
       </ScrollView>
