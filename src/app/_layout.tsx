@@ -1,0 +1,86 @@
+import { DarkTheme, ThemeProvider } from '@react-navigation/native';
+import { Stack, useRouter, useSegments } from 'expo-router';
+import * as SplashScreen from 'expo-splash-screen';
+import { StatusBar } from 'expo-status-bar';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { KeyboardProvider } from 'react-native-keyboard-controller';
+import { useAuthStore } from '@/lib/state/auth-store';
+import { seedSampleData } from '@/lib/seed-data';
+import { useEffect, useState } from 'react';
+
+export const unstable_settings = {
+  initialRouteName: 'login',
+};
+
+// Prevent the splash screen from auto-hiding before asset loading is complete.
+SplashScreen.preventAutoHideAsync();
+
+const queryClient = new QueryClient();
+
+// Custom dark theme with slate colors
+const ProConnectTheme = {
+  ...DarkTheme,
+  colors: {
+    ...DarkTheme.colors,
+    background: '#0F172A',
+    card: '#1E293B',
+    border: '#334155',
+    primary: '#F59E0B',
+  },
+};
+
+function RootLayoutNav() {
+  const router = useRouter();
+  const segments = useSegments();
+  const isAuthenticated = useAuthStore((s) => s.isAuthenticated);
+  const [isReady, setIsReady] = useState(false);
+
+  useEffect(() => {
+    // Seed sample data on app start
+    seedSampleData().then(() => {
+      setIsReady(true);
+    });
+  }, []);
+
+  useEffect(() => {
+    if (!isReady) return;
+
+    const inAuthGroup = segments[0] === '(tabs)';
+
+    if (!isAuthenticated && inAuthGroup) {
+      router.replace('/login');
+    } else if (isAuthenticated && !inAuthGroup && segments[0] !== 'complete-profile') {
+      router.replace('/(tabs)');
+    }
+
+    SplashScreen.hideAsync();
+  }, [isAuthenticated, segments, isReady]);
+
+  return (
+    <ThemeProvider value={ProConnectTheme}>
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="login" />
+        <Stack.Screen name="register" />
+        <Stack.Screen name="complete-profile" />
+        <Stack.Screen name="(tabs)" />
+        <Stack.Screen name="create-post" options={{ presentation: 'modal' }} />
+        <Stack.Screen name="conversation/[id]" options={{ presentation: 'card' }} />
+        <Stack.Screen name="profile/[id]" options={{ presentation: 'card' }} />
+      </Stack>
+    </ThemeProvider>
+  );
+}
+
+export default function RootLayout() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <KeyboardProvider>
+          <StatusBar style="light" />
+          <RootLayoutNav />
+        </KeyboardProvider>
+      </GestureHandlerRootView>
+    </QueryClientProvider>
+  );
+}

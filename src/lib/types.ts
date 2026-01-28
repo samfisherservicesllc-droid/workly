@@ -1,0 +1,101 @@
+// Service Categories - extensible database-driven categories
+export interface ServiceCategory {
+  id: string;
+  name: string;
+  icon: string;
+  description: string;
+}
+
+// User Types
+export type UserRole = 'client' | 'professional';
+
+export interface BaseUser {
+  id: string;
+  email: string;
+  role: UserRole;
+  name: string;
+  photoUrl?: string;
+  city: string;
+  createdAt: string;
+}
+
+export interface ClientProfile extends BaseUser {
+  role: 'client';
+}
+
+export interface ProfessionalProfile extends BaseUser {
+  role: 'professional';
+  trade: string;
+  serviceCategories: string[]; // Array of ServiceCategory IDs
+  yearsExperience: number;
+  licenseNumber?: string;
+  serviceArea: string[]; // Cities/areas served
+  description: string;
+  rating?: number;
+  reviewCount?: number;
+}
+
+export type User = ClientProfile | ProfessionalProfile;
+
+// Posts
+export type PostType = 'completed_work' | 'job_done';
+
+export interface Post {
+  id: string;
+  authorId: string;
+  authorName: string;
+  authorPhotoUrl?: string;
+  authorRole: UserRole;
+  type: PostType;
+  title: string;
+  description: string;
+  images: string[];
+  serviceCategoryId: string;
+  serviceCategoryName: string;
+  city: string;
+  createdAt: string;
+  likes: number;
+  dislikes: number;
+  // Track user's reaction
+  userReaction?: 'like' | 'dislike' | null;
+}
+
+// Post Reactions
+export interface PostReaction {
+  id: string;
+  postId: string;
+  userId: string;
+  reaction: 'like' | 'dislike';
+  createdAt: string;
+}
+
+// Messages
+export interface Message {
+  id: string;
+  conversationId: string;
+  senderId: string;
+  receiverId: string;
+  content: string;
+  createdAt: string;
+  read: boolean;
+}
+
+export interface Conversation {
+  id: string;
+  participants: string[]; // User IDs
+  participantNames: string[];
+  participantPhotos: (string | undefined)[];
+  participantRoles: UserRole[];
+  lastMessage?: string;
+  lastMessageAt?: string;
+  unreadCount: number;
+}
+
+// Feed Filters
+export type FeedFilter = 'all' | 'clients' | 'professionals';
+
+export interface FeedFilters {
+  type: FeedFilter;
+  categoryId?: string;
+  city?: string;
+}
