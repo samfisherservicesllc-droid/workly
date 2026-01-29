@@ -17,6 +17,8 @@ import {
   Images,
   Play,
   Plus,
+  Megaphone,
+  Sparkles,
 } from 'lucide-react-native';
 import { useAuthStore } from '@/lib/state/auth-store';
 import { useReviewsStore } from '@/lib/state/reviews-store';
@@ -229,6 +231,55 @@ export default function ProfileScreen() {
         {/* Professional Details */}
         {isProfessional && (
           <View className="px-6 mt-6">
+            {/* Banner Section */}
+            <View className="mb-4">
+              <View className="flex-row items-center justify-between mb-3">
+                <View className="flex-row items-center">
+                  <Megaphone color="#F59E0B" size={20} />
+                  <Text className="text-white font-semibold ml-2">Special Offer</Text>
+                </View>
+                <Pressable
+                  onPress={() => router.push('/edit-banner')}
+                  className="bg-skillset-bg-input px-3 py-1.5 rounded-lg"
+                >
+                  <Text className="text-skillset-teal text-sm font-medium">
+                    {professionalUser.banner ? 'Edit' : 'Add'}
+                  </Text>
+                </Pressable>
+              </View>
+
+              {professionalUser.banner ? (
+                <LinearGradient
+                  colors={['#F59E0B', '#D97706']}
+                  start={{ x: 0, y: 0 }}
+                  end={{ x: 1, y: 0 }}
+                  style={{ borderRadius: 12, padding: 12 }}
+                >
+                  <View className="flex-row items-center">
+                    <Sparkles color="white" size={18} />
+                    <Text className="text-white font-medium ml-2 flex-1">
+                      {professionalUser.banner.text}
+                    </Text>
+                  </View>
+                  {professionalUser.banner.expiresAt && (
+                    <Text className="text-white/70 text-xs mt-2">
+                      Expires: {format(new Date(professionalUser.banner.expiresAt), 'MMM d, yyyy')}
+                    </Text>
+                  )}
+                </LinearGradient>
+              ) : (
+                <Pressable
+                  onPress={() => router.push('/edit-banner')}
+                  className="bg-skillset-bg-card/50 rounded-xl p-4 items-center border border-dashed border-skillset-border"
+                >
+                  <Megaphone color="#5A7A82" size={28} />
+                  <Text className="text-slate-400 text-center mt-2">
+                    Add a special offer or deal to attract more clients
+                  </Text>
+                </Pressable>
+              )}
+            </View>
+
             {/* Trade */}
             {professionalUser.trade && (
               <View className="bg-skillset-bg-card rounded-xl p-4 mb-4">

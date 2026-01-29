@@ -16,6 +16,7 @@ import {
   ChevronDown,
   FileText,
   Building,
+  Sparkles,
 } from 'lucide-react-native';
 import { useAuthStore } from '@/lib/state/auth-store';
 import { useProfessionalsStore, SearchFilters } from '@/lib/state/professionals-store';
@@ -193,6 +194,16 @@ export default function SearchScreen() {
               )}
             </View>
           </View>
+
+          {/* Banner */}
+          {pro.banner && (
+            <View className="mt-3 bg-amber-500/20 rounded-lg px-3 py-2 flex-row items-center">
+              <Sparkles color="#F59E0B" size={14} />
+              <Text className="text-amber-400 text-xs ml-2 flex-1" numberOfLines={1}>
+                {pro.banner.text}
+              </Text>
+            </View>
+          )}
         </Pressable>
       );
     },

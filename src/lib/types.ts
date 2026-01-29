@@ -49,6 +49,12 @@ export interface ProfessionalProfile extends BaseUser {
   reviewCount?: number;
   // Portfolio media (photos and videos)
   portfolioMedia?: MediaItem[];
+  // Personal update banner for special offers/deals
+  banner?: {
+    text: string;
+    expiresAt?: string; // Optional expiration date
+    createdAt: string;
+  };
 }
 
 export type User = ClientProfile | ProfessionalProfile;

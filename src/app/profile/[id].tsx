@@ -20,6 +20,7 @@ import {
   PenLine,
   Flag,
   MoreVertical,
+  Sparkles,
 } from 'lucide-react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useQuery } from '@tanstack/react-query';
@@ -410,6 +411,25 @@ export default function ProfileViewScreen() {
             )}
           </View>
         </LinearGradient>
+
+        {/* Professional Banner */}
+        {isProfessional && professionalUser.banner && (
+          <View className="px-6 mt-4">
+            <LinearGradient
+              colors={['#F59E0B', '#D97706']}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
+              style={{ borderRadius: 12, padding: 12 }}
+            >
+              <View className="flex-row items-center">
+                <Sparkles color="white" size={18} />
+                <Text className="text-white font-medium ml-2 flex-1">
+                  {professionalUser.banner.text}
+                </Text>
+              </View>
+            </LinearGradient>
+          </View>
+        )}
 
         {/* Professional Details */}
         {isProfessional && (
