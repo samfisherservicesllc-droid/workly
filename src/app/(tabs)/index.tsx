@@ -99,7 +99,7 @@ export default function FeedScreen() {
                 style={{ width: 48, height: 48, borderRadius: 24 }}
               />
             ) : post.authorRole === 'professional' ? (
-              <Briefcase color="#4A9BAD" size={24} />
+              <Briefcase color="#6B8AFE" size={24} />
             ) : (
               <UserCircle color="#3B82F6" size={24} />
             )}
@@ -122,7 +122,7 @@ export default function FeedScreen() {
               </View>
             </View>
             <View className="flex-row items-center mt-0.5">
-              <MapPin color="#5A7A82" size={12} />
+              <MapPin color="#6B7280" size={12} />
               <Text className="text-slate-400 text-xs ml-1">{post.city}</Text>
               <Text className="text-slate-500 text-xs ml-2">• {timeAgo}</Text>
             </View>
@@ -304,7 +304,7 @@ export default function FeedScreen() {
       {filteredPosts.length === 0 ? (
         <View className="flex-1 items-center justify-center px-8">
           <View className="w-20 h-20 bg-workly-bg-card rounded-full items-center justify-center mb-4">
-            <Briefcase color="#5A7A82" size={32} />
+            <Briefcase color="#6B7280" size={32} />
           </View>
           <Text className="text-white text-xl font-semibold text-center">No posts yet</Text>
           <Text className="text-slate-400 text-center mt-2">
@@ -315,7 +315,7 @@ export default function FeedScreen() {
             className="mt-6"
           >
             <LinearGradient
-              colors={['#4A9BAD', '#3A7A8A']}
+              colors={['#6B8AFE', '#4A6BE0']}
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 0 }}
               style={{ borderRadius: 12, paddingVertical: 12, paddingHorizontal: 24 }}
@@ -331,7 +331,7 @@ export default function FeedScreen() {
           estimatedItemSize={350}
           contentContainerStyle={{ paddingTop: 16, paddingBottom: 100 }}
           refreshControl={
-            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor="#4A9BAD" />
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor="#6B8AFE" />
           }
         />
       )}

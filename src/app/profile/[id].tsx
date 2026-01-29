@@ -156,8 +156,8 @@ export default function ProfileViewScreen() {
           <Star
             key={star}
             size={size}
-            color={star <= rating ? '#4A9BAD' : '#475569'}
-            fill={star <= rating ? '#4A9BAD' : 'transparent'}
+            color={star <= rating ? '#6B8AFE' : '#475569'}
+            fill={star <= rating ? '#6B8AFE' : 'transparent'}
           />
         ))}
       </View>
@@ -262,7 +262,7 @@ export default function ProfileViewScreen() {
                 style={{ width: 40, height: 40, borderRadius: 20 }}
               />
             ) : (
-              <Briefcase color="#4A9BAD" size={20} />
+              <Briefcase color="#6B8AFE" size={20} />
             )}
           </View>
           <View className="ml-3 flex-1">
@@ -294,7 +294,7 @@ export default function ProfileViewScreen() {
       <Stack.Screen
         options={{
           headerShown: true,
-          headerStyle: { backgroundColor: '#122A30' },
+          headerStyle: { backgroundColor: '#252932' },
           headerTintColor: '#FFFFFF',
           headerTitle: profileUser.name,
           headerLeft: () => (
@@ -308,7 +308,7 @@ export default function ProfileViewScreen() {
                 onPress={handleReport}
                 className="w-10 h-10 items-center justify-center"
               >
-                <Flag color="#5A7A82" size={20} />
+                <Flag color="#6B7280" size={20} />
               </Pressable>
             ) : null,
         }}
@@ -317,7 +317,7 @@ export default function ProfileViewScreen() {
       <ScrollView contentContainerStyle={{ paddingBottom: 100 }}>
         {/* Profile Header */}
         <LinearGradient
-          colors={['#122A30', '#0A1A1F']}
+          colors={['#252932', '#1A1D23']}
           style={{ paddingTop: 20, paddingBottom: 30 }}
         >
           <View className="items-center px-6">
@@ -332,7 +332,7 @@ export default function ProfileViewScreen() {
                   style={{ width: 96, height: 96, borderRadius: 48 }}
                 />
               ) : isProfessional ? (
-                <Briefcase color="#4A9BAD" size={40} />
+                <Briefcase color="#6B8AFE" size={40} />
               ) : (
                 <UserCircle color="#3B82F6" size={40} />
               )}
@@ -357,13 +357,13 @@ export default function ProfileViewScreen() {
             </View>
 
             <View className="flex-row items-center mt-3">
-              <MapPin color="#5A7A82" size={16} />
+              <MapPin color="#6B7280" size={16} />
               <Text className="text-slate-400 ml-1">{profileUser.city}</Text>
             </View>
 
             {/* Member Since */}
             <View className="flex-row items-center mt-2">
-              <Calendar color="#5A7A82" size={14} />
+              <Calendar color="#6B7280" size={14} />
               <Text className="text-slate-500 text-sm ml-1">Member since {memberSince}</Text>
             </View>
 
@@ -372,7 +372,7 @@ export default function ProfileViewScreen() {
               <View className="flex-row mt-6 gap-3">
                 <Pressable onPress={handleMessage}>
                   <LinearGradient
-                    colors={['#4A9BAD', '#3A7A8A']}
+                    colors={['#6B8AFE', '#4A6BE0']}
                     start={{ x: 0, y: 0 }}
                     end={{ x: 1, y: 0 }}
                     style={{
@@ -393,7 +393,7 @@ export default function ProfileViewScreen() {
                     onPress={handleWriteReview}
                     className="bg-workly-bg-input rounded-xl px-5 py-3 flex-row items-center"
                   >
-                    <PenLine color="#5A7A82" size={18} />
+                    <PenLine color="#6B7280" size={18} />
                     <Text className="text-slate-300 font-semibold ml-2">Review</Text>
                   </Pressable>
                 )}
@@ -403,7 +403,7 @@ export default function ProfileViewScreen() {
                     onPress={handleRateClient}
                     className="bg-workly-bg-input rounded-xl px-5 py-3 flex-row items-center"
                   >
-                    <Star color="#5A7A82" size={18} />
+                    <Star color="#6B7280" size={18} />
                     <Text className="text-slate-300 font-semibold ml-2">Rate</Text>
                   </Pressable>
                 )}
@@ -438,7 +438,7 @@ export default function ProfileViewScreen() {
             {professionalUser.trade && (
               <View className="bg-workly-bg-card rounded-xl p-4 mb-4">
                 <View className="flex-row items-center mb-2">
-                  <Award color="#4A9BAD" size={20} />
+                  <Award color="#6B8AFE" size={20} />
                   <Text className="text-white font-semibold ml-2">Trade</Text>
                 </View>
                 <Text className="text-slate-300">{professionalUser.trade}</Text>
@@ -449,7 +449,7 @@ export default function ProfileViewScreen() {
             <View className="flex-row mb-4">
               <View className="flex-1 bg-workly-bg-card rounded-xl p-4 mr-2">
                 <View className="flex-row items-center mb-1">
-                  <Clock color="#5A7A82" size={16} />
+                  <Clock color="#6B7280" size={16} />
                   <Text className="text-slate-400 text-sm ml-1">Experience</Text>
                 </View>
                 <Text className="text-white text-xl font-bold">
@@ -459,7 +459,7 @@ export default function ProfileViewScreen() {
 
               <View className="flex-1 bg-workly-bg-card rounded-xl p-4 ml-2">
                 <View className="flex-row items-center mb-1">
-                  <Star color="#5A7A82" size={16} />
+                  <Star color="#6B7280" size={16} />
                   <Text className="text-slate-400 text-sm ml-1">Rating</Text>
                 </View>
                 <View className="flex-row items-center">
@@ -479,7 +479,7 @@ export default function ProfileViewScreen() {
             {professionalUser.licenseNumber && (
               <View className="bg-workly-bg-card rounded-xl p-4 mb-4">
                 <View className="flex-row items-center mb-2">
-                  <FileText color="#5A7A82" size={20} />
+                  <FileText color="#6B7280" size={20} />
                   <Text className="text-white font-semibold ml-2">License Number</Text>
                 </View>
                 <Text className="text-slate-300">{professionalUser.licenseNumber}</Text>
@@ -507,7 +507,7 @@ export default function ProfileViewScreen() {
             {professionalUser.serviceArea.length > 0 && (
               <View className="bg-workly-bg-card rounded-xl p-4 mb-4">
                 <View className="flex-row items-center mb-3">
-                  <MapPin color="#5A7A82" size={20} />
+                  <MapPin color="#6B7280" size={20} />
                   <Text className="text-white font-semibold ml-2">Service Areas</Text>
                 </View>
                 <View className="flex-row flex-wrap gap-2">
@@ -532,7 +532,7 @@ export default function ProfileViewScreen() {
             {professionalUser.portfolioMedia && professionalUser.portfolioMedia.length > 0 && (
               <View className="mb-4">
                 <View className="flex-row items-center mb-3">
-                  <Images color="#5A7A82" size={20} />
+                  <Images color="#6B7280" size={20} />
                   <Text className="text-white font-semibold ml-2">Portfolio</Text>
                 </View>
                 <ScrollView
@@ -571,7 +571,7 @@ export default function ProfileViewScreen() {
             <View className="mt-2">
               <View className="flex-row items-center justify-between mb-4">
                 <View className="flex-row items-center">
-                  <Star color="#4A9BAD" size={20} fill="#4A9BAD" />
+                  <Star color="#6B8AFE" size={20} fill="#6B8AFE" />
                   <Text className="text-white font-semibold ml-2">
                     Reviews ({reviews.length})
                   </Text>
@@ -590,7 +590,7 @@ export default function ProfileViewScreen() {
                 reviews.map(renderReview)
               ) : (
                 <View className="bg-workly-bg-card/50 rounded-xl p-6 items-center">
-                  <Star color="#5A7A82" size={32} />
+                  <Star color="#6B7280" size={32} />
                   <Text className="text-slate-400 text-center mt-2">
                     No reviews yet. Be the first to leave a review!
                   </Text>
@@ -620,7 +620,7 @@ export default function ProfileViewScreen() {
             <View className="flex-row mb-4">
               <View className="flex-1 bg-workly-bg-card rounded-xl p-4 mr-2">
                 <View className="flex-row items-center mb-1">
-                  <Star color="#5A7A82" size={16} />
+                  <Star color="#6B7280" size={16} />
                   <Text className="text-slate-400 text-sm ml-1">Rating</Text>
                 </View>
                 <View className="flex-row items-center">
@@ -637,7 +637,7 @@ export default function ProfileViewScreen() {
 
               <View className="flex-1 bg-workly-bg-card rounded-xl p-4 ml-2">
                 <View className="flex-row items-center mb-1">
-                  <Calendar color="#5A7A82" size={16} />
+                  <Calendar color="#6B7280" size={16} />
                   <Text className="text-slate-400 text-sm ml-1">Member</Text>
                 </View>
                 <Text className="text-white text-lg font-bold">{memberSince}</Text>
@@ -667,7 +667,7 @@ export default function ProfileViewScreen() {
                 clientReviews.map((review) => renderClientReview(review))
               ) : (
                 <View className="bg-workly-bg-card/50 rounded-xl p-6 items-center">
-                  <Star color="#5A7A82" size={32} />
+                  <Star color="#6B7280" size={32} />
                   <Text className="text-slate-400 text-center mt-2">
                     No reviews yet from professionals.
                   </Text>

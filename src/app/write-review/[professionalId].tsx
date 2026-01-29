@@ -160,8 +160,8 @@ export default function WriteReviewScreen() {
           >
             <Star
               size={40}
-              color={star <= rating ? '#4A9BAD' : '#475569'}
-              fill={star <= rating ? '#4A9BAD' : 'transparent'}
+              color={star <= rating ? '#6B8AFE' : '#475569'}
+              fill={star <= rating ? '#6B8AFE' : 'transparent'}
             />
           </Pressable>
         ))}
@@ -175,7 +175,7 @@ export default function WriteReviewScreen() {
         <Stack.Screen
           options={{
             headerShown: true,
-            headerStyle: { backgroundColor: '#122A30' },
+            headerStyle: { backgroundColor: '#252932' },
             headerTintColor: '#FFFFFF',
             headerTitle: 'Write Review',
             headerLeft: () => (
@@ -186,7 +186,7 @@ export default function WriteReviewScreen() {
           }}
         />
         <View className="flex-1 items-center justify-center px-8">
-          <Star color="#4A9BAD" size={48} fill="#4A9BAD" />
+          <Star color="#6B8AFE" size={48} fill="#6B8AFE" />
           <Text className="text-white text-xl font-semibold mt-4 text-center">
             Already Reviewed
           </Text>
@@ -203,7 +203,7 @@ export default function WriteReviewScreen() {
       <Stack.Screen
         options={{
           headerShown: true,
-          headerStyle: { backgroundColor: '#122A30' },
+          headerStyle: { backgroundColor: '#252932' },
           headerTintColor: '#FFFFFF',
           headerTitle: 'Write Review',
           headerLeft: () => (
@@ -300,11 +300,11 @@ export default function WriteReviewScreen() {
                 If the professional works for a company, enter the business name
               </Text>
               <View className="flex-row items-center bg-workly-bg-card rounded-xl px-4 py-3 border border-workly-border">
-                <Building2 color="#5A7A82" size={20} />
+                <Building2 color="#6B7280" size={20} />
                 <TextInput
                   className="flex-1 ml-3 text-white text-base"
                   placeholder="e.g. ABC Plumbing Services"
-                  placeholderTextColor="#5A7A82"
+                  placeholderTextColor="#6B7280"
                   value={companyName}
                   onChangeText={setCompanyName}
                   maxLength={100}
@@ -329,7 +329,7 @@ export default function WriteReviewScreen() {
               <TextInput
                 className="bg-workly-bg-card rounded-xl px-4 py-3 text-white text-base border border-workly-border min-h-[150px]"
                 placeholder="Share details about the work quality, professionalism, communication, and whether you would recommend them..."
-                placeholderTextColor="#5A7A82"
+                placeholderTextColor="#6B7280"
                 value={description}
                 onChangeText={setDescription}
                 multiline
@@ -383,7 +383,7 @@ export default function WriteReviewScreen() {
                       onPress={pickImage}
                       className="w-[100px] h-[100px] bg-workly-bg-card rounded-xl items-center justify-center border border-dashed border-workly-border mr-3"
                     >
-                      <Camera color="#5A7A82" size={28} />
+                      <Camera color="#6B7280" size={28} />
                       <Text className="text-slate-500 text-xs mt-1">Photo</Text>
                     </Pressable>
 
@@ -391,7 +391,7 @@ export default function WriteReviewScreen() {
                       onPress={pickVideo}
                       className="w-[100px] h-[100px] bg-workly-bg-card rounded-xl items-center justify-center border border-dashed border-workly-border"
                     >
-                      <VideoIcon color="#5A7A82" size={28} />
+                      <VideoIcon color="#6B7280" size={28} />
                       <Text className="text-slate-500 text-xs mt-1">Video</Text>
                     </Pressable>
                   </View>
@@ -409,7 +409,7 @@ export default function WriteReviewScreen() {
             {/* Submit Button */}
             <Pressable onPress={handleSubmit}>
               <LinearGradient
-                colors={['#4A9BAD', '#3A7A8A']}
+                colors={['#6B8AFE', '#4A6BE0']}
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 0 }}
                 style={{ borderRadius: 12, paddingVertical: 16 }}

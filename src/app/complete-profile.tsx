@@ -77,7 +77,7 @@ export default function CompleteProfileScreen() {
   return (
     <View className="flex-1">
       <LinearGradient
-        colors={['#0A1A1F', '#122A30', '#1A3A42']}
+        colors={['#1A1D23', '#252932', '#2D323C']}
         style={{ position: 'absolute', left: 0, right: 0, top: 0, bottom: 0 }}
       />
       <SafeAreaView className="flex-1">
@@ -109,11 +109,11 @@ export default function CompleteProfileScreen() {
                   Your Trade/Profession
                 </Text>
                 <View className="flex-row items-center bg-workly-bg-input/50 rounded-xl px-4 py-3 border border-workly-border">
-                  <Award color="#5A7A82" size={20} />
+                  <Award color="#6B7280" size={20} />
                   <TextInput
                     className="flex-1 ml-3 text-white text-base"
                     placeholder="e.g., Electrician, Plumber, Cleaner"
-                    placeholderTextColor="#5A7A82"
+                    placeholderTextColor="#6B7280"
                     value={trade}
                     onChangeText={setTrade}
                   />
@@ -161,7 +161,7 @@ export default function CompleteProfileScreen() {
                   <TextInput
                     className="flex-1 text-white text-base"
                     placeholder="e.g., 5"
-                    placeholderTextColor="#5A7A82"
+                    placeholderTextColor="#6B7280"
                     value={yearsExperience}
                     onChangeText={setYearsExperience}
                     keyboardType="number-pad"
@@ -175,11 +175,11 @@ export default function CompleteProfileScreen() {
                   License Number (optional)
                 </Text>
                 <View className="flex-row items-center bg-workly-bg-input/50 rounded-xl px-4 py-3 border border-workly-border">
-                  <FileText color="#5A7A82" size={20} />
+                  <FileText color="#6B7280" size={20} />
                   <TextInput
                     className="flex-1 ml-3 text-white text-base"
                     placeholder="Your professional license number"
-                    placeholderTextColor="#5A7A82"
+                    placeholderTextColor="#6B7280"
                     value={licenseNumber}
                     onChangeText={setLicenseNumber}
                   />
@@ -192,11 +192,11 @@ export default function CompleteProfileScreen() {
                   Service Areas (comma separated)
                 </Text>
                 <View className="flex-row items-center bg-workly-bg-input/50 rounded-xl px-4 py-3 border border-workly-border">
-                  <MapPin color="#5A7A82" size={20} />
+                  <MapPin color="#6B7280" size={20} />
                   <TextInput
                     className="flex-1 ml-3 text-white text-base"
                     placeholder="e.g., Los Angeles, Santa Monica, Pasadena"
-                    placeholderTextColor="#5A7A82"
+                    placeholderTextColor="#6B7280"
                     value={serviceAreas}
                     onChangeText={setServiceAreas}
                   />
@@ -212,7 +212,7 @@ export default function CompleteProfileScreen() {
                   <TextInput
                     className="text-white text-base min-h-[100px]"
                     placeholder="Describe your services, experience, and what makes you stand out..."
-                    placeholderTextColor="#5A7A82"
+                    placeholderTextColor="#6B7280"
                     value={description}
                     onChangeText={setDescription}
                     multiline
@@ -227,7 +227,7 @@ export default function CompleteProfileScreen() {
 
               <Pressable onPress={handleComplete}>
                 <LinearGradient
-                  colors={['#4A9BAD', '#3A7A8A']}
+                  colors={['#6B8AFE', '#4A6BE0']}
                   start={{ x: 0, y: 0 }}
                   end={{ x: 1, y: 0 }}
                   style={{ borderRadius: 12, paddingVertical: 16 }}

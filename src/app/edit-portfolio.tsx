@@ -103,7 +103,7 @@ export default function EditPortfolioScreen() {
       <Stack.Screen
         options={{
           headerShown: true,
-          headerStyle: { backgroundColor: '#122A30' },
+          headerStyle: { backgroundColor: '#252932' },
           headerTintColor: '#FFFFFF',
           headerTitle: 'Edit Portfolio',
           headerLeft: () => (
@@ -119,7 +119,7 @@ export default function EditPortfolioScreen() {
           {/* Header */}
           <View className="items-center mb-6">
             <View className="w-16 h-16 bg-workly-teal/20 rounded-full items-center justify-center mb-3">
-              <Images color="#4A9BAD" size={32} />
+              <Images color="#6B8AFE" size={32} />
             </View>
             <Text className="text-white text-xl font-semibold">
               Showcase Your Work
@@ -173,7 +173,7 @@ export default function EditPortfolioScreen() {
             </View>
           ) : (
             <View className="bg-workly-bg-card/50 rounded-xl p-8 items-center mb-6">
-              <Images color="#5A7A82" size={48} />
+              <Images color="#6B7280" size={48} />
               <Text className="text-slate-400 text-center mt-3">
                 No portfolio items yet. Add photos and videos of your work to
                 showcase your skills.
@@ -188,7 +188,7 @@ export default function EditPortfolioScreen() {
                 onPress={pickImages}
                 className="flex-1 bg-workly-bg-card rounded-xl p-4 items-center border border-workly-border"
               >
-                <Camera color="#5A7A82" size={28} />
+                <Camera color="#6B7280" size={28} />
                 <Text className="text-slate-300 font-medium mt-2">
                   Add Photos
                 </Text>
@@ -198,7 +198,7 @@ export default function EditPortfolioScreen() {
                 onPress={pickVideo}
                 className="flex-1 bg-workly-bg-card rounded-xl p-4 items-center border border-workly-border"
               >
-                <VideoIcon color="#5A7A82" size={28} />
+                <VideoIcon color="#6B7280" size={28} />
                 <Text className="text-slate-300 font-medium mt-2">
                   Add Video
                 </Text>
@@ -213,7 +213,7 @@ export default function EditPortfolioScreen() {
           {/* Save Button */}
           <Pressable onPress={handleSave}>
             <LinearGradient
-              colors={['#4A9BAD', '#3A7A8A']}
+              colors={['#6B8AFE', '#4A6BE0']}
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 0 }}
               style={{ borderRadius: 12, paddingVertical: 16 }}

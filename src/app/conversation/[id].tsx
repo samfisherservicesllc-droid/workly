@@ -112,7 +112,7 @@ export default function ConversationScreen() {
       <Stack.Screen
         options={{
           headerShown: true,
-          headerStyle: { backgroundColor: '#122A30' },
+          headerStyle: { backgroundColor: '#252932' },
           headerTintColor: '#FFFFFF',
           headerLeft: () => (
             <Pressable onPress={() => router.back()} className="mr-4">
@@ -135,7 +135,7 @@ export default function ConversationScreen() {
                     style={{ width: 36, height: 36, borderRadius: 18 }}
                   />
                 ) : otherRole === 'professional' ? (
-                  <Briefcase color="#4A9BAD" size={18} />
+                  <Briefcase color="#6B8AFE" size={18} />
                 ) : (
                   <UserCircle color="#3B82F6" size={18} />
                 )}
@@ -157,7 +157,7 @@ export default function ConversationScreen() {
               onPress={handleReport}
               className="w-10 h-10 items-center justify-center"
             >
-              <Flag color="#5A7A82" size={20} />
+              <Flag color="#6B7280" size={20} />
             </Pressable>
           ),
         }}
@@ -176,7 +176,7 @@ export default function ConversationScreen() {
               }`}
             >
               {otherRole === 'professional' ? (
-                <Briefcase color="#4A9BAD" size={32} />
+                <Briefcase color="#6B8AFE" size={32} />
               ) : (
                 <UserCircle color="#3B82F6" size={32} />
               )}
@@ -203,7 +203,7 @@ export default function ConversationScreen() {
             <TextInput
               className="flex-1 bg-workly-bg-card rounded-full px-4 py-3 text-white text-base mr-3"
               placeholder="Type a message..."
-              placeholderTextColor="#5A7A82"
+              placeholderTextColor="#6B7280"
               value={messageText}
               onChangeText={setMessageText}
               multiline
@@ -217,7 +217,7 @@ export default function ConversationScreen() {
               }`}
             >
               <Send
-                color={messageText.trim() ? 'white' : '#5A7A82'}
+                color={messageText.trim() ? 'white' : '#6B7280'}
                 size={20}
               />
             </Pressable>

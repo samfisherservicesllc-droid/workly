@@ -178,7 +178,7 @@ export default function CreateJobRequestScreen() {
       <Stack.Screen
         options={{
           headerShown: true,
-          headerStyle: { backgroundColor: '#122A30' },
+          headerStyle: { backgroundColor: '#252932' },
           headerTintColor: '#FFFFFF',
           headerTitle: 'Post Job Request',
           headerLeft: () => (
@@ -202,11 +202,11 @@ export default function CreateJobRequestScreen() {
             <View className="mb-6">
               <Text className="text-white font-semibold mb-2">Job Title</Text>
               <View className="flex-row items-center bg-workly-bg-card rounded-xl px-4 py-3 border border-workly-border">
-                <FileText color="#5A7A82" size={20} />
+                <FileText color="#6B7280" size={20} />
                 <TextInput
                   className="flex-1 ml-3 text-white text-base"
                   placeholder="e.g. Need plumber for bathroom leak"
-                  placeholderTextColor="#5A7A82"
+                  placeholderTextColor="#6B7280"
                   value={title}
                   onChangeText={setTitle}
                   maxLength={100}
@@ -270,7 +270,7 @@ export default function CreateJobRequestScreen() {
               <TextInput
                 className="bg-workly-bg-card rounded-xl px-4 py-3 text-white text-base border border-workly-border min-h-[120px]"
                 placeholder="Describe the job in detail. What needs to be done? Any specific requirements or preferences?"
-                placeholderTextColor="#5A7A82"
+                placeholderTextColor="#6B7280"
                 value={description}
                 onChangeText={setDescription}
                 multiline
@@ -284,11 +284,11 @@ export default function CreateJobRequestScreen() {
 
               {/* Neighborhood */}
               <View className="flex-row items-center bg-workly-bg-card rounded-xl px-4 py-3 border border-workly-border mb-3">
-                <Home color="#5A7A82" size={20} />
+                <Home color="#6B7280" size={20} />
                 <TextInput
                   className="flex-1 ml-3 text-white text-base"
                   placeholder="Neighborhood (optional)"
-                  placeholderTextColor="#5A7A82"
+                  placeholderTextColor="#6B7280"
                   value={neighborhood}
                   onChangeText={setNeighborhood}
                 />
@@ -296,11 +296,11 @@ export default function CreateJobRequestScreen() {
 
               {/* City */}
               <View className="flex-row items-center bg-workly-bg-card rounded-xl px-4 py-3 border border-workly-border mb-3">
-                <MapPin color="#5A7A82" size={20} />
+                <MapPin color="#6B7280" size={20} />
                 <TextInput
                   className="flex-1 ml-3 text-white text-base"
                   placeholder="City"
-                  placeholderTextColor="#5A7A82"
+                  placeholderTextColor="#6B7280"
                   value={city}
                   onChangeText={setCity}
                 />
@@ -310,11 +310,11 @@ export default function CreateJobRequestScreen() {
               <View className="flex-row">
                 <View className="flex-1 mr-2">
                   <View className="flex-row items-center bg-workly-bg-card rounded-xl px-4 py-3 border border-workly-border">
-                    <Building color="#5A7A82" size={20} />
+                    <Building color="#6B7280" size={20} />
                     <TextInput
                       className="flex-1 ml-3 text-white text-base"
                       placeholder="State"
-                      placeholderTextColor="#5A7A82"
+                      placeholderTextColor="#6B7280"
                       value={state}
                       onChangeText={setState}
                       autoCapitalize="characters"
@@ -324,11 +324,11 @@ export default function CreateJobRequestScreen() {
                 </View>
                 <View className="flex-1 ml-2">
                   <View className="flex-row items-center bg-workly-bg-card rounded-xl px-4 py-3 border border-workly-border">
-                    <Hash color="#5A7A82" size={20} />
+                    <Hash color="#6B7280" size={20} />
                     <TextInput
                       className="flex-1 ml-3 text-white text-base"
                       placeholder="Zip Code"
-                      placeholderTextColor="#5A7A82"
+                      placeholderTextColor="#6B7280"
                       value={zipCode}
                       onChangeText={setZipCode}
                       keyboardType="number-pad"
@@ -388,7 +388,7 @@ export default function CreateJobRequestScreen() {
                       onPress={pickImage}
                       className="w-[100px] h-[100px] bg-workly-bg-card rounded-xl items-center justify-center border border-dashed border-workly-border mr-3"
                     >
-                      <Camera color="#5A7A82" size={28} />
+                      <Camera color="#6B7280" size={28} />
                       <Text className="text-slate-500 text-xs mt-1">Photo</Text>
                     </Pressable>
 
@@ -396,7 +396,7 @@ export default function CreateJobRequestScreen() {
                       onPress={pickVideo}
                       className="w-[100px] h-[100px] bg-workly-bg-card rounded-xl items-center justify-center border border-dashed border-workly-border"
                     >
-                      <VideoIcon color="#5A7A82" size={28} />
+                      <VideoIcon color="#6B7280" size={28} />
                       <Text className="text-slate-500 text-xs mt-1">Video</Text>
                     </Pressable>
                   </View>

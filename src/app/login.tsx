@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { View, Text, TextInput, Pressable, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
+import { View, Text, TextInput, Pressable, KeyboardAvoidingView, Platform, ScrollView, ImageBackground } from 'react-native';
 import { useRouter } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -36,105 +36,107 @@ export default function LoginScreen() {
   };
 
   return (
-    <View className="flex-1">
-      <LinearGradient
-        colors={['#0A1A1F', '#122A30', '#1A3A42']}
-        style={{ position: 'absolute', left: 0, right: 0, top: 0, bottom: 0 }}
-      />
-      <SafeAreaView className="flex-1">
-        <KeyboardAvoidingView
-          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-          className="flex-1"
-        >
-          <ScrollView
-            contentContainerStyle={{ flexGrow: 1 }}
-            keyboardShouldPersistTaps="handled"
+    <View className="flex-1 bg-workly-bg-dark">
+      <ImageBackground
+        source={require('../../public/Background-WGUU.png')}
+        style={{ flex: 1 }}
+        resizeMode="cover"
+      >
+        <SafeAreaView className="flex-1">
+          <KeyboardAvoidingView
+            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+            className="flex-1"
           >
-            <View className="flex-1 justify-center px-6">
-              {/* Logo Area */}
-              <View className="items-center mb-12">
-                <View className="w-20 h-20 bg-workly-teal rounded-2xl items-center justify-center mb-4">
-                  <Briefcase color="white" size={40} />
-                </View>
-                <Text className="text-white text-3xl font-bold">Workly</Text>
-                <Text className="text-slate-400 text-base mt-2">
-                  Find local service professionals
-                </Text>
-              </View>
-
-              {/* Form */}
-              <View className="space-y-4">
-                <View>
-                  <View className="flex-row items-center bg-workly-bg-input/50 rounded-xl px-4 py-3 border border-workly-border">
-                    <Mail color="#5A7A82" size={20} />
-                    <TextInput
-                      className="flex-1 ml-3 text-white text-base"
-                      placeholder="Email address"
-                      placeholderTextColor="#5A7A82"
-                      value={email}
-                      onChangeText={setEmail}
-                      keyboardType="email-address"
-                      autoCapitalize="none"
-                      autoComplete="email"
-                    />
+            <ScrollView
+              contentContainerStyle={{ flexGrow: 1 }}
+              keyboardShouldPersistTaps="handled"
+            >
+              <View className="flex-1 justify-center px-6">
+                {/* Logo Area */}
+                <View className="items-center mb-12">
+                  <View className="w-20 h-20 bg-workly-accent rounded-2xl items-center justify-center mb-4">
+                    <Briefcase color="white" size={40} />
                   </View>
+                  <Text className="text-white text-3xl font-bold">Workly</Text>
+                  <Text className="text-slate-400 text-base mt-2">
+                    Find local service professionals
+                  </Text>
                 </View>
 
-                <View className="mt-4">
-                  <View className="flex-row items-center bg-workly-bg-input/50 rounded-xl px-4 py-3 border border-workly-border">
-                    <Lock color="#5A7A82" size={20} />
-                    <TextInput
-                      className="flex-1 ml-3 text-white text-base"
-                      placeholder="Password"
-                      placeholderTextColor="#5A7A82"
-                      value={password}
-                      onChangeText={setPassword}
-                      secureTextEntry={!showPassword}
-                      autoComplete="password"
-                    />
-                    <Pressable onPress={() => setShowPassword(!showPassword)}>
-                      {showPassword ? (
-                        <EyeOff color="#5A7A82" size={20} />
-                      ) : (
-                        <Eye color="#5A7A82" size={20} />
-                      )}
-                    </Pressable>
+                {/* Form */}
+                <View className="space-y-4">
+                  <View>
+                    <View className="flex-row items-center bg-workly-bg-input/70 rounded-xl px-4 py-3 border border-workly-border">
+                      <Mail color="#6B7280" size={20} />
+                      <TextInput
+                        className="flex-1 ml-3 text-white text-base"
+                        placeholder="Email address"
+                        placeholderTextColor="#6B7280"
+                        value={email}
+                        onChangeText={setEmail}
+                        keyboardType="email-address"
+                        autoCapitalize="none"
+                        autoComplete="email"
+                      />
+                    </View>
                   </View>
-                </View>
 
-                {error ? (
-                  <Text className="text-red-400 text-center mt-2">{error}</Text>
-                ) : null}
+                  <View className="mt-4">
+                    <View className="flex-row items-center bg-workly-bg-input/70 rounded-xl px-4 py-3 border border-workly-border">
+                      <Lock color="#6B7280" size={20} />
+                      <TextInput
+                        className="flex-1 ml-3 text-white text-base"
+                        placeholder="Password"
+                        placeholderTextColor="#6B7280"
+                        value={password}
+                        onChangeText={setPassword}
+                        secureTextEntry={!showPassword}
+                        autoComplete="password"
+                      />
+                      <Pressable onPress={() => setShowPassword(!showPassword)}>
+                        {showPassword ? (
+                          <EyeOff color="#6B7280" size={20} />
+                        ) : (
+                          <Eye color="#6B7280" size={20} />
+                        )}
+                      </Pressable>
+                    </View>
+                  </View>
 
-                <Pressable
-                  onPress={handleLogin}
-                  disabled={isLoading}
-                  className="mt-6"
-                >
-                  <LinearGradient
-                    colors={['#4A9BAD', '#3A7A8A']}
-                    start={{ x: 0, y: 0 }}
-                    end={{ x: 1, y: 0 }}
-                    style={{ borderRadius: 12, paddingVertical: 16 }}
+                  {error ? (
+                    <Text className="text-red-400 text-center mt-2">{error}</Text>
+                  ) : null}
+
+                  <Pressable
+                    onPress={handleLogin}
+                    disabled={isLoading}
+                    className="mt-6"
                   >
-                    <Text className="text-white text-center font-semibold text-lg">
-                      {isLoading ? 'Signing in...' : 'Sign In'}
-                    </Text>
-                  </LinearGradient>
-                </Pressable>
-              </View>
+                    <LinearGradient
+                      colors={['#6B8AFE', '#4A6BE0']}
+                      start={{ x: 0, y: 0 }}
+                      end={{ x: 1, y: 0 }}
+                      style={{ borderRadius: 12, paddingVertical: 16 }}
+                    >
+                      <Text className="text-white text-center font-semibold text-lg">
+                        {isLoading ? 'Signing in...' : 'Sign In'}
+                      </Text>
+                    </LinearGradient>
+                  </Pressable>
+                </View>
 
-              {/* Register Link */}
-              <View className="flex-row justify-center mt-8">
-                <Text className="text-slate-400">Don't have an account? </Text>
-                <Pressable onPress={() => router.push('/register')}>
-                  <Text className="text-workly-teal font-semibold">Sign Up</Text>
-                </Pressable>
+                {/* Register Link */}
+                <View className="flex-row justify-center mt-8">
+                  <Text className="text-slate-400">Don't have an account? </Text>
+                  <Pressable onPress={() => router.push('/register')}>
+                    <Text className="text-workly-accent font-semibold">Sign Up</Text>
+                  </Pressable>
+                </View>
               </View>
-            </View>
-          </ScrollView>
-        </KeyboardAvoidingView>
-      </SafeAreaView>
+            </ScrollView>
+          </KeyboardAvoidingView>
+        </SafeAreaView>
+      </ImageBackground>
     </View>
   );
 }

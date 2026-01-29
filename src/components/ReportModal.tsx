@@ -109,7 +109,7 @@ export default function ReportModal({
                   {reason.description}
                 </Text>
               </View>
-              <ChevronRight color="#5A7A82" size={20} />
+              <ChevronRight color="#6B7280" size={20} />
             </Pressable>
           ))}
         </View>
@@ -142,7 +142,7 @@ export default function ReportModal({
             <TextInput
               className="bg-workly-bg-card rounded-xl px-4 py-3 text-white text-base border border-workly-border min-h-[120px]"
               placeholder="Please provide specific details about what happened..."
-              placeholderTextColor="#5A7A82"
+              placeholderTextColor="#6B7280"
               value={description}
               onChangeText={(text) => {
                 setDescription(text);
@@ -206,7 +206,7 @@ export default function ReportModal({
       </Text>
       <Pressable onPress={handleClose} className="w-full">
         <LinearGradient
-          colors={['#4A9BAD', '#3A7A8A']}
+          colors={['#6B8AFE', '#4A6BE0']}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 0 }}
           style={{ borderRadius: 12, paddingVertical: 16 }}
@@ -235,7 +235,7 @@ export default function ReportModal({
             onPress={handleClose}
             className="w-10 h-10 items-center justify-center"
           >
-            <X color="#5A7A82" size={24} />
+            <X color="#6B7280" size={24} />
           </Pressable>
         </View>
 

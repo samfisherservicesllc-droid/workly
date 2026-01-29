@@ -112,7 +112,7 @@ export default function RateClientScreen() {
         <Stack.Screen
           options={{
             headerShown: true,
-            headerStyle: { backgroundColor: '#122A30' },
+            headerStyle: { backgroundColor: '#252932' },
             headerTintColor: '#FFFFFF',
             headerTitle: 'Rate Client',
             headerLeft: () => (
@@ -140,7 +140,7 @@ export default function RateClientScreen() {
       <Stack.Screen
         options={{
           headerShown: true,
-          headerStyle: { backgroundColor: '#122A30' },
+          headerStyle: { backgroundColor: '#252932' },
           headerTintColor: '#FFFFFF',
           headerTitle: 'Rate Client',
           headerLeft: () => (
@@ -245,7 +245,7 @@ export default function RateClientScreen() {
               <TextInput
                 className="bg-workly-bg-card rounded-xl px-4 py-3 text-white text-base border border-workly-border min-h-[120px]"
                 placeholder="Share details about communication, payment, respect for your time, clarity of requirements..."
-                placeholderTextColor="#5A7A82"
+                placeholderTextColor="#6B7280"
                 value={description}
                 onChangeText={setDescription}
                 multiline

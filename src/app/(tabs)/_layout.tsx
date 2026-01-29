@@ -20,11 +20,11 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: '#4A9BAD',
-        tabBarInactiveTintColor: '#5A7A82',
+        tabBarActiveTintColor: '#6B8AFE',
+        tabBarInactiveTintColor: '#6B7280',
         tabBarStyle: {
-          backgroundColor: '#122A30',
-          borderTopColor: '#2A4A52',
+          backgroundColor: '#252932',
+          borderTopColor: '#3A404D',
           height: 85,
           paddingTop: 8,
         },
@@ -33,7 +33,7 @@ export default function TabLayout() {
           fontWeight: '600',
         },
         headerStyle: {
-          backgroundColor: '#122A30',
+          backgroundColor: '#252932',
         },
         headerTintColor: '#FFFFFF',
         headerTitleStyle: {
@@ -53,7 +53,7 @@ export default function TabLayout() {
                 Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
                 router.push('/create-post');
               }}
-              className="mr-4 w-10 h-10 bg-workly-teal rounded-full items-center justify-center"
+              className="mr-4 w-10 h-10 bg-workly-accent rounded-full items-center justify-center"
             >
               <Plus color="white" size={22} />
             </Pressable>

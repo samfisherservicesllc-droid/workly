@@ -87,8 +87,8 @@ export default function ProfileScreen() {
           <Star
             key={star}
             size={size}
-            color={star <= rating ? '#4A9BAD' : '#475569'}
-            fill={star <= rating ? '#4A9BAD' : 'transparent'}
+            color={star <= rating ? '#6B8AFE' : '#475569'}
+            fill={star <= rating ? '#6B8AFE' : 'transparent'}
           />
         ))}
       </View>
@@ -171,7 +171,7 @@ export default function ProfileScreen() {
       <ScrollView contentContainerStyle={{ paddingBottom: 100 }}>
         {/* Profile Header */}
         <LinearGradient
-          colors={['#122A30', '#0A1A1F']}
+          colors={['#252932', '#1A1D23']}
           style={{ paddingTop: 20, paddingBottom: 30 }}
         >
           <View className="items-center px-6">
@@ -186,7 +186,7 @@ export default function ProfileScreen() {
                   style={{ width: 96, height: 96, borderRadius: 48 }}
                 />
               ) : isProfessional ? (
-                <Briefcase color="#4A9BAD" size={40} />
+                <Briefcase color="#6B8AFE" size={40} />
               ) : (
                 <UserCircle color="#3B82F6" size={40} />
               )}
@@ -211,13 +211,13 @@ export default function ProfileScreen() {
             </View>
 
             <View className="flex-row items-center mt-3">
-              <MapPin color="#5A7A82" size={16} />
+              <MapPin color="#6B7280" size={16} />
               <Text className="text-slate-400 ml-1">{user.city}</Text>
             </View>
 
             {/* Member Since */}
             <View className="flex-row items-center mt-2">
-              <Calendar color="#5A7A82" size={14} />
+              <Calendar color="#6B7280" size={14} />
               <Text className="text-slate-500 text-sm ml-1">Member since {memberSince}</Text>
             </View>
 
@@ -230,7 +230,7 @@ export default function ProfileScreen() {
               className="mt-5"
             >
               <LinearGradient
-                colors={['#4A9BAD', '#3A7A8A']}
+                colors={['#6B8AFE', '#4A6BE0']}
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 0 }}
                 style={{
@@ -325,7 +325,7 @@ export default function ProfileScreen() {
                   onPress={() => router.push('/edit-banner')}
                   className="bg-workly-bg-card/50 rounded-xl p-4 items-center border border-dashed border-workly-border"
                 >
-                  <Megaphone color="#5A7A82" size={28} />
+                  <Megaphone color="#6B7280" size={28} />
                   <Text className="text-slate-400 text-center mt-2">
                     Add a special offer or deal to attract more clients
                   </Text>
@@ -337,7 +337,7 @@ export default function ProfileScreen() {
             {professionalUser.trade && (
               <View className="bg-workly-bg-card rounded-xl p-4 mb-4">
                 <View className="flex-row items-center mb-2">
-                  <Award color="#4A9BAD" size={20} />
+                  <Award color="#6B8AFE" size={20} />
                   <Text className="text-white font-semibold ml-2">Trade</Text>
                 </View>
                 <Text className="text-slate-300">{professionalUser.trade}</Text>
@@ -348,7 +348,7 @@ export default function ProfileScreen() {
             <View className="flex-row mb-4">
               <View className="flex-1 bg-workly-bg-card rounded-xl p-4 mr-2">
                 <View className="flex-row items-center mb-1">
-                  <Clock color="#5A7A82" size={16} />
+                  <Clock color="#6B7280" size={16} />
                   <Text className="text-slate-400 text-sm ml-1">Experience</Text>
                 </View>
                 <Text className="text-white text-xl font-bold">
@@ -358,7 +358,7 @@ export default function ProfileScreen() {
 
               <View className="flex-1 bg-workly-bg-card rounded-xl p-4 ml-2">
                 <View className="flex-row items-center mb-1">
-                  <Star color="#5A7A82" size={16} />
+                  <Star color="#6B7280" size={16} />
                   <Text className="text-slate-400 text-sm ml-1">Rating</Text>
                 </View>
                 <View className="flex-row items-center">
@@ -376,7 +376,7 @@ export default function ProfileScreen() {
             {professionalUser.licenseNumber && (
               <View className="bg-workly-bg-card rounded-xl p-4 mb-4">
                 <View className="flex-row items-center mb-2">
-                  <FileText color="#5A7A82" size={20} />
+                  <FileText color="#6B7280" size={20} />
                   <Text className="text-white font-semibold ml-2">License Number</Text>
                 </View>
                 <Text className="text-slate-300">{professionalUser.licenseNumber}</Text>
@@ -404,7 +404,7 @@ export default function ProfileScreen() {
             {professionalUser.serviceArea.length > 0 && (
               <View className="bg-workly-bg-card rounded-xl p-4 mb-4">
                 <View className="flex-row items-center mb-3">
-                  <MapPin color="#5A7A82" size={20} />
+                  <MapPin color="#6B7280" size={20} />
                   <Text className="text-white font-semibold ml-2">Service Areas</Text>
                 </View>
                 <View className="flex-row flex-wrap gap-2">
@@ -429,7 +429,7 @@ export default function ProfileScreen() {
             <View className="mb-4">
               <View className="flex-row items-center justify-between mb-3">
                 <View className="flex-row items-center">
-                  <Images color="#5A7A82" size={20} />
+                  <Images color="#6B7280" size={20} />
                   <Text className="text-white font-semibold ml-2">Portfolio</Text>
                 </View>
                 <Pressable
@@ -475,7 +475,7 @@ export default function ProfileScreen() {
                   onPress={() => router.push('/edit-portfolio')}
                   className="bg-workly-bg-card/50 rounded-xl p-6 items-center border border-dashed border-workly-border"
                 >
-                  <Images color="#5A7A82" size={32} />
+                  <Images color="#6B7280" size={32} />
                   <Text className="text-slate-400 text-center mt-2">
                     Add photos and videos to showcase your work
                   </Text>
@@ -487,7 +487,7 @@ export default function ProfileScreen() {
             <View className="mt-2 mb-4">
               <View className="flex-row items-center justify-between mb-4">
                 <View className="flex-row items-center">
-                  <Star color="#4A9BAD" size={20} fill="#4A9BAD" />
+                  <Star color="#6B8AFE" size={20} fill="#6B8AFE" />
                   <Text className="text-white font-semibold ml-2">
                     Your Reviews ({reviews.length})
                   </Text>
@@ -506,7 +506,7 @@ export default function ProfileScreen() {
                 reviews.slice(0, 3).map(renderReview)
               ) : (
                 <View className="bg-workly-bg-card/50 rounded-xl p-6 items-center">
-                  <Star color="#5A7A82" size={32} />
+                  <Star color="#6B7280" size={32} />
                   <Text className="text-slate-400 text-center mt-2">
                     No reviews yet. Complete great work to earn reviews!
                   </Text>
@@ -549,7 +549,7 @@ export default function ProfileScreen() {
                 <View className="bg-workly-teal/20 rounded-xl p-4 border border-workly-teal/30">
                   <View className="flex-row items-center">
                     <View className="w-10 h-10 bg-workly-teal/30 rounded-full items-center justify-center">
-                      <Crown color="#4A9BAD" size={20} />
+                      <Crown color="#6B8AFE" size={20} />
                     </View>
                     <View className="ml-3 flex-1">
                       <Text className="text-white font-semibold">Workly Pro</Text>
@@ -568,7 +568,7 @@ export default function ProfileScreen() {
                   }}
                 >
                   <LinearGradient
-                    colors={['#4A9BAD', '#3A8A9D']}
+                    colors={['#6B8AFE', '#3A8A9D']}
                     start={{ x: 0, y: 0 }}
                     end={{ x: 1, y: 0 }}
                     style={{ borderRadius: 12, padding: 16 }}
@@ -594,7 +594,7 @@ export default function ProfileScreen() {
               onPress={() => router.push('/complete-profile')}
               className="flex-row items-center bg-workly-bg-card rounded-xl p-4 mb-3 active:bg-workly-bg-input"
             >
-              <Edit3 color="#5A7A82" size={20} />
+              <Edit3 color="#6B7280" size={20} />
               <Text className="text-white font-medium ml-3">Edit Profile</Text>
             </Pressable>
           )}

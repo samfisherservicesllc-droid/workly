@@ -4,15 +4,15 @@ A mobile-first app connecting clients with local service professionals. No gener
 
 ## Brand Colors
 
-Based on the Workly brand with teal accents:
+Based on the Workly brand with charcoal/slate theme:
 
-- **Primary Teal**: #4A9BAD
-- **Teal Light**: #5DB5C8
-- **Teal Dark**: #3A7A8A
-- **Background Dark**: #0A1A1F
-- **Card Background**: #122A30
-- **Input Background**: #1A3A42
-- **Border**: #2A4A52
+- **Primary Accent**: #6B8AFE (Soft Blue)
+- **Accent Light**: #8BA3FF
+- **Accent Dark**: #4A6BE0
+- **Background Dark**: #1A1D23
+- **Card Background**: #252932
+- **Input Background**: #2D323C
+- **Border**: #3A404D
 
 ## Features
 
@@ -227,7 +227,7 @@ The app comes pre-loaded with sample professionals, clients, and posts to demons
 
 ## Design
 
-- Dark teal theme with turquoise accents (Workly brand)
+- Dark charcoal theme with soft blue accents (Workly brand)
 - Mobile-optimized touch interactions
 - Haptic feedback on actions
 - Clean, professional aesthetic inspired by iOS HIG

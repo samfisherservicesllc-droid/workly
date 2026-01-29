@@ -95,7 +95,7 @@ export default function EditBannerScreen() {
       <Stack.Screen
         options={{
           headerShown: true,
-          headerStyle: { backgroundColor: '#122A30' },
+          headerStyle: { backgroundColor: '#252932' },
           headerTintColor: '#FFFFFF',
           headerTitle: 'Special Offer Banner',
           headerLeft: () => (
@@ -134,7 +134,7 @@ export default function EditBannerScreen() {
                 </LinearGradient>
               ) : (
                 <View className="bg-workly-bg-card rounded-xl p-4 items-center border border-dashed border-workly-border">
-                  <Megaphone color="#5A7A82" size={24} />
+                  <Megaphone color="#6B7280" size={24} />
                   <Text className="text-slate-400 text-center mt-2">
                     Your banner preview will appear here
                   </Text>
@@ -157,7 +157,7 @@ export default function EditBannerScreen() {
               <TextInput
                 className="bg-workly-bg-card rounded-xl px-4 py-3 text-white text-base border border-workly-border min-h-[100px]"
                 placeholder="e.g. 20% off all electrical work this month! Book now and save."
-                placeholderTextColor="#5A7A82"
+                placeholderTextColor="#6B7280"
                 value={bannerText}
                 onChangeText={setBannerText}
                 multiline
@@ -176,7 +176,7 @@ export default function EditBannerScreen() {
                 className="flex-row items-center justify-between bg-workly-bg-card rounded-xl p-4"
               >
                 <View className="flex-row items-center">
-                  <Calendar color="#5A7A82" size={20} />
+                  <Calendar color="#6B7280" size={20} />
                   <Text className="text-white font-medium ml-3">Set Expiration Date</Text>
                 </View>
                 <View
@@ -201,7 +201,7 @@ export default function EditBannerScreen() {
                     <Text className="text-white">
                       Expires: {format(expirationDate, 'MMM d, yyyy')}
                     </Text>
-                    <Calendar color="#4A9BAD" size={18} />
+                    <Calendar color="#6B8AFE" size={18} />
                   </Pressable>
 
                   {showDatePicker && (
@@ -239,7 +239,7 @@ export default function EditBannerScreen() {
             {/* Save Button */}
             <Pressable onPress={handleSave}>
               <LinearGradient
-                colors={['#4A9BAD', '#3A7A8A']}
+                colors={['#6B8AFE', '#4A6BE0']}
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 0 }}
                 style={{ borderRadius: 12, paddingVertical: 16 }}

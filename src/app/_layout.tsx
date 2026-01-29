@@ -21,15 +21,15 @@ const queryClient = new QueryClient();
 // Set to true to reset all data and re-seed on next app launch
 const FORCE_RESEED = false;
 
-// Workly brand theme with teal colors
+// Workly brand theme with charcoal/slate colors
 const WorklyTheme = {
   ...DarkTheme,
   colors: {
     ...DarkTheme.colors,
-    background: '#0A1A1F',
-    card: '#122A30',
-    border: '#2A4A52',
-    primary: '#4A9BAD',
+    background: '#1A1D23',
+    card: '#252932',
+    border: '#3A404D',
+    primary: '#6B8AFE',
   },
 };
 

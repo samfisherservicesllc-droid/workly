@@ -104,7 +104,7 @@ export default function CreatePostScreen() {
             onPress={() => router.back()}
             className="w-10 h-10 items-center justify-center"
           >
-            <X color="#5A7A82" size={24} />
+            <X color="#6B7280" size={24} />
           </Pressable>
           <Text className="text-white text-lg font-semibold">New Post</Text>
           <Pressable
@@ -175,7 +175,7 @@ export default function CreatePostScreen() {
               <TextInput
                 className="bg-workly-bg-card rounded-xl px-4 py-3 text-white text-base border border-workly-border"
                 placeholder="e.g., Kitchen remodel completed"
-                placeholderTextColor="#5A7A82"
+                placeholderTextColor="#6B7280"
                 value={title}
                 onChangeText={setTitle}
               />
@@ -187,7 +187,7 @@ export default function CreatePostScreen() {
               <TextInput
                 className="bg-workly-bg-card rounded-xl px-4 py-3 text-white text-base border border-workly-border min-h-[100px]"
                 placeholder="Describe the work, materials used, timeline, etc."
-                placeholderTextColor="#5A7A82"
+                placeholderTextColor="#6B7280"
                 value={description}
                 onChangeText={setDescription}
                 multiline
@@ -226,11 +226,11 @@ export default function CreatePostScreen() {
             <View className="px-4 mt-4">
               <Text className="text-white font-semibold mb-2">Location</Text>
               <View className="flex-row items-center bg-workly-bg-card rounded-xl px-4 py-3 border border-workly-border">
-                <MapPin color="#5A7A82" size={20} />
+                <MapPin color="#6B7280" size={20} />
                 <TextInput
                   className="flex-1 ml-3 text-white text-base"
                   placeholder="City where work was done"
-                  placeholderTextColor="#5A7A82"
+                  placeholderTextColor="#6B7280"
                   value={city}
                   onChangeText={setCity}
                 />
@@ -262,7 +262,7 @@ export default function CreatePostScreen() {
                     onPress={pickImage}
                     className="w-[120px] h-[120px] bg-workly-bg-card rounded-xl items-center justify-center border border-dashed border-workly-border"
                   >
-                    <Camera color="#5A7A82" size={32} />
+                    <Camera color="#6B7280" size={32} />
                     <Text className="text-slate-500 text-xs mt-2">Add Photo</Text>
                   </Pressable>
                 )}
@@ -277,7 +277,7 @@ export default function CreatePostScreen() {
             <View className="px-4 mt-6">
               <Pressable onPress={handleSubmit}>
                 <LinearGradient
-                  colors={['#4A9BAD', '#3A7A8A']}
+                  colors={['#6B8AFE', '#4A6BE0']}
                   start={{ x: 0, y: 0 }}
                   end={{ x: 1, y: 0 }}
                   style={{ borderRadius: 12, paddingVertical: 16 }}

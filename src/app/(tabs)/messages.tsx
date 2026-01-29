@@ -44,7 +44,7 @@ export default function MessagesScreen() {
               style={{ width: 56, height: 56, borderRadius: 28 }}
             />
           ) : otherRole === 'professional' ? (
-            <Briefcase color="#4A9BAD" size={26} />
+            <Briefcase color="#6B8AFE" size={26} />
           ) : (
             <UserCircle color="#3B82F6" size={26} />
           )}
@@ -93,7 +93,7 @@ export default function MessagesScreen() {
       {userConversations.length === 0 ? (
         <View className="flex-1 items-center justify-center px-8">
           <View className="w-20 h-20 bg-workly-bg-card rounded-full items-center justify-center mb-4">
-            <MessageSquare color="#5A7A82" size={32} />
+            <MessageSquare color="#6B7280" size={32} />
           </View>
           <Text className="text-white text-xl font-semibold text-center">No messages yet</Text>
           <Text className="text-slate-400 text-center mt-2">

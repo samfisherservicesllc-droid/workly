@@ -139,7 +139,7 @@ export default function SearchScreen() {
                   style={{ width: 64, height: 64, borderRadius: 32 }}
                 />
               ) : (
-                <Briefcase color="#4A9BAD" size={28} />
+                <Briefcase color="#6B8AFE" size={28} />
               )}
             </View>
 
@@ -149,7 +149,7 @@ export default function SearchScreen() {
                 <Text className="text-white font-semibold text-lg">{pro.name}</Text>
                 {ratingData.count > 0 && (
                   <View className="flex-row items-center">
-                    <Star color="#4A9BAD" size={14} fill="#4A9BAD" />
+                    <Star color="#6B8AFE" size={14} fill="#6B8AFE" />
                     <Text className="text-workly-teal-light text-sm ml-1">
                       {ratingData.rating.toFixed(1)}
                     </Text>
@@ -165,10 +165,10 @@ export default function SearchScreen() {
               )}
 
               <View className="flex-row items-center mt-2">
-                <MapPin color="#5A7A82" size={12} />
+                <MapPin color="#6B7280" size={12} />
                 <Text className="text-slate-400 text-xs ml-1">{pro.city}</Text>
                 <View className="w-1 h-1 bg-slate-600 rounded-full mx-2" />
-                <Clock color="#5A7A82" size={12} />
+                <Clock color="#6B7280" size={12} />
                 <Text className="text-slate-400 text-xs ml-1">
                   {pro.yearsExperience} yrs exp
                 </Text>
@@ -247,7 +247,7 @@ export default function SearchScreen() {
             <View className="ml-3 flex-1">
               <Text className="text-white font-medium">{jobRequest.clientName}</Text>
               <View className="flex-row items-center flex-wrap">
-                <MapPin color="#5A7A82" size={10} />
+                <MapPin color="#6B7280" size={10} />
                 <Text className="text-slate-500 text-xs ml-1">
                   {jobRequest.neighborhood ? `${jobRequest.neighborhood}, ` : ''}{jobRequest.city}, {jobRequest.state}
                 </Text>
@@ -342,7 +342,7 @@ export default function SearchScreen() {
       <View className="px-4 pt-2 pb-3">
         {/* Search Input */}
         <View className="flex-row items-center bg-workly-bg-card rounded-xl px-4 py-3 border border-workly-border">
-          <SearchIcon color="#5A7A82" size={20} />
+          <SearchIcon color="#6B7280" size={20} />
           <TextInput
             className="flex-1 ml-3 text-white text-base"
             placeholder={
@@ -350,13 +350,13 @@ export default function SearchScreen() {
                 ? 'Search professionals, trades...'
                 : 'Search job requests...'
             }
-            placeholderTextColor="#5A7A82"
+            placeholderTextColor="#6B7280"
             value={searchQuery}
             onChangeText={setSearchQuery}
           />
           {searchQuery.length > 0 && (
             <Pressable onPress={() => setSearchQuery('')}>
-              <X color="#5A7A82" size={18} />
+              <X color="#6B7280" size={18} />
             </Pressable>
           )}
         </View>
@@ -372,7 +372,7 @@ export default function SearchScreen() {
             >
               <View className="flex-row items-center justify-center">
                 <Briefcase
-                  color={searchMode === 'professionals' ? 'white' : '#5A7A82'}
+                  color={searchMode === 'professionals' ? 'white' : '#6B7280'}
                   size={18}
                 />
                 <Text
@@ -392,7 +392,7 @@ export default function SearchScreen() {
             >
               <View className="flex-row items-center justify-center">
                 <FileText
-                  color={searchMode === 'leads' ? 'white' : '#5A7A82'}
+                  color={searchMode === 'leads' ? 'white' : '#6B7280'}
                   size={18}
                 />
                 <Text
@@ -418,7 +418,7 @@ export default function SearchScreen() {
               hasActiveFilters ? 'bg-workly-teal' : 'bg-workly-bg-card'
             }`}
           >
-            <Filter color={hasActiveFilters ? 'white' : '#5A7A82'} size={16} />
+            <Filter color={hasActiveFilters ? 'white' : '#6B7280'} size={16} />
             <Text
               className={`ml-2 text-sm ${
                 hasActiveFilters ? 'text-white' : 'text-slate-400'
@@ -427,7 +427,7 @@ export default function SearchScreen() {
               Filters
             </Text>
             <ChevronDown
-              color={hasActiveFilters ? 'white' : '#5A7A82'}
+              color={hasActiveFilters ? 'white' : '#6B7280'}
               size={16}
               className="ml-1"
             />
@@ -448,11 +448,11 @@ export default function SearchScreen() {
             <View className="flex-row mb-4">
               <View className="flex-1 mr-2">
                 <View className="flex-row items-center bg-workly-bg-input rounded-xl px-3 py-2.5 border border-workly-border">
-                  <MapPin color="#5A7A82" size={16} />
+                  <MapPin color="#6B7280" size={16} />
                   <TextInput
                     className="flex-1 ml-2 text-white text-sm"
                     placeholder="City"
-                    placeholderTextColor="#5A7A82"
+                    placeholderTextColor="#6B7280"
                     value={filters.city ?? ''}
                     onChangeText={(text) =>
                       setFilters((prev) => ({ ...prev, city: text || undefined }))
@@ -462,18 +462,18 @@ export default function SearchScreen() {
                     <Pressable
                       onPress={() => setFilters((prev) => ({ ...prev, city: undefined }))}
                     >
-                      <X color="#5A7A82" size={14} />
+                      <X color="#6B7280" size={14} />
                     </Pressable>
                   )}
                 </View>
               </View>
               <View className="flex-1 ml-2">
                 <View className="flex-row items-center bg-workly-bg-input rounded-xl px-3 py-2.5 border border-workly-border">
-                  <Building color="#5A7A82" size={16} />
+                  <Building color="#6B7280" size={16} />
                   <TextInput
                     className="flex-1 ml-2 text-white text-sm"
                     placeholder="State"
-                    placeholderTextColor="#5A7A82"
+                    placeholderTextColor="#6B7280"
                     value={filters.state ?? ''}
                     onChangeText={(text) =>
                       setFilters((prev) => ({ ...prev, state: text || undefined }))
@@ -485,7 +485,7 @@ export default function SearchScreen() {
                     <Pressable
                       onPress={() => setFilters((prev) => ({ ...prev, state: undefined }))}
                     >
-                      <X color="#5A7A82" size={14} />
+                      <X color="#6B7280" size={14} />
                     </Pressable>
                   )}
                 </View>
@@ -495,11 +495,11 @@ export default function SearchScreen() {
             {/* Keywords Filter */}
             <Text className="text-white font-medium mb-3">Keywords</Text>
             <View className="flex-row items-center bg-workly-bg-input rounded-xl px-3 py-2.5 border border-workly-border mb-4">
-              <Tag color="#5A7A82" size={16} />
+              <Tag color="#6B7280" size={16} />
               <TextInput
                 className="flex-1 ml-2 text-white text-sm"
                 placeholder="e.g. emergency, weekend, licensed"
-                placeholderTextColor="#5A7A82"
+                placeholderTextColor="#6B7280"
                 value={filters.keywords ?? ''}
                 onChangeText={(text) =>
                   setFilters((prev) => ({ ...prev, keywords: text || undefined }))
@@ -509,7 +509,7 @@ export default function SearchScreen() {
                 <Pressable
                   onPress={() => setFilters((prev) => ({ ...prev, keywords: undefined }))}
                 >
-                  <X color="#5A7A82" size={14} />
+                  <X color="#6B7280" size={14} />
                 </Pressable>
               )}
             </View>
@@ -556,7 +556,7 @@ export default function SearchScreen() {
         professionalResults.length === 0 ? (
           <View className="flex-1 items-center justify-center px-8">
             <View className="w-20 h-20 bg-workly-bg-card rounded-full items-center justify-center mb-4">
-              <Briefcase color="#5A7A82" size={32} />
+              <Briefcase color="#6B7280" size={32} />
             </View>
             <Text className="text-white text-xl font-semibold text-center">
               {searchQuery ? 'No professionals found' : 'Search for professionals'}
@@ -577,13 +577,13 @@ export default function SearchScreen() {
         )
       ) : isCheckingAccess ? (
         <View className="flex-1 items-center justify-center">
-          <ActivityIndicator color="#4A9BAD" size="large" />
+          <ActivityIndicator color="#6B8AFE" size="large" />
         </View>
       ) : !hasLeadsAccess && isRevenueCatEnabled() ? (
         // Locked state - no subscription
         <View className="flex-1 items-center justify-center px-8">
           <View className="w-24 h-24 bg-workly-teal/20 rounded-full items-center justify-center mb-6">
-            <Lock color="#4A9BAD" size={40} />
+            <Lock color="#6B8AFE" size={40} />
           </View>
           <Text className="text-white text-2xl font-bold text-center mb-2">
             Unlock Job Requests
@@ -598,7 +598,7 @@ export default function SearchScreen() {
             }}
           >
             <LinearGradient
-              colors={['#4A9BAD', '#3A8A9D']}
+              colors={['#6B8AFE', '#3A8A9D']}
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 0 }}
               style={{
@@ -619,7 +619,7 @@ export default function SearchScreen() {
       ) : jobRequestResults.length === 0 ? (
         <View className="flex-1 items-center justify-center px-8">
           <View className="w-20 h-20 bg-workly-bg-card rounded-full items-center justify-center mb-4">
-            <FileText color="#5A7A82" size={32} />
+            <FileText color="#6B7280" size={32} />
           </View>
           <Text className="text-white text-xl font-semibold text-center">
             {searchQuery ? 'No job requests found' : 'No job requests yet'}

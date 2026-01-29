@@ -12,15 +12,19 @@ module.exports = {
     // NOTE to AI: You can extend the theme with custom colors or styles here.
     extend: {
       colors: {
-        // Workly brand colors
+        // Workly brand colors - dark charcoal/slate theme
         workly: {
-          teal: '#4A9BAD',
-          'teal-light': '#5DB5C8',
-          'teal-dark': '#3A7A8A',
-          'bg-dark': '#0A1A1F',
-          'bg-card': '#122A30',
-          'bg-input': '#1A3A42',
-          border: '#2A4A52',
+          accent: '#6B8AFE',           // Soft blue accent
+          'accent-light': '#8BA3FF',   // Lighter blue
+          'accent-dark': '#4A6BE0',    // Darker blue
+          'bg-dark': '#1A1D23',        // Deep charcoal background
+          'bg-card': '#252932',        // Card background
+          'bg-input': '#2D323C',       // Input background
+          border: '#3A404D',           // Border color
+          // Keep teal as secondary for backwards compatibility
+          teal: '#6B8AFE',
+          'teal-light': '#8BA3FF',
+          'teal-dark': '#4A6BE0',
         },
       },
       fontSize: {
