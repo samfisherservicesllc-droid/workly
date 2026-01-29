@@ -96,20 +96,20 @@ export default function CreatePostScreen() {
   };
 
   return (
-    <View className="flex-1 bg-slate-900">
+    <View className="flex-1 bg-skillset-bg-dark">
       <SafeAreaView className="flex-1" edges={['top']}>
         {/* Header */}
-        <View className="flex-row items-center justify-between px-4 py-3 border-b border-slate-800">
+        <View className="flex-row items-center justify-between px-4 py-3 border-b border-skillset-border">
           <Pressable
             onPress={() => router.back()}
             className="w-10 h-10 items-center justify-center"
           >
-            <X color="#94A3B8" size={24} />
+            <X color="#5A7A82" size={24} />
           </Pressable>
           <Text className="text-white text-lg font-semibold">New Post</Text>
           <Pressable
             onPress={handleSubmit}
-            className="w-10 h-10 bg-amber-500 rounded-full items-center justify-center"
+            className="w-10 h-10 bg-skillset-teal rounded-full items-center justify-center"
           >
             <Check color="white" size={20} />
           </Pressable>
@@ -133,7 +133,7 @@ export default function CreatePostScreen() {
                     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
                   }}
                   className={`flex-1 py-3 rounded-xl mr-2 ${
-                    postType === 'completed_work' ? 'bg-amber-500' : 'bg-slate-800'
+                    postType === 'completed_work' ? 'bg-skillset-teal' : 'bg-skillset-bg-card'
                   }`}
                 >
                   <Text
@@ -150,7 +150,7 @@ export default function CreatePostScreen() {
                     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
                   }}
                   className={`flex-1 py-3 rounded-xl ml-2 ${
-                    postType === 'job_done' ? 'bg-amber-500' : 'bg-slate-800'
+                    postType === 'job_done' ? 'bg-skillset-teal' : 'bg-skillset-bg-card'
                   }`}
                 >
                   <Text
@@ -173,9 +173,9 @@ export default function CreatePostScreen() {
             <View className="px-4 mt-6">
               <Text className="text-white font-semibold mb-2">Title</Text>
               <TextInput
-                className="bg-slate-800 rounded-xl px-4 py-3 text-white text-base border border-slate-700"
+                className="bg-skillset-bg-card rounded-xl px-4 py-3 text-white text-base border border-skillset-border"
                 placeholder="e.g., Kitchen remodel completed"
-                placeholderTextColor="#64748B"
+                placeholderTextColor="#5A7A82"
                 value={title}
                 onChangeText={setTitle}
               />
@@ -185,9 +185,9 @@ export default function CreatePostScreen() {
             <View className="px-4 mt-4">
               <Text className="text-white font-semibold mb-2">Description</Text>
               <TextInput
-                className="bg-slate-800 rounded-xl px-4 py-3 text-white text-base border border-slate-700 min-h-[100px]"
+                className="bg-skillset-bg-card rounded-xl px-4 py-3 text-white text-base border border-skillset-border min-h-[100px]"
                 placeholder="Describe the work, materials used, timeline, etc."
-                placeholderTextColor="#64748B"
+                placeholderTextColor="#5A7A82"
                 value={description}
                 onChangeText={setDescription}
                 multiline
@@ -207,7 +207,7 @@ export default function CreatePostScreen() {
                       Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
                     }}
                     className={`px-4 py-2 rounded-full mr-2 ${
-                      selectedCategory === category.id ? 'bg-amber-500' : 'bg-slate-800'
+                      selectedCategory === category.id ? 'bg-skillset-teal' : 'bg-skillset-bg-card'
                     }`}
                   >
                     <Text
@@ -225,12 +225,12 @@ export default function CreatePostScreen() {
             {/* Location */}
             <View className="px-4 mt-4">
               <Text className="text-white font-semibold mb-2">Location</Text>
-              <View className="flex-row items-center bg-slate-800 rounded-xl px-4 py-3 border border-slate-700">
-                <MapPin color="#94A3B8" size={20} />
+              <View className="flex-row items-center bg-skillset-bg-card rounded-xl px-4 py-3 border border-skillset-border">
+                <MapPin color="#5A7A82" size={20} />
                 <TextInput
                   className="flex-1 ml-3 text-white text-base"
                   placeholder="City where work was done"
-                  placeholderTextColor="#64748B"
+                  placeholderTextColor="#5A7A82"
                   value={city}
                   onChangeText={setCity}
                 />
@@ -260,9 +260,9 @@ export default function CreatePostScreen() {
                 {images.length < 5 && (
                   <Pressable
                     onPress={pickImage}
-                    className="w-[120px] h-[120px] bg-slate-800 rounded-xl items-center justify-center border border-dashed border-slate-600"
+                    className="w-[120px] h-[120px] bg-skillset-bg-card rounded-xl items-center justify-center border border-dashed border-skillset-border"
                   >
-                    <Camera color="#64748B" size={32} />
+                    <Camera color="#5A7A82" size={32} />
                     <Text className="text-slate-500 text-xs mt-2">Add Photo</Text>
                   </Pressable>
                 )}
@@ -277,7 +277,7 @@ export default function CreatePostScreen() {
             <View className="px-4 mt-6">
               <Pressable onPress={handleSubmit}>
                 <LinearGradient
-                  colors={['#F59E0B', '#D97706']}
+                  colors={['#4A9BAD', '#3A7A8A']}
                   start={{ x: 0, y: 0 }}
                   end={{ x: 1, y: 0 }}
                   style={{ borderRadius: 12, paddingVertical: 16 }}

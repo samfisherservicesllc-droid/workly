@@ -20,11 +20,11 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: '#F59E0B',
-        tabBarInactiveTintColor: '#64748B',
+        tabBarActiveTintColor: '#4A9BAD',
+        tabBarInactiveTintColor: '#5A7A82',
         tabBarStyle: {
-          backgroundColor: '#1E293B',
-          borderTopColor: '#334155',
+          backgroundColor: '#122A30',
+          borderTopColor: '#2A4A52',
           height: 85,
           paddingTop: 8,
         },
@@ -33,7 +33,7 @@ export default function TabLayout() {
           fontWeight: '600',
         },
         headerStyle: {
-          backgroundColor: '#1E293B',
+          backgroundColor: '#122A30',
         },
         headerTintColor: '#FFFFFF',
         headerTitleStyle: {
@@ -45,7 +45,7 @@ export default function TabLayout() {
         name="index"
         options={{
           title: 'Feed',
-          headerTitle: 'ProConnect',
+          headerTitle: 'Skillset',
           tabBarIcon: ({ color, size }) => <Home color={color} size={size} />,
           headerRight: () => (
             <Pressable
@@ -53,7 +53,7 @@ export default function TabLayout() {
                 Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
                 router.push('/create-post');
               }}
-              className="mr-4 w-10 h-10 bg-amber-500 rounded-full items-center justify-center"
+              className="mr-4 w-10 h-10 bg-skillset-teal rounded-full items-center justify-center"
             >
               <Plus color="white" size={22} />
             </Pressable>

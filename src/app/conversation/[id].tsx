@@ -39,7 +39,7 @@ export default function ConversationScreen() {
 
   if (!user || !conversation) {
     return (
-      <View className="flex-1 bg-slate-900 items-center justify-center">
+      <View className="flex-1 bg-skillset-bg-dark items-center justify-center">
         <Text className="text-white">Conversation not found</Text>
       </View>
     );
@@ -85,8 +85,8 @@ export default function ConversationScreen() {
         <View
           className={`max-w-[80%] px-4 py-3 rounded-2xl ${
             isOwnMessage
-              ? 'bg-amber-500 rounded-br-sm'
-              : 'bg-slate-800 rounded-bl-sm'
+              ? 'bg-skillset-teal rounded-br-sm'
+              : 'bg-skillset-bg-card rounded-bl-sm'
           }`}
         >
           <Text className={isOwnMessage ? 'text-white' : 'text-slate-200'}>
@@ -101,11 +101,11 @@ export default function ConversationScreen() {
   };
 
   return (
-    <View className="flex-1 bg-slate-900">
+    <View className="flex-1 bg-skillset-bg-dark">
       <Stack.Screen
         options={{
           headerShown: true,
-          headerStyle: { backgroundColor: '#1E293B' },
+          headerStyle: { backgroundColor: '#122A30' },
           headerTintColor: '#FFFFFF',
           headerLeft: () => (
             <Pressable onPress={() => router.back()} className="mr-4">
@@ -119,7 +119,7 @@ export default function ConversationScreen() {
             >
               <View
                 className={`w-9 h-9 rounded-full items-center justify-center ${
-                  otherRole === 'professional' ? 'bg-amber-500/20' : 'bg-blue-500/20'
+                  otherRole === 'professional' ? 'bg-skillset-teal/20' : 'bg-blue-500/20'
                 }`}
               >
                 {otherPhoto ? (
@@ -128,7 +128,7 @@ export default function ConversationScreen() {
                     style={{ width: 36, height: 36, borderRadius: 18 }}
                   />
                 ) : otherRole === 'professional' ? (
-                  <Briefcase color="#F59E0B" size={18} />
+                  <Briefcase color="#4A9BAD" size={18} />
                 ) : (
                   <UserCircle color="#3B82F6" size={18} />
                 )}
@@ -137,7 +137,7 @@ export default function ConversationScreen() {
                 <Text className="text-white font-semibold">{otherName}</Text>
                 <Text
                   className={`text-xs ${
-                    otherRole === 'professional' ? 'text-amber-400' : 'text-blue-400'
+                    otherRole === 'professional' ? 'text-skillset-teal-light' : 'text-blue-400'
                   }`}
                 >
                   {otherRole === 'professional' ? 'Professional' : 'Client'}
@@ -157,11 +157,11 @@ export default function ConversationScreen() {
           <View className="flex-1 items-center justify-center px-8">
             <View
               className={`w-16 h-16 rounded-full items-center justify-center ${
-                otherRole === 'professional' ? 'bg-amber-500/20' : 'bg-blue-500/20'
+                otherRole === 'professional' ? 'bg-skillset-teal/20' : 'bg-blue-500/20'
               }`}
             >
               {otherRole === 'professional' ? (
-                <Briefcase color="#F59E0B" size={32} />
+                <Briefcase color="#4A9BAD" size={32} />
               ) : (
                 <UserCircle color="#3B82F6" size={32} />
               )}
@@ -183,12 +183,12 @@ export default function ConversationScreen() {
         )}
 
         {/* Message Input */}
-        <SafeAreaView edges={['bottom']} className="border-t border-slate-800">
+        <SafeAreaView edges={['bottom']} className="border-t border-skillset-border">
           <View className="flex-row items-center px-4 py-3">
             <TextInput
-              className="flex-1 bg-slate-800 rounded-full px-4 py-3 text-white text-base mr-3"
+              className="flex-1 bg-skillset-bg-card rounded-full px-4 py-3 text-white text-base mr-3"
               placeholder="Type a message..."
-              placeholderTextColor="#64748B"
+              placeholderTextColor="#5A7A82"
               value={messageText}
               onChangeText={setMessageText}
               multiline
@@ -198,11 +198,11 @@ export default function ConversationScreen() {
               onPress={handleSend}
               disabled={!messageText.trim()}
               className={`w-12 h-12 rounded-full items-center justify-center ${
-                messageText.trim() ? 'bg-amber-500' : 'bg-slate-800'
+                messageText.trim() ? 'bg-skillset-teal' : 'bg-skillset-bg-card'
               }`}
             >
               <Send
-                color={messageText.trim() ? 'white' : '#64748B'}
+                color={messageText.trim() ? 'white' : '#5A7A82'}
                 size={20}
               />
             </Pressable>

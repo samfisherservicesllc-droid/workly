@@ -38,7 +38,7 @@ export default function LoginScreen() {
   return (
     <View className="flex-1">
       <LinearGradient
-        colors={['#0F172A', '#1E293B', '#334155']}
+        colors={['#0A1A1F', '#122A30', '#1A3A42']}
         style={{ position: 'absolute', left: 0, right: 0, top: 0, bottom: 0 }}
       />
       <SafeAreaView className="flex-1">
@@ -53,10 +53,10 @@ export default function LoginScreen() {
             <View className="flex-1 justify-center px-6">
               {/* Logo Area */}
               <View className="items-center mb-12">
-                <View className="w-20 h-20 bg-amber-500 rounded-2xl items-center justify-center mb-4">
+                <View className="w-20 h-20 bg-skillset-teal rounded-2xl items-center justify-center mb-4">
                   <Briefcase color="white" size={40} />
                 </View>
-                <Text className="text-white text-3xl font-bold">ProConnect</Text>
+                <Text className="text-white text-3xl font-bold">Skillset</Text>
                 <Text className="text-slate-400 text-base mt-2">
                   Find local service professionals
                 </Text>
@@ -65,12 +65,12 @@ export default function LoginScreen() {
               {/* Form */}
               <View className="space-y-4">
                 <View>
-                  <View className="flex-row items-center bg-slate-800/50 rounded-xl px-4 py-3 border border-slate-700">
-                    <Mail color="#94A3B8" size={20} />
+                  <View className="flex-row items-center bg-skillset-bg-input/50 rounded-xl px-4 py-3 border border-skillset-border">
+                    <Mail color="#5A7A82" size={20} />
                     <TextInput
                       className="flex-1 ml-3 text-white text-base"
                       placeholder="Email address"
-                      placeholderTextColor="#64748B"
+                      placeholderTextColor="#5A7A82"
                       value={email}
                       onChangeText={setEmail}
                       keyboardType="email-address"
@@ -81,12 +81,12 @@ export default function LoginScreen() {
                 </View>
 
                 <View className="mt-4">
-                  <View className="flex-row items-center bg-slate-800/50 rounded-xl px-4 py-3 border border-slate-700">
-                    <Lock color="#94A3B8" size={20} />
+                  <View className="flex-row items-center bg-skillset-bg-input/50 rounded-xl px-4 py-3 border border-skillset-border">
+                    <Lock color="#5A7A82" size={20} />
                     <TextInput
                       className="flex-1 ml-3 text-white text-base"
                       placeholder="Password"
-                      placeholderTextColor="#64748B"
+                      placeholderTextColor="#5A7A82"
                       value={password}
                       onChangeText={setPassword}
                       secureTextEntry={!showPassword}
@@ -94,9 +94,9 @@ export default function LoginScreen() {
                     />
                     <Pressable onPress={() => setShowPassword(!showPassword)}>
                       {showPassword ? (
-                        <EyeOff color="#94A3B8" size={20} />
+                        <EyeOff color="#5A7A82" size={20} />
                       ) : (
-                        <Eye color="#94A3B8" size={20} />
+                        <Eye color="#5A7A82" size={20} />
                       )}
                     </Pressable>
                   </View>
@@ -112,7 +112,7 @@ export default function LoginScreen() {
                   className="mt-6"
                 >
                   <LinearGradient
-                    colors={['#F59E0B', '#D97706']}
+                    colors={['#4A9BAD', '#3A7A8A']}
                     start={{ x: 0, y: 0 }}
                     end={{ x: 1, y: 0 }}
                     style={{ borderRadius: 12, paddingVertical: 16 }}
@@ -128,7 +128,7 @@ export default function LoginScreen() {
               <View className="flex-row justify-center mt-8">
                 <Text className="text-slate-400">Don't have an account? </Text>
                 <Pressable onPress={() => router.push('/register')}>
-                  <Text className="text-amber-500 font-semibold">Sign Up</Text>
+                  <Text className="text-skillset-teal font-semibold">Sign Up</Text>
                 </Pressable>
               </View>
             </View>

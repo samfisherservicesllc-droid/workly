@@ -38,7 +38,7 @@ export default function EditPortfolioScreen() {
 
   if (!user || user.role !== 'professional') {
     return (
-      <View className="flex-1 bg-slate-900 items-center justify-center">
+      <View className="flex-1 bg-skillset-bg-dark items-center justify-center">
         <Text className="text-white">Only professionals can edit portfolios</Text>
       </View>
     );
@@ -99,11 +99,11 @@ export default function EditPortfolioScreen() {
   };
 
   return (
-    <View className="flex-1 bg-slate-900">
+    <View className="flex-1 bg-skillset-bg-dark">
       <Stack.Screen
         options={{
           headerShown: true,
-          headerStyle: { backgroundColor: '#1E293B' },
+          headerStyle: { backgroundColor: '#122A30' },
           headerTintColor: '#FFFFFF',
           headerTitle: 'Edit Portfolio',
           headerLeft: () => (
@@ -118,8 +118,8 @@ export default function EditPortfolioScreen() {
         <View className="px-6 pt-6">
           {/* Header */}
           <View className="items-center mb-6">
-            <View className="w-16 h-16 bg-amber-500/20 rounded-full items-center justify-center mb-3">
-              <Images color="#F59E0B" size={32} />
+            <View className="w-16 h-16 bg-skillset-teal/20 rounded-full items-center justify-center mb-3">
+              <Images color="#4A9BAD" size={32} />
             </View>
             <Text className="text-white text-xl font-semibold">
               Showcase Your Work
@@ -150,7 +150,7 @@ export default function EditPortfolioScreen() {
                       contentFit="cover"
                     />
                   ) : (
-                    <View className="w-[105px] h-[105px] rounded-xl bg-slate-800 items-center justify-center overflow-hidden">
+                    <View className="w-[105px] h-[105px] rounded-xl bg-skillset-bg-card items-center justify-center overflow-hidden">
                       <Video
                         source={{ uri: item.uri }}
                         style={{ width: 105, height: 105 }}
@@ -172,8 +172,8 @@ export default function EditPortfolioScreen() {
               ))}
             </View>
           ) : (
-            <View className="bg-slate-800/50 rounded-xl p-8 items-center mb-6">
-              <Images color="#64748B" size={48} />
+            <View className="bg-skillset-bg-card/50 rounded-xl p-8 items-center mb-6">
+              <Images color="#5A7A82" size={48} />
               <Text className="text-slate-400 text-center mt-3">
                 No portfolio items yet. Add photos and videos of your work to
                 showcase your skills.
@@ -186,9 +186,9 @@ export default function EditPortfolioScreen() {
             <View className="flex-row gap-3 mb-6">
               <Pressable
                 onPress={pickImages}
-                className="flex-1 bg-slate-800 rounded-xl p-4 items-center border border-slate-700"
+                className="flex-1 bg-skillset-bg-card rounded-xl p-4 items-center border border-skillset-border"
               >
-                <Camera color="#94A3B8" size={28} />
+                <Camera color="#5A7A82" size={28} />
                 <Text className="text-slate-300 font-medium mt-2">
                   Add Photos
                 </Text>
@@ -196,9 +196,9 @@ export default function EditPortfolioScreen() {
 
               <Pressable
                 onPress={pickVideo}
-                className="flex-1 bg-slate-800 rounded-xl p-4 items-center border border-slate-700"
+                className="flex-1 bg-skillset-bg-card rounded-xl p-4 items-center border border-skillset-border"
               >
-                <VideoIcon color="#94A3B8" size={28} />
+                <VideoIcon color="#5A7A82" size={28} />
                 <Text className="text-slate-300 font-medium mt-2">
                   Add Video
                 </Text>
@@ -213,7 +213,7 @@ export default function EditPortfolioScreen() {
           {/* Save Button */}
           <Pressable onPress={handleSave}>
             <LinearGradient
-              colors={['#F59E0B', '#D97706']}
+              colors={['#4A9BAD', '#3A7A8A']}
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 0 }}
               style={{ borderRadius: 12, paddingVertical: 16 }}

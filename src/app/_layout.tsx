@@ -18,15 +18,15 @@ SplashScreen.preventAutoHideAsync();
 
 const queryClient = new QueryClient();
 
-// Custom dark theme with slate colors
-const ProConnectTheme = {
+// Skillset brand theme with teal colors
+const SkillsetTheme = {
   ...DarkTheme,
   colors: {
     ...DarkTheme.colors,
-    background: '#0F172A',
-    card: '#1E293B',
-    border: '#334155',
-    primary: '#F59E0B',
+    background: '#0A1A1F',
+    card: '#122A30',
+    border: '#2A4A52',
+    primary: '#4A9BAD',
   },
 };
 
@@ -58,7 +58,7 @@ function RootLayoutNav() {
   }, [isAuthenticated, segments, isReady]);
 
   return (
-    <ThemeProvider value={ProConnectTheme}>
+    <ThemeProvider value={SkillsetTheme}>
       <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name="login" />
         <Stack.Screen name="register" />

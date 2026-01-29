@@ -11,11 +11,18 @@ module.exports = {
   theme: {
     // NOTE to AI: You can extend the theme with custom colors or styles here.
     extend: {
-      // For example, you can add a primary or secondary color here.
-      // colors: {
-      //   primary: "#INSERT_VALID_HEX_CODE",
-      //   secondary: "#INSERT_VALID_HEX_CODE",
-      // },
+      colors: {
+        // Skillset brand colors based on logo
+        skillset: {
+          teal: '#4A9BAD',
+          'teal-light': '#5DB5C8',
+          'teal-dark': '#3A7A8A',
+          'bg-dark': '#0A1A1F',
+          'bg-card': '#122A30',
+          'bg-input': '#1A3A42',
+          border: '#2A4A52',
+        },
+      },
       fontSize: {
         xs: "10px",
         sm: "12px",

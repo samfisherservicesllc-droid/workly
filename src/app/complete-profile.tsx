@@ -77,7 +77,7 @@ export default function CompleteProfileScreen() {
   return (
     <View className="flex-1">
       <LinearGradient
-        colors={['#0F172A', '#1E293B', '#334155']}
+        colors={['#0A1A1F', '#122A30', '#1A3A42']}
         style={{ position: 'absolute', left: 0, right: 0, top: 0, bottom: 0 }}
       />
       <SafeAreaView className="flex-1">
@@ -92,7 +92,7 @@ export default function CompleteProfileScreen() {
             <View className="px-6 pt-6">
               {/* Header */}
               <View className="items-center mb-8">
-                <View className="w-16 h-16 bg-amber-500 rounded-2xl items-center justify-center mb-4">
+                <View className="w-16 h-16 bg-skillset-teal rounded-2xl items-center justify-center mb-4">
                   <Briefcase color="white" size={32} />
                 </View>
                 <Text className="text-white text-2xl font-bold">
@@ -108,12 +108,12 @@ export default function CompleteProfileScreen() {
                 <Text className="text-white font-semibold mb-2">
                   Your Trade/Profession
                 </Text>
-                <View className="flex-row items-center bg-slate-800/50 rounded-xl px-4 py-3 border border-slate-700">
-                  <Award color="#94A3B8" size={20} />
+                <View className="flex-row items-center bg-skillset-bg-input/50 rounded-xl px-4 py-3 border border-skillset-border">
+                  <Award color="#5A7A82" size={20} />
                   <TextInput
                     className="flex-1 ml-3 text-white text-base"
                     placeholder="e.g., Electrician, Plumber, Cleaner"
-                    placeholderTextColor="#64748B"
+                    placeholderTextColor="#5A7A82"
                     value={trade}
                     onChangeText={setTrade}
                   />
@@ -134,8 +134,8 @@ export default function CompleteProfileScreen() {
                         onPress={() => toggleCategory(category.id)}
                         className={`px-4 py-2 rounded-full border ${
                           isSelected
-                            ? 'bg-amber-500 border-amber-500'
-                            : 'bg-slate-800/50 border-slate-700'
+                            ? 'bg-skillset-teal border-skillset-teal'
+                            : 'bg-skillset-bg-input/50 border-skillset-border'
                         }`}
                       >
                         <View className="flex-row items-center">
@@ -157,11 +157,11 @@ export default function CompleteProfileScreen() {
                 <Text className="text-white font-semibold mb-2">
                   Years of Experience
                 </Text>
-                <View className="flex-row items-center bg-slate-800/50 rounded-xl px-4 py-3 border border-slate-700">
+                <View className="flex-row items-center bg-skillset-bg-input/50 rounded-xl px-4 py-3 border border-skillset-border">
                   <TextInput
                     className="flex-1 text-white text-base"
                     placeholder="e.g., 5"
-                    placeholderTextColor="#64748B"
+                    placeholderTextColor="#5A7A82"
                     value={yearsExperience}
                     onChangeText={setYearsExperience}
                     keyboardType="number-pad"
@@ -174,12 +174,12 @@ export default function CompleteProfileScreen() {
                 <Text className="text-white font-semibold mb-2">
                   License Number (optional)
                 </Text>
-                <View className="flex-row items-center bg-slate-800/50 rounded-xl px-4 py-3 border border-slate-700">
-                  <FileText color="#94A3B8" size={20} />
+                <View className="flex-row items-center bg-skillset-bg-input/50 rounded-xl px-4 py-3 border border-skillset-border">
+                  <FileText color="#5A7A82" size={20} />
                   <TextInput
                     className="flex-1 ml-3 text-white text-base"
                     placeholder="Your professional license number"
-                    placeholderTextColor="#64748B"
+                    placeholderTextColor="#5A7A82"
                     value={licenseNumber}
                     onChangeText={setLicenseNumber}
                   />
@@ -191,12 +191,12 @@ export default function CompleteProfileScreen() {
                 <Text className="text-white font-semibold mb-2">
                   Service Areas (comma separated)
                 </Text>
-                <View className="flex-row items-center bg-slate-800/50 rounded-xl px-4 py-3 border border-slate-700">
-                  <MapPin color="#94A3B8" size={20} />
+                <View className="flex-row items-center bg-skillset-bg-input/50 rounded-xl px-4 py-3 border border-skillset-border">
+                  <MapPin color="#5A7A82" size={20} />
                   <TextInput
                     className="flex-1 ml-3 text-white text-base"
                     placeholder="e.g., Los Angeles, Santa Monica, Pasadena"
-                    placeholderTextColor="#64748B"
+                    placeholderTextColor="#5A7A82"
                     value={serviceAreas}
                     onChangeText={setServiceAreas}
                   />
@@ -208,11 +208,11 @@ export default function CompleteProfileScreen() {
                 <Text className="text-white font-semibold mb-2">
                   About Your Services
                 </Text>
-                <View className="bg-slate-800/50 rounded-xl px-4 py-3 border border-slate-700">
+                <View className="bg-skillset-bg-input/50 rounded-xl px-4 py-3 border border-skillset-border">
                   <TextInput
                     className="text-white text-base min-h-[100px]"
                     placeholder="Describe your services, experience, and what makes you stand out..."
-                    placeholderTextColor="#64748B"
+                    placeholderTextColor="#5A7A82"
                     value={description}
                     onChangeText={setDescription}
                     multiline
@@ -227,7 +227,7 @@ export default function CompleteProfileScreen() {
 
               <Pressable onPress={handleComplete}>
                 <LinearGradient
-                  colors={['#F59E0B', '#D97706']}
+                  colors={['#4A9BAD', '#3A7A8A']}
                   start={{ x: 0, y: 0 }}
                   end={{ x: 1, y: 0 }}
                   style={{ borderRadius: 12, paddingVertical: 16 }}

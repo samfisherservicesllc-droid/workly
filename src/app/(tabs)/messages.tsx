@@ -31,11 +31,11 @@ export default function MessagesScreen() {
     return (
       <Pressable
         onPress={() => router.push(`/conversation/${conversation.id}`)}
-        className="flex-row items-center px-4 py-4 border-b border-slate-800 active:bg-slate-800/50"
+        className="flex-row items-center px-4 py-4 border-b border-skillset-border active:bg-skillset-bg-card/50"
       >
         <View
           className={`w-14 h-14 rounded-full items-center justify-center ${
-            otherRole === 'professional' ? 'bg-amber-500/20' : 'bg-blue-500/20'
+            otherRole === 'professional' ? 'bg-skillset-teal/20' : 'bg-blue-500/20'
           }`}
         >
           {otherPhoto ? (
@@ -44,7 +44,7 @@ export default function MessagesScreen() {
               style={{ width: 56, height: 56, borderRadius: 28 }}
             />
           ) : otherRole === 'professional' ? (
-            <Briefcase color="#F59E0B" size={26} />
+            <Briefcase color="#4A9BAD" size={26} />
           ) : (
             <UserCircle color="#3B82F6" size={26} />
           )}
@@ -58,12 +58,12 @@ export default function MessagesScreen() {
               </Text>
               <View
                 className={`ml-2 px-2 py-0.5 rounded-full ${
-                  otherRole === 'professional' ? 'bg-amber-500/20' : 'bg-blue-500/20'
+                  otherRole === 'professional' ? 'bg-skillset-teal/20' : 'bg-blue-500/20'
                 }`}
               >
                 <Text
                   className={`text-xs ${
-                    otherRole === 'professional' ? 'text-amber-400' : 'text-blue-400'
+                    otherRole === 'professional' ? 'text-skillset-teal-light' : 'text-blue-400'
                   }`}
                 >
                   {otherRole === 'professional' ? 'Pro' : 'Client'}
@@ -78,7 +78,7 @@ export default function MessagesScreen() {
               {conversation.lastMessage || 'No messages yet'}
             </Text>
             {conversation.unreadCount > 0 && (
-              <View className="bg-amber-500 rounded-full min-w-[20px] h-5 items-center justify-center px-1.5">
+              <View className="bg-skillset-teal rounded-full min-w-[20px] h-5 items-center justify-center px-1.5">
                 <Text className="text-white text-xs font-bold">{conversation.unreadCount}</Text>
               </View>
             )}
@@ -89,11 +89,11 @@ export default function MessagesScreen() {
   };
 
   return (
-    <View className="flex-1 bg-slate-900">
+    <View className="flex-1 bg-skillset-bg-dark">
       {userConversations.length === 0 ? (
         <View className="flex-1 items-center justify-center px-8">
-          <View className="w-20 h-20 bg-slate-800 rounded-full items-center justify-center mb-4">
-            <MessageSquare color="#64748B" size={32} />
+          <View className="w-20 h-20 bg-skillset-bg-card rounded-full items-center justify-center mb-4">
+            <MessageSquare color="#5A7A82" size={32} />
           </View>
           <Text className="text-white text-xl font-semibold text-center">No messages yet</Text>
           <Text className="text-slate-400 text-center mt-2">

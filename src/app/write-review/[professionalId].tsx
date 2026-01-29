@@ -157,8 +157,8 @@ export default function WriteReviewScreen() {
           >
             <Star
               size={40}
-              color={star <= rating ? '#F59E0B' : '#475569'}
-              fill={star <= rating ? '#F59E0B' : 'transparent'}
+              color={star <= rating ? '#4A9BAD' : '#475569'}
+              fill={star <= rating ? '#4A9BAD' : 'transparent'}
             />
           </Pressable>
         ))}
@@ -168,11 +168,11 @@ export default function WriteReviewScreen() {
 
   if (hasReviewed) {
     return (
-      <View className="flex-1 bg-slate-900">
+      <View className="flex-1 bg-skillset-bg-dark">
         <Stack.Screen
           options={{
             headerShown: true,
-            headerStyle: { backgroundColor: '#1E293B' },
+            headerStyle: { backgroundColor: '#122A30' },
             headerTintColor: '#FFFFFF',
             headerTitle: 'Write Review',
             headerLeft: () => (
@@ -183,7 +183,7 @@ export default function WriteReviewScreen() {
           }}
         />
         <View className="flex-1 items-center justify-center px-8">
-          <Star color="#F59E0B" size={48} fill="#F59E0B" />
+          <Star color="#4A9BAD" size={48} fill="#4A9BAD" />
           <Text className="text-white text-xl font-semibold mt-4 text-center">
             Already Reviewed
           </Text>
@@ -196,11 +196,11 @@ export default function WriteReviewScreen() {
   }
 
   return (
-    <View className="flex-1 bg-slate-900">
+    <View className="flex-1 bg-skillset-bg-dark">
       <Stack.Screen
         options={{
           headerShown: true,
-          headerStyle: { backgroundColor: '#1E293B' },
+          headerStyle: { backgroundColor: '#122A30' },
           headerTintColor: '#FFFFFF',
           headerTitle: 'Write Review',
           headerLeft: () => (
@@ -235,7 +235,7 @@ export default function WriteReviewScreen() {
               </Text>
               {renderStars()}
               {rating > 0 && (
-                <Text className="text-amber-400 text-center mt-2">
+                <Text className="text-skillset-teal text-center mt-2">
                   {rating === 5
                     ? 'Excellent!'
                     : rating === 4
@@ -270,8 +270,8 @@ export default function WriteReviewScreen() {
                     }}
                     className={`px-4 py-2 rounded-full mr-2 ${
                       selectedCategory === category.id
-                        ? 'bg-amber-500'
-                        : 'bg-slate-800'
+                        ? 'bg-skillset-teal'
+                        : 'bg-skillset-bg-card'
                     }`}
                   >
                     <Text
@@ -303,9 +303,9 @@ export default function WriteReviewScreen() {
                 </Text>
               </View>
               <TextInput
-                className="bg-slate-800 rounded-xl px-4 py-3 text-white text-base border border-slate-700 min-h-[150px]"
+                className="bg-skillset-bg-card rounded-xl px-4 py-3 text-white text-base border border-skillset-border min-h-[150px]"
                 placeholder="Share details about the work quality, professionalism, communication, and whether you would recommend them..."
-                placeholderTextColor="#64748B"
+                placeholderTextColor="#5A7A82"
                 value={description}
                 onChangeText={setDescription}
                 multiline
@@ -332,7 +332,7 @@ export default function WriteReviewScreen() {
                         contentFit="cover"
                       />
                     ) : (
-                      <View className="w-[100px] h-[100px] rounded-xl bg-slate-800 items-center justify-center overflow-hidden">
+                      <View className="w-[100px] h-[100px] rounded-xl bg-skillset-bg-card items-center justify-center overflow-hidden">
                         <Video
                           source={{ uri: item.uri }}
                           style={{ width: 100, height: 100 }}
@@ -357,17 +357,17 @@ export default function WriteReviewScreen() {
                   <View className="flex-row">
                     <Pressable
                       onPress={pickImage}
-                      className="w-[100px] h-[100px] bg-slate-800 rounded-xl items-center justify-center border border-dashed border-slate-600 mr-3"
+                      className="w-[100px] h-[100px] bg-skillset-bg-card rounded-xl items-center justify-center border border-dashed border-skillset-border mr-3"
                     >
-                      <Camera color="#64748B" size={28} />
+                      <Camera color="#5A7A82" size={28} />
                       <Text className="text-slate-500 text-xs mt-1">Photo</Text>
                     </Pressable>
 
                     <Pressable
                       onPress={pickVideo}
-                      className="w-[100px] h-[100px] bg-slate-800 rounded-xl items-center justify-center border border-dashed border-slate-600"
+                      className="w-[100px] h-[100px] bg-skillset-bg-card rounded-xl items-center justify-center border border-dashed border-skillset-border"
                     >
-                      <VideoIcon color="#64748B" size={28} />
+                      <VideoIcon color="#5A7A82" size={28} />
                       <Text className="text-slate-500 text-xs mt-1">Video</Text>
                     </Pressable>
                   </View>
@@ -385,7 +385,7 @@ export default function WriteReviewScreen() {
             {/* Submit Button */}
             <Pressable onPress={handleSubmit}>
               <LinearGradient
-                colors={['#F59E0B', '#D97706']}
+                colors={['#4A9BAD', '#3A7A8A']}
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 0 }}
                 style={{ borderRadius: 12, paddingVertical: 16 }}

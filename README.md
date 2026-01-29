@@ -1,6 +1,18 @@
-# ProConnect - Local Service Professional Marketplace
+# Skillset - Local Service Professional Marketplace
 
 A mobile-first app connecting clients with local service professionals. No general social features - focused purely on service discovery and proof of work.
+
+## Brand Colors
+
+Based on the Skillset logo featuring a paintbrush and trowel on a teal background:
+
+- **Primary Teal**: #4A9BAD
+- **Teal Light**: #5DB5C8
+- **Teal Dark**: #3A7A8A
+- **Background Dark**: #0A1A1F
+- **Card Background**: #122A30
+- **Input Background**: #1A3A42
+- **Border**: #2A4A52
 
 ## Features
 
@@ -179,7 +191,7 @@ The app comes pre-loaded with sample professionals, clients, and posts to demons
 
 ## Design
 
-- Dark slate theme with amber accents
+- Dark teal theme with turquoise accents (based on Skillset logo)
 - Mobile-optimized touch interactions
 - Haptic feedback on actions
 - Clean, professional aesthetic inspired by iOS HIG
