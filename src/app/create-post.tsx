@@ -17,7 +17,7 @@ import * as ImagePicker from 'expo-image-picker';
 import * as Haptics from 'expo-haptics';
 import { useAuthStore } from '@/lib/state/auth-store';
 import { usePostsStore } from '@/lib/state/posts-store';
-import { SERVICE_CATEGORIES } from '@/lib/categories';
+import { CategoryDropdown } from '@/components/CategoryDropdown';
 import { PostType } from '@/lib/types';
 
 export default function CreatePostScreen() {
@@ -197,29 +197,12 @@ export default function CreatePostScreen() {
 
             {/* Service Category */}
             <View className="px-4 mt-4">
-              <Text className="text-white font-semibold mb-3">Service Category</Text>
-              <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ flexGrow: 0 }}>
-                {SERVICE_CATEGORIES.map((category) => (
-                  <Pressable
-                    key={category.id}
-                    onPress={() => {
-                      setSelectedCategory(category.id);
-                      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-                    }}
-                    className={`px-4 py-2 rounded-full mr-2 ${
-                      selectedCategory === category.id ? 'bg-workly-teal' : 'bg-workly-bg-card'
-                    }`}
-                  >
-                    <Text
-                      className={`text-sm ${
-                        selectedCategory === category.id ? 'text-white' : 'text-slate-300'
-                      }`}
-                    >
-                      {category.name}
-                    </Text>
-                  </Pressable>
-                ))}
-              </ScrollView>
+              <CategoryDropdown
+                value={selectedCategory}
+                onChange={setSelectedCategory}
+                label="Service Category"
+                placeholder="Select a category"
+              />
             </View>
 
             {/* Location */}

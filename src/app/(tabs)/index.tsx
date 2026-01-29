@@ -19,6 +19,7 @@ import { useAuthStore } from '@/lib/state/auth-store';
 import { usePostsStore } from '@/lib/state/posts-store';
 import { SERVICE_CATEGORIES } from '@/lib/categories';
 import { Post, FeedFilter } from '@/lib/types';
+import { CategoryDropdown } from '@/components/CategoryDropdown';
 import * as Haptics from 'expo-haptics';
 import * as Sharing from 'expo-sharing';
 import { formatDistanceToNow } from 'date-fns';
@@ -265,37 +266,13 @@ export default function FeedScreen() {
 
         {/* Category Filter Dropdown */}
         {showFilters && (
-          <View className="mt-3 bg-workly-bg-card rounded-xl p-3">
-            <View className="flex-row items-center justify-between mb-2">
-              <Text className="text-white font-medium">Filter by Category</Text>
-              {filters.categoryId && (
-                <Pressable onPress={() => handleCategoryFilter(undefined)}>
-                  <View className="flex-row items-center">
-                    <X color="#94A3B8" size={14} />
-                    <Text className="text-slate-400 text-sm ml-1">Clear</Text>
-                  </View>
-                </Pressable>
-              )}
-            </View>
-            <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ flexGrow: 0 }}>
-              {SERVICE_CATEGORIES.map((category) => (
-                <Pressable
-                  key={category.id}
-                  onPress={() => handleCategoryFilter(category.id)}
-                  className={`px-3 py-2 rounded-full mr-2 ${
-                    filters.categoryId === category.id ? 'bg-workly-teal' : 'bg-workly-bg-input'
-                  }`}
-                >
-                  <Text
-                    className={`text-sm ${
-                      filters.categoryId === category.id ? 'text-white' : 'text-slate-300'
-                    }`}
-                  >
-                    {category.name}
-                  </Text>
-                </Pressable>
-              ))}
-            </ScrollView>
+          <View className="mt-3">
+            <CategoryDropdown
+              value={filters.categoryId ?? null}
+              onChange={(categoryId) => handleCategoryFilter(categoryId ?? undefined)}
+              placeholder="All Categories"
+              allowClear
+            />
           </View>
         )}
       </View>

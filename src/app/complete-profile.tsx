@@ -11,9 +11,9 @@ import {
 import { useRouter } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
-import { Check, Briefcase, Award, FileText, MapPin } from 'lucide-react-native';
+import { Briefcase, Award, FileText, MapPin } from 'lucide-react-native';
 import { useAuthStore } from '@/lib/state/auth-store';
-import { SERVICE_CATEGORIES } from '@/lib/categories';
+import { CategoryDropdown } from '@/components/CategoryDropdown';
 import { ProfessionalProfile } from '@/lib/types';
 import * as Haptics from 'expo-haptics';
 
@@ -29,15 +29,6 @@ export default function CompleteProfileScreen() {
   const [serviceAreas, setServiceAreas] = useState(user?.city ?? '');
   const [description, setDescription] = useState('');
   const [error, setError] = useState('');
-
-  const toggleCategory = (categoryId: string) => {
-    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-    setSelectedCategories((prev) =>
-      prev.includes(categoryId)
-        ? prev.filter((id) => id !== categoryId)
-        : [...prev, categoryId]
-    );
-  };
 
   const handleComplete = () => {
     if (!trade) {
@@ -122,34 +113,15 @@ export default function CompleteProfileScreen() {
 
               {/* Service Categories */}
               <View className="mb-6">
-                <Text className="text-white font-semibold mb-2">
-                  Service Categories (select all that apply)
-                </Text>
-                <View className="flex-row flex-wrap gap-2">
-                  {SERVICE_CATEGORIES.map((category) => {
-                    const isSelected = selectedCategories.includes(category.id);
-                    return (
-                      <Pressable
-                        key={category.id}
-                        onPress={() => toggleCategory(category.id)}
-                        className={`px-4 py-2 rounded-full border ${
-                          isSelected
-                            ? 'bg-workly-teal border-workly-teal'
-                            : 'bg-workly-bg-input/50 border-workly-border'
-                        }`}
-                      >
-                        <View className="flex-row items-center">
-                          {isSelected && <Check color="white" size={14} className="mr-1" />}
-                          <Text
-                            className={isSelected ? 'text-white font-medium' : 'text-slate-300'}
-                          >
-                            {category.name}
-                          </Text>
-                        </View>
-                      </Pressable>
-                    );
-                  })}
-                </View>
+                <CategoryDropdown
+                  value={null}
+                  onChange={() => {}}
+                  multiSelect
+                  selectedValues={selectedCategories}
+                  onMultiChange={setSelectedCategories}
+                  label="Service Categories (select all that apply)"
+                  placeholder="Select categories"
+                />
               </View>
 
               {/* Years Experience */}

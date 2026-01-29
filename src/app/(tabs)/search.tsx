@@ -20,7 +20,6 @@ import {
   Sparkles,
   Tag,
   Play,
-  Home,
   Lock,
   Zap,
 } from 'lucide-react-native';
@@ -30,6 +29,7 @@ import { useJobRequestsStore, JobRequestFilters } from '@/lib/state/job-requests
 import { useReviewsStore } from '@/lib/state/reviews-store';
 import { SERVICE_CATEGORIES } from '@/lib/categories';
 import { ProfessionalProfile, JobRequest } from '@/lib/types';
+import { CategoryDropdown } from '@/components/CategoryDropdown';
 import { hasEntitlement, isRevenueCatEnabled } from '@/lib/revenuecatClient';
 import * as Haptics from 'expo-haptics';
 import { formatDistanceToNow } from 'date-fns';
@@ -515,38 +515,13 @@ export default function SearchScreen() {
             </View>
 
             {/* Service Category */}
-            <Text className="text-white font-medium mb-3">Service Category</Text>
-            <ScrollView
-              horizontal
-              showsHorizontalScrollIndicator={false}
-              style={{ flexGrow: 0 }}
-            >
-              {SERVICE_CATEGORIES.map((category) => (
-                <Pressable
-                  key={category.id}
-                  onPress={() =>
-                    handleCategoryFilter(
-                      filters.categoryId === category.id ? undefined : category.id
-                    )
-                  }
-                  className={`px-3 py-2 rounded-full mr-2 ${
-                    filters.categoryId === category.id
-                      ? 'bg-workly-teal'
-                      : 'bg-workly-bg-input'
-                  }`}
-                >
-                  <Text
-                    className={`text-sm ${
-                      filters.categoryId === category.id
-                        ? 'text-white'
-                        : 'text-slate-300'
-                    }`}
-                  >
-                    {category.name}
-                  </Text>
-                </Pressable>
-              ))}
-            </ScrollView>
+            <CategoryDropdown
+              value={filters.categoryId ?? null}
+              onChange={(categoryId) => handleCategoryFilter(categoryId ?? undefined)}
+              label="Service Category"
+              placeholder="All Categories"
+              allowClear
+            />
           </View>
         )}
       </View>

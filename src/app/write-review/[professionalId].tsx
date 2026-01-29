@@ -10,7 +10,6 @@ import {
   Alert,
 } from 'react-native';
 import { useLocalSearchParams, useRouter, Stack } from 'expo-router';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Image } from 'expo-image';
 import { Video, ResizeMode } from 'expo-av';
@@ -28,6 +27,7 @@ import * as Haptics from 'expo-haptics';
 import { useAuthStore } from '@/lib/state/auth-store';
 import { useReviewsStore } from '@/lib/state/reviews-store';
 import { SERVICE_CATEGORIES } from '@/lib/categories';
+import { CategoryDropdown } from '@/components/CategoryDropdown';
 import { MediaItem } from '@/lib/types';
 
 const MAX_WORDS = 250;
@@ -254,41 +254,13 @@ export default function WriteReviewScreen() {
 
             {/* Service Category */}
             <View className="mb-6">
-              <Text className="text-white font-semibold mb-3">
-                Service Category (optional)
-              </Text>
-              <ScrollView
-                horizontal
-                showsHorizontalScrollIndicator={false}
-                style={{ flexGrow: 0 }}
-              >
-                {SERVICE_CATEGORIES.map((category) => (
-                  <Pressable
-                    key={category.id}
-                    onPress={() => {
-                      setSelectedCategory(
-                        selectedCategory === category.id ? null : category.id
-                      );
-                      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-                    }}
-                    className={`px-4 py-2 rounded-full mr-2 ${
-                      selectedCategory === category.id
-                        ? 'bg-workly-teal'
-                        : 'bg-workly-bg-card'
-                    }`}
-                  >
-                    <Text
-                      className={`text-sm ${
-                        selectedCategory === category.id
-                          ? 'text-white'
-                          : 'text-slate-300'
-                      }`}
-                    >
-                      {category.name}
-                    </Text>
-                  </Pressable>
-                ))}
-              </ScrollView>
+              <CategoryDropdown
+                value={selectedCategory}
+                onChange={setSelectedCategory}
+                label="Service Category (optional)"
+                placeholder="Select a category"
+                allowClear
+              />
             </View>
 
             {/* Company/Business Name */}

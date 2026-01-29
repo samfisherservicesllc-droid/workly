@@ -135,6 +135,7 @@ src/
 │   ├── conversation/[id].tsx # Chat screen
 │   └── profile/[id].tsx   # View other profiles + reviews
 ├── components/            # Reusable UI components
+│   └── CategoryDropdown.tsx # Service category dropdown selector
 └── lib/
     ├── types.ts           # TypeScript interfaces
     ├── categories.ts      # Service categories config
