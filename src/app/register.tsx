@@ -20,6 +20,7 @@ import {
   MapPin,
   Briefcase,
   UserCircle,
+  Home,
 } from 'lucide-react-native';
 import { useAuthStore } from '@/lib/state/auth-store';
 import { UserRole } from '@/lib/types';
@@ -37,6 +38,7 @@ export default function RegisterScreen() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [city, setCity] = useState('');
+  const [neighborhood, setNeighborhood] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
 
@@ -68,7 +70,7 @@ export default function RegisterScreen() {
     }
 
     setError('');
-    const success = await register(email, password, name, role, city);
+    const success = await register(email, password, name, role, city, neighborhood);
 
     if (success) {
       Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
@@ -223,6 +225,19 @@ export default function RegisterScreen() {
                     onChangeText={setCity}
                   />
                 </View>
+
+                {role === 'client' && (
+                  <View className="flex-row items-center bg-skillset-bg-input/50 rounded-xl px-4 py-3 border border-skillset-border mt-4">
+                    <Home color="#5A7A82" size={20} />
+                    <TextInput
+                      className="flex-1 ml-3 text-white text-base"
+                      placeholder="Neighborhood (optional)"
+                      placeholderTextColor="#5A7A82"
+                      value={neighborhood}
+                      onChangeText={setNeighborhood}
+                    />
+                  </View>
+                )}
 
                 <View className="flex-row items-center bg-skillset-bg-input/50 rounded-xl px-4 py-3 border border-skillset-border mt-4">
                   <Lock color="#5A7A82" size={20} />

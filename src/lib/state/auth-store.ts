@@ -10,7 +10,7 @@ interface AuthState {
 
   // Actions
   login: (email: string, password: string) => Promise<boolean>;
-  register: (email: string, password: string, name: string, role: UserRole, city: string) => Promise<boolean>;
+  register: (email: string, password: string, name: string, role: UserRole, city: string, neighborhood?: string) => Promise<boolean>;
   logout: () => void;
   updateProfile: (updates: Partial<User>) => void;
   updateProfessionalProfile: (updates: Partial<ProfessionalProfile>) => void;
@@ -47,7 +47,7 @@ export const useAuthStore = create<AuthState>()(
         return false;
       },
 
-      register: async (email: string, password: string, name: string, role: UserRole, city: string) => {
+      register: async (email: string, password: string, name: string, role: UserRole, city: string, neighborhood?: string) => {
         set({ isLoading: true });
 
         // Simulate API call
@@ -76,6 +76,8 @@ export const useAuthStore = create<AuthState>()(
           newUser = {
             ...baseUser,
             role: 'client',
+            feedRadius: 9, // Default 9-mile radius
+            neighborhood: neighborhood || undefined,
           } as ClientProfile;
         } else {
           newUser = {

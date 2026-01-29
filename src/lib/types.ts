@@ -21,6 +21,10 @@ export interface BaseUser {
 
 export interface ClientProfile extends BaseUser {
   role: 'client';
+  neighborhood?: string; // Neighborhood within the city
+  feedRadius: number; // Radius in miles for feed filtering (default 9)
+  rating?: number; // Client rating from professionals
+  reviewCount?: number; // Number of reviews from professionals
 }
 
 // Media item for portfolio and reviews
@@ -111,7 +115,7 @@ export interface FeedFilters {
   city?: string;
 }
 
-// Reviews
+// Reviews (from clients about professionals)
 export interface Review {
   id: string;
   professionalId: string;
@@ -121,6 +125,20 @@ export interface Review {
   rating: number; // 1-5 stars
   description: string; // Up to 250 words
   media: MediaItem[]; // Photos and videos
+  serviceCategoryId?: string;
+  serviceCategoryName?: string;
+  createdAt: string;
+}
+
+// Client Reviews (from professionals about clients)
+export interface ClientReview {
+  id: string;
+  clientId: string;
+  professionalId: string;
+  professionalName: string;
+  professionalPhotoUrl?: string;
+  rating: number; // 1-5 stars
+  description: string; // Feedback about working with the client
   serviceCategoryId?: string;
   serviceCategoryName?: string;
   createdAt: string;

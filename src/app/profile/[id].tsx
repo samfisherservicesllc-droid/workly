@@ -26,8 +26,9 @@ import { useQuery } from '@tanstack/react-query';
 import { useAuthStore } from '@/lib/state/auth-store';
 import { useMessagesStore } from '@/lib/state/messages-store';
 import { useReviewsStore } from '@/lib/state/reviews-store';
+import { useClientReviewsStore } from '@/lib/state/client-reviews-store';
 import { getCategoryById } from '@/lib/categories';
-import { User, ProfessionalProfile, Review } from '@/lib/types';
+import { User, ProfessionalProfile, ClientProfile, Review, ClientReview } from '@/lib/types';
 import { format, formatDistanceToNow } from 'date-fns';
 import * as Haptics from 'expo-haptics';
 import ReportModal from '@/components/ReportModal';
@@ -42,6 +43,13 @@ export default function ProfileViewScreen() {
   const getAverageRating = useReviewsStore((s) => s.getAverageRating);
   const hasClientReviewed = useReviewsStore((s) =>
     s.hasClientReviewedProfessional(currentUser?.id ?? '', profileId ?? '')
+  );
+
+  // Client reviews store
+  const getClientReviews = useClientReviewsStore((s) => s.getReviewsForClient);
+  const getClientAverageRating = useClientReviewsStore((s) => s.getAverageRating);
+  const hasProfessionalReviewedClient = useClientReviewsStore((s) =>
+    s.hasProfessionalReviewedClient(currentUser?.id ?? '', profileId ?? '')
   );
 
   const [showReportModal, setShowReportModal] = useState(false);
@@ -92,6 +100,15 @@ export default function ProfileViewScreen() {
     });
   };
 
+  const handleRateClient = () => {
+    if (!profileUser) return;
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+    router.push({
+      pathname: '/rate-client/[clientId]',
+      params: { clientId: profileUser.id, clientName: profileUser.name },
+    });
+  };
+
   const handleReport = () => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
     setShowReportModal(true);
@@ -115,11 +132,18 @@ export default function ProfileViewScreen() {
 
   const isProfessional = profileUser.role === 'professional';
   const professionalUser = profileUser as ProfessionalProfile;
+  const clientUser = profileUser as ClientProfile;
   const isOwnProfile = currentUser?.id === profileUser.id;
   const reviews = isProfessional ? getReviewsForProfessional(profileUser.id) : [];
   const ratingData = isProfessional ? getAverageRating(profileUser.id) : { rating: 0, count: 0 };
   const canReview =
     !isOwnProfile && currentUser?.role === 'client' && isProfessional && !hasClientReviewed;
+
+  // Client-specific data
+  const clientReviews = !isProfessional ? getClientReviews(profileUser.id) : [];
+  const clientRatingData = !isProfessional ? getClientAverageRating(profileUser.id) : { rating: 0, count: 0 };
+  const canRateClient =
+    !isOwnProfile && currentUser?.role === 'professional' && !isProfessional && !hasProfessionalReviewedClient;
 
   // Calculate member since
   const memberSince = format(new Date(profileUser.createdAt), 'MMMM yyyy');
@@ -210,6 +234,47 @@ export default function ProfileViewScreen() {
             ))}
           </ScrollView>
         )}
+      </View>
+    );
+  };
+
+  const renderClientReview = (review: ClientReview) => {
+    const timeAgo = formatDistanceToNow(new Date(review.createdAt), { addSuffix: true });
+
+    return (
+      <View key={review.id} className="bg-skillset-bg-card rounded-xl p-4 mb-3">
+        {/* Review Header */}
+        <View className="flex-row items-center mb-3">
+          <View className="w-10 h-10 rounded-full bg-skillset-teal/20 items-center justify-center">
+            {review.professionalPhotoUrl ? (
+              <Image
+                source={{ uri: review.professionalPhotoUrl }}
+                style={{ width: 40, height: 40, borderRadius: 20 }}
+              />
+            ) : (
+              <Briefcase color="#4A9BAD" size={20} />
+            )}
+          </View>
+          <View className="ml-3 flex-1">
+            <Text className="text-white font-medium">{review.professionalName}</Text>
+            <View className="flex-row items-center mt-0.5">
+              {renderStars(review.rating)}
+              <Text className="text-slate-500 text-xs ml-2">{timeAgo}</Text>
+            </View>
+          </View>
+        </View>
+
+        {/* Service Category */}
+        {review.serviceCategoryName && (
+          <View className="mb-2">
+            <View className="bg-skillset-bg-input/50 px-2 py-1 rounded self-start">
+              <Text className="text-slate-400 text-xs">{review.serviceCategoryName}</Text>
+            </View>
+          </View>
+        )}
+
+        {/* Description */}
+        <Text className="text-slate-300 leading-5">{review.description}</Text>
       </View>
     );
   };
@@ -320,6 +385,16 @@ export default function ProfileViewScreen() {
                   >
                     <PenLine color="#5A7A82" size={18} />
                     <Text className="text-slate-300 font-semibold ml-2">Review</Text>
+                  </Pressable>
+                )}
+
+                {canRateClient && (
+                  <Pressable
+                    onPress={handleRateClient}
+                    className="bg-skillset-bg-input rounded-xl px-5 py-3 flex-row items-center"
+                  >
+                    <Star color="#5A7A82" size={18} />
+                    <Text className="text-slate-300 font-semibold ml-2">Rate</Text>
                   </Pressable>
                 )}
               </View>
@@ -496,15 +571,79 @@ export default function ProfileViewScreen() {
           </View>
         )}
 
-        {/* Client profile - just show member since prominently */}
+        {/* Client profile - show location and ratings */}
         {!isProfessional && (
           <View className="px-6 mt-6">
-            <View className="bg-skillset-bg-card rounded-xl p-4">
-              <View className="flex-row items-center">
-                <Calendar color="#3B82F6" size={20} />
-                <Text className="text-white font-semibold ml-2">Member Since</Text>
+            {/* Location Info */}
+            {clientUser.neighborhood && (
+              <View className="bg-skillset-bg-card rounded-xl p-4 mb-4">
+                <View className="flex-row items-center mb-2">
+                  <MapPin color="#3B82F6" size={20} />
+                  <Text className="text-white font-semibold ml-2">Location</Text>
+                </View>
+                <Text className="text-slate-300">
+                  {clientUser.neighborhood}, {clientUser.city}
+                </Text>
               </View>
-              <Text className="text-slate-300 mt-2">{memberSince}</Text>
+            )}
+
+            {/* Rating & Member Info */}
+            <View className="flex-row mb-4">
+              <View className="flex-1 bg-skillset-bg-card rounded-xl p-4 mr-2">
+                <View className="flex-row items-center mb-1">
+                  <Star color="#5A7A82" size={16} />
+                  <Text className="text-slate-400 text-sm ml-1">Rating</Text>
+                </View>
+                <View className="flex-row items-center">
+                  <Text className="text-white text-xl font-bold">
+                    {clientRatingData.count > 0 ? clientRatingData.rating.toFixed(1) : 'N/A'}
+                  </Text>
+                  {clientRatingData.count > 0 && (
+                    <Text className="text-slate-500 text-sm ml-1">
+                      ({clientRatingData.count})
+                    </Text>
+                  )}
+                </View>
+              </View>
+
+              <View className="flex-1 bg-skillset-bg-card rounded-xl p-4 ml-2">
+                <View className="flex-row items-center mb-1">
+                  <Calendar color="#5A7A82" size={16} />
+                  <Text className="text-slate-400 text-sm ml-1">Member</Text>
+                </View>
+                <Text className="text-white text-lg font-bold">{memberSince}</Text>
+              </View>
+            </View>
+
+            {/* Client Reviews Section */}
+            <View className="mt-2">
+              <View className="flex-row items-center justify-between mb-4">
+                <View className="flex-row items-center">
+                  <Star color="#3B82F6" size={20} fill="#3B82F6" />
+                  <Text className="text-white font-semibold ml-2">
+                    Reviews from Professionals ({clientReviews.length})
+                  </Text>
+                </View>
+                {clientRatingData.count > 0 && (
+                  <View className="flex-row items-center">
+                    <Text className="text-blue-400 font-bold mr-1">
+                      {clientRatingData.rating.toFixed(1)}
+                    </Text>
+                    {renderStars(Math.round(clientRatingData.rating), 12)}
+                  </View>
+                )}
+              </View>
+
+              {clientReviews.length > 0 ? (
+                clientReviews.map((review) => renderClientReview(review))
+              ) : (
+                <View className="bg-skillset-bg-card/50 rounded-xl p-6 items-center">
+                  <Star color="#5A7A82" size={32} />
+                  <Text className="text-slate-400 text-center mt-2">
+                    No reviews yet from professionals.
+                  </Text>
+                </View>
+              )}
             </View>
           </View>
         )}
