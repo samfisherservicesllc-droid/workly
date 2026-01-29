@@ -16,6 +16,7 @@ import {
   Calendar,
   Images,
   Play,
+  Plus,
 } from 'lucide-react-native';
 import { useAuthStore } from '@/lib/state/auth-store';
 import { useReviewsStore } from '@/lib/state/reviews-store';
@@ -194,6 +195,34 @@ export default function ProfileScreen() {
               <Calendar color="#5A7A82" size={14} />
               <Text className="text-slate-500 text-sm ml-1">Member since {memberSince}</Text>
             </View>
+
+            {/* Create Post Button */}
+            <Pressable
+              onPress={() => {
+                Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+                router.push('/create-post');
+              }}
+              className="mt-5"
+            >
+              <LinearGradient
+                colors={['#4A9BAD', '#3A7A8A']}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 0 }}
+                style={{
+                  borderRadius: 12,
+                  paddingVertical: 14,
+                  paddingHorizontal: 24,
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+              >
+                <Plus color="white" size={20} />
+                <Text className="text-white font-semibold text-base ml-2">
+                  {isProfessional ? 'Share Your Work' : 'Share a Job Done'}
+                </Text>
+              </LinearGradient>
+            </Pressable>
           </View>
         </LinearGradient>
 
