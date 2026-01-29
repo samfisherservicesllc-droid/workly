@@ -87,6 +87,7 @@ export const useAuthStore = create<AuthState>()(
             serviceCategories: [],
             yearsExperience: 0,
             serviceArea: [city],
+            feedRadius: 20, // Default 20-mile radius
             description: '',
           } as ProfessionalProfile;
         }

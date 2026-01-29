@@ -43,6 +43,7 @@ export interface ProfessionalProfile extends BaseUser {
   yearsExperience: number;
   licenseNumber?: string;
   serviceArea: string[]; // Cities/areas served
+  feedRadius: number; // Radius in miles for feed filtering (default 20)
   description: string;
   rating?: number;
   reviewCount?: number;

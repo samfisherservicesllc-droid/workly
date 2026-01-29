@@ -16,6 +16,7 @@ const sampleProfessionals: ProfessionalProfile[] = [
     yearsExperience: 12,
     licenseNumber: 'CA-ELE-123456',
     serviceArea: ['Los Angeles', 'Santa Monica', 'Pasadena', 'Burbank'],
+    feedRadius: 20,
     description:
       'Licensed master electrician with over 12 years of experience. Specializing in residential rewiring, panel upgrades, and smart home installations. Available for emergency calls.',
     rating: 4.9,
@@ -33,6 +34,7 @@ const sampleProfessionals: ProfessionalProfile[] = [
     serviceCategories: ['landscaping', 'lawn-care', 'irrigation'],
     yearsExperience: 8,
     serviceArea: ['San Francisco', 'Oakland', 'Berkeley', 'Marin'],
+    feedRadius: 20,
     description:
       'Creating beautiful outdoor spaces that blend functionality with aesthetics. Sustainable design practices and native plant expertise. Award-winning designs.',
     rating: 4.8,
@@ -50,6 +52,7 @@ const sampleProfessionals: ProfessionalProfile[] = [
     serviceCategories: ['house-cleaning', 'deep-cleaning', 'carpet-cleaning'],
     yearsExperience: 5,
     serviceArea: ['Seattle', 'Bellevue', 'Redmond', 'Kirkland'],
+    feedRadius: 20,
     description:
       'Eco-friendly deep cleaning services for homes and offices. We use only non-toxic, environmentally safe products. Satisfaction guaranteed.',
     rating: 4.7,
@@ -68,6 +71,7 @@ const sampleProfessionals: ProfessionalProfile[] = [
     yearsExperience: 15,
     licenseNumber: 'CO-PLB-789012',
     serviceArea: ['Denver', 'Aurora', 'Lakewood', 'Littleton'],
+    feedRadius: 20,
     description:
       'Full-service plumbing for residential and commercial properties. Bathroom remodels a specialty. Emergency services available 24/7.',
     rating: 4.9,
@@ -86,6 +90,7 @@ const sampleProfessionals: ProfessionalProfile[] = [
     yearsExperience: 20,
     licenseNumber: 'CA-GC-456789',
     serviceArea: ['Los Angeles', 'Hollywood', 'Beverly Hills', 'West Hollywood'],
+    feedRadius: 20,
     description:
       'Jack of all trades, master of many. From small repairs to full renovations, I bring 20 years of craftsmanship to every project.',
     rating: 4.8,
@@ -103,6 +108,7 @@ const sampleProfessionals: ProfessionalProfile[] = [
     serviceCategories: ['painting', 'drywall'],
     yearsExperience: 10,
     serviceArea: ['Austin', 'Round Rock', 'Cedar Park', 'Georgetown'],
+    feedRadius: 20,
     description:
       'Transforming homes one room at a time. Specializing in color consultation, faux finishes, and cabinet refinishing. Clean, efficient work.',
     rating: 4.9,
@@ -121,6 +127,7 @@ const sampleProfessionals: ProfessionalProfile[] = [
     yearsExperience: 14,
     licenseNumber: 'FL-HVAC-234567',
     serviceArea: ['Miami', 'Fort Lauderdale', 'Coral Gables', 'Miami Beach'],
+    feedRadius: 20,
     description:
       'Keep your cool in Florida heat! Expert AC installation, repair, and maintenance. Same-day service available.',
     rating: 4.7,
@@ -138,6 +145,7 @@ const sampleProfessionals: ProfessionalProfile[] = [
     serviceCategories: ['junk-removal', 'moving', 'packing', 'storage'],
     yearsExperience: 6,
     serviceArea: ['Seattle', 'Tacoma', 'Bellevue', 'Everett'],
+    feedRadius: 20,
     description:
       'Life-changing organization and decluttering services. From closets to whole-home transformations. Moving and packing services too!',
     rating: 5.0,
@@ -155,6 +163,7 @@ const sampleProfessionals: ProfessionalProfile[] = [
     serviceCategories: ['flooring', 'tiling', 'carpentry'],
     yearsExperience: 18,
     serviceArea: ['Chicago', 'Evanston', 'Oak Park', 'Naperville'],
+    feedRadius: 20,
     description:
       'Expert flooring installation - hardwood, laminate, vinyl, and tile. Family business with three generations of craftsmanship.',
     rating: 4.9,
@@ -172,6 +181,7 @@ const sampleProfessionals: ProfessionalProfile[] = [
     serviceCategories: ['dog-sitting', 'pet-grooming', 'house-sitting'],
     yearsExperience: 7,
     serviceArea: ['San Francisco', 'Daly City', 'South San Francisco'],
+    feedRadius: 20,
     description:
       'Your pets deserve the best! Professional pet sitting, grooming, and overnight care. Vet tech certified with lots of love to give.',
     rating: 5.0,
@@ -190,6 +200,7 @@ const sampleProfessionals: ProfessionalProfile[] = [
     yearsExperience: 22,
     licenseNumber: 'CO-ROOF-111222',
     serviceArea: ['Denver', 'Boulder', 'Fort Collins', 'Colorado Springs'],
+    feedRadius: 20,
     description:
       'Keeping Colorado homes protected for over 20 years. Expert in all roofing types, storm damage repair, and gutter installation.',
     rating: 4.8,
@@ -207,6 +218,7 @@ const sampleProfessionals: ProfessionalProfile[] = [
     serviceCategories: ['house-cleaning', 'personal-assistant'],
     yearsExperience: 4,
     serviceArea: ['Austin', 'San Marcos', 'New Braunfels'],
+    feedRadius: 20,
     description:
       'From chaos to calm! Professional home organization and personal assistance. Specializing in busy families and home offices.',
     rating: 4.9,
