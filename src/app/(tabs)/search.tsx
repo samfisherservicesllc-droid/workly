@@ -15,6 +15,7 @@ import {
   Filter,
   ChevronDown,
   FileText,
+  Building,
 } from 'lucide-react-native';
 import { useAuthStore } from '@/lib/state/auth-store';
 import { useProfessionalsStore, SearchFilters } from '@/lib/state/professionals-store';
@@ -73,6 +74,12 @@ export default function SearchScreen() {
     if (filters.city) {
       const lowerCity = filters.city.toLowerCase();
       results = results.filter((p) => p.city.toLowerCase().includes(lowerCity));
+    }
+
+    // State filter - check if city contains state abbreviation or state name
+    if (filters.state) {
+      const lowerState = filters.state.toLowerCase();
+      results = results.filter((p) => p.city.toLowerCase().includes(lowerState));
     }
 
     // Sort by date (newest first)
@@ -286,7 +293,7 @@ export default function SearchScreen() {
     [router]
   );
 
-  const hasActiveFilters = filters.categoryId || filters.city;
+  const hasActiveFilters = filters.categoryId || filters.city || filters.state;
 
   return (
     <View className="flex-1 bg-skillset-bg-dark">
@@ -393,6 +400,56 @@ export default function SearchScreen() {
         {/* Filter Panel */}
         {showFilters && (
           <View className="mt-3 bg-skillset-bg-card rounded-xl p-4">
+            {/* Location Filters */}
+            <Text className="text-white font-medium mb-3">Location</Text>
+            <View className="flex-row mb-4">
+              <View className="flex-1 mr-2">
+                <View className="flex-row items-center bg-skillset-bg-input rounded-xl px-3 py-2.5 border border-skillset-border">
+                  <MapPin color="#5A7A82" size={16} />
+                  <TextInput
+                    className="flex-1 ml-2 text-white text-sm"
+                    placeholder="City"
+                    placeholderTextColor="#5A7A82"
+                    value={filters.city ?? ''}
+                    onChangeText={(text) =>
+                      setFilters((prev) => ({ ...prev, city: text || undefined }))
+                    }
+                  />
+                  {filters.city && (
+                    <Pressable
+                      onPress={() => setFilters((prev) => ({ ...prev, city: undefined }))}
+                    >
+                      <X color="#5A7A82" size={14} />
+                    </Pressable>
+                  )}
+                </View>
+              </View>
+              <View className="flex-1 ml-2">
+                <View className="flex-row items-center bg-skillset-bg-input rounded-xl px-3 py-2.5 border border-skillset-border">
+                  <Building color="#5A7A82" size={16} />
+                  <TextInput
+                    className="flex-1 ml-2 text-white text-sm"
+                    placeholder="State"
+                    placeholderTextColor="#5A7A82"
+                    value={filters.state ?? ''}
+                    onChangeText={(text) =>
+                      setFilters((prev) => ({ ...prev, state: text || undefined }))
+                    }
+                    autoCapitalize="characters"
+                    maxLength={2}
+                  />
+                  {filters.state && (
+                    <Pressable
+                      onPress={() => setFilters((prev) => ({ ...prev, state: undefined }))}
+                    >
+                      <X color="#5A7A82" size={14} />
+                    </Pressable>
+                  )}
+                </View>
+              </View>
+            </View>
+
+            {/* Service Category */}
             <Text className="text-white font-medium mb-3">Service Category</Text>
             <ScrollView
               horizontal

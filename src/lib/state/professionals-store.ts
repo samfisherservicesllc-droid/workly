@@ -15,6 +15,7 @@ interface ProfessionalsState {
 export interface SearchFilters {
   categoryId?: string;
   city?: string;
+  state?: string;
   minRating?: number;
   minExperience?: number;
 }
@@ -67,6 +68,16 @@ export const useProfessionalsStore = create<ProfessionalsState>()(
             (p) =>
               p.city.toLowerCase().includes(lowerCity) ||
               p.serviceArea.some((area) => area.toLowerCase().includes(lowerCity))
+          );
+        }
+
+        // State filter
+        if (filters?.state) {
+          const lowerState = filters.state.toLowerCase();
+          results = results.filter(
+            (p) =>
+              p.city.toLowerCase().includes(lowerState) ||
+              p.serviceArea.some((area) => area.toLowerCase().includes(lowerState))
           );
         }
 
