@@ -380,7 +380,7 @@ export default function SearchScreen() {
                     searchMode === 'professionals' ? 'text-white' : 'text-slate-400'
                   }`}
                 >
-                  Find Pros
+                  Professionals
                 </Text>
               </View>
             </Pressable>
@@ -400,7 +400,7 @@ export default function SearchScreen() {
                     searchMode === 'leads' ? 'text-white' : 'text-slate-400'
                   }`}
                 >
-                  Find Leads
+                  Job Requests
                 </Text>
               </View>
             </Pressable>
@@ -586,7 +586,7 @@ export default function SearchScreen() {
             <Lock color="#4A9BAD" size={40} />
           </View>
           <Text className="text-white text-2xl font-bold text-center mb-2">
-            Unlock Job Leads
+            Unlock Job Requests
           </Text>
           <Text className="text-slate-400 text-center mb-6">
             Subscribe to Skillset Pro to access job requests from clients in your area

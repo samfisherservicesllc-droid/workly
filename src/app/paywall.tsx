@@ -35,7 +35,7 @@ import type { PurchasesPackage } from 'react-native-purchases';
 const FEATURES = [
   {
     icon: Briefcase,
-    title: 'Unlimited Job Leads',
+    title: 'Unlimited Job Requests',
     description: 'Access all job requests from clients in your area',
   },
   {
@@ -101,7 +101,7 @@ export default function PaywallScreen() {
         Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
         Alert.alert(
           'Welcome to Pro!',
-          'You now have full access to job leads. Start connecting with clients!',
+          'You now have full access to job requests. Start connecting with clients!',
           [{ text: 'Get Started', onPress: () => router.back() }]
         );
       }
@@ -169,7 +169,7 @@ export default function PaywallScreen() {
                 Skillset Pro
               </Text>
               <Text className="text-slate-400 text-center text-base">
-                Unlock unlimited access to job leads{'\n'}and grow your business
+                Unlock unlimited access to job requests{'\n'}and grow your business
               </Text>
             </Animated.View>
 

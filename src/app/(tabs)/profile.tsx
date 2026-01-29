@@ -579,7 +579,7 @@ export default function ProfileScreen() {
                       </View>
                       <View className="ml-3 flex-1">
                         <Text className="text-white font-semibold">Upgrade to Pro</Text>
-                        <Text className="text-white/80 text-sm">Unlock job leads & more</Text>
+                        <Text className="text-white/80 text-sm">Unlock job requests & more</Text>
                       </View>
                       <Text className="text-white font-bold">$9.99/mo</Text>
                     </View>
