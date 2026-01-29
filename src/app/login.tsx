@@ -56,7 +56,7 @@ export default function LoginScreen() {
                 <View className="w-20 h-20 bg-skillset-teal rounded-2xl items-center justify-center mb-4">
                   <Briefcase color="white" size={40} />
                 </View>
-                <Text className="text-white text-3xl font-bold">Skillset</Text>
+                <Text className="text-white text-3xl font-bold">Workly</Text>
                 <Text className="text-slate-400 text-base mt-2">
                   Find local service professionals
                 </Text>

@@ -95,7 +95,7 @@ export default function RegisterScreen() {
         <SafeAreaView className="flex-1">
           <View className="flex-1 justify-center px-6">
             <View className="items-center mb-12">
-              <Text className="text-white text-3xl font-bold">Join Skillset</Text>
+              <Text className="text-white text-3xl font-bold">Join Workly</Text>
               <Text className="text-slate-400 text-base mt-2 text-center">
                 Are you looking for services or offering them?
               </Text>

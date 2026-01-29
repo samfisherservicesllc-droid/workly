@@ -589,7 +589,7 @@ export default function SearchScreen() {
             Unlock Job Requests
           </Text>
           <Text className="text-slate-400 text-center mb-6">
-            Subscribe to Skillset Pro to access job requests from clients in your area
+            Subscribe to Workly Pro to access job requests from clients in your area
           </Text>
           <Pressable
             onPress={() => {

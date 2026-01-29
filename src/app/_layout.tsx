@@ -21,8 +21,8 @@ const queryClient = new QueryClient();
 // Set to true to reset all data and re-seed on next app launch
 const FORCE_RESEED = false;
 
-// Skillset brand theme with teal colors
-const SkillsetTheme = {
+// Workly brand theme with teal colors
+const WorklyTheme = {
   ...DarkTheme,
   colors: {
     ...DarkTheme.colors,
@@ -69,7 +69,7 @@ function RootLayoutNav() {
   }, [isAuthenticated, segments, isReady]);
 
   return (
-    <ThemeProvider value={SkillsetTheme}>
+    <ThemeProvider value={WorklyTheme}>
       <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name="login" />
         <Stack.Screen name="register" />

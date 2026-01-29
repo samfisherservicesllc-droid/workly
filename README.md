@@ -1,10 +1,10 @@
-# Skillset - Local Service Professional Marketplace
+# Workly - Local Service Professional Marketplace
 
 A mobile-first app connecting clients with local service professionals. No general social features - focused purely on service discovery and proof of work.
 
 ## Brand Colors
 
-Based on the Skillset logo featuring a paintbrush and trowel on a teal background:
+Based on the Workly brand with teal accents:
 
 - **Primary Teal**: #4A9BAD
 - **Teal Light**: #5DB5C8
@@ -101,7 +101,7 @@ Based on the Skillset logo featuring a paintbrush and trowel on a teal backgroun
 - Attach photos/videos to describe the job
 - Professionals with Pro subscription can view and respond to job requests
 
-### Subscription (Skillset Pro)
+### Subscription (Workly Pro)
 - **Price**: $9.99/month
 - **Benefits**:
   - Access to all job leads from clients
@@ -227,7 +227,7 @@ The app comes pre-loaded with sample professionals, clients, and posts to demons
 
 ## Design
 
-- Dark teal theme with turquoise accents (based on Skillset logo)
+- Dark teal theme with turquoise accents (Workly brand)
 - Mobile-optimized touch interactions
 - Haptic feedback on actions
 - Clean, professional aesthetic inspired by iOS HIG

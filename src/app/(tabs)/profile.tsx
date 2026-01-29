@@ -552,7 +552,7 @@ export default function ProfileScreen() {
                       <Crown color="#4A9BAD" size={20} />
                     </View>
                     <View className="ml-3 flex-1">
-                      <Text className="text-white font-semibold">Skillset Pro</Text>
+                      <Text className="text-white font-semibold">Workly Pro</Text>
                       <Text className="text-skillset-teal-light text-sm">Active Subscription</Text>
                     </View>
                     <View className="bg-skillset-teal/30 px-3 py-1 rounded-full">

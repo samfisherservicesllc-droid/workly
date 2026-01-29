@@ -166,7 +166,7 @@ export default function PaywallScreen() {
                 <Zap color="#4A9BAD" size={40} fill="#4A9BAD" />
               </View>
               <Text className="text-white text-3xl font-bold text-center mb-2">
-                Skillset Pro
+                Workly Pro
               </Text>
               <Text className="text-slate-400 text-center text-base">
                 Unlock unlimited access to job requests{'\n'}and grow your business
