@@ -48,9 +48,12 @@ function RootLayoutNav() {
 
     const inAuthGroup = segments[0] === '(tabs)';
 
+    // List of screens accessible when authenticated
+    const allowedAuthScreens = ['complete-profile', 'create-post', 'conversation', 'profile', 'write-review', 'edit-portfolio'];
+
     if (!isAuthenticated && inAuthGroup) {
       router.replace('/login');
-    } else if (isAuthenticated && !inAuthGroup && segments[0] !== 'complete-profile') {
+    } else if (isAuthenticated && !inAuthGroup && !allowedAuthScreens.includes(segments[0] as string)) {
       router.replace('/(tabs)');
     }
 
