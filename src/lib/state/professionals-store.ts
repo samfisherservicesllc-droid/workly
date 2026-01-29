@@ -16,6 +16,7 @@ export interface SearchFilters {
   categoryId?: string;
   city?: string;
   state?: string;
+  keywords?: string;
   minRating?: number;
   minExperience?: number;
 }
@@ -79,6 +80,21 @@ export const useProfessionalsStore = create<ProfessionalsState>()(
               p.city.toLowerCase().includes(lowerState) ||
               p.serviceArea.some((area) => area.toLowerCase().includes(lowerState))
           );
+        }
+
+        // Keywords filter - search in name, trade, description, and banner
+        if (filters?.keywords) {
+          const keywords = filters.keywords.toLowerCase().split(/\s+/).filter(Boolean);
+          results = results.filter((p) => {
+            const searchableText = [
+              p.name,
+              p.trade,
+              p.description,
+              p.banner?.text,
+            ].filter(Boolean).join(' ').toLowerCase();
+
+            return keywords.every((keyword) => searchableText.includes(keyword));
+          });
         }
 
         // Min rating filter

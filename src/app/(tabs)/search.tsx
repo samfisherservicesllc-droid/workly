@@ -17,6 +17,7 @@ import {
   FileText,
   Building,
   Sparkles,
+  Tag,
 } from 'lucide-react-native';
 import { useAuthStore } from '@/lib/state/auth-store';
 import { useProfessionalsStore, SearchFilters } from '@/lib/state/professionals-store';
@@ -81,6 +82,15 @@ export default function SearchScreen() {
     if (filters.state) {
       const lowerState = filters.state.toLowerCase();
       results = results.filter((p) => p.city.toLowerCase().includes(lowerState));
+    }
+
+    // Keywords filter - search in title and description
+    if (filters.keywords) {
+      const keywords = filters.keywords.toLowerCase().split(/\s+/).filter(Boolean);
+      results = results.filter((p) => {
+        const searchableText = [p.title, p.description].join(' ').toLowerCase();
+        return keywords.every((keyword) => searchableText.includes(keyword));
+      });
     }
 
     // Sort by date (newest first)
@@ -304,7 +314,7 @@ export default function SearchScreen() {
     [router]
   );
 
-  const hasActiveFilters = filters.categoryId || filters.city || filters.state;
+  const hasActiveFilters = filters.categoryId || filters.city || filters.state || filters.keywords;
 
   return (
     <View className="flex-1 bg-skillset-bg-dark">
@@ -458,6 +468,28 @@ export default function SearchScreen() {
                   )}
                 </View>
               </View>
+            </View>
+
+            {/* Keywords Filter */}
+            <Text className="text-white font-medium mb-3">Keywords</Text>
+            <View className="flex-row items-center bg-skillset-bg-input rounded-xl px-3 py-2.5 border border-skillset-border mb-4">
+              <Tag color="#5A7A82" size={16} />
+              <TextInput
+                className="flex-1 ml-2 text-white text-sm"
+                placeholder="e.g. emergency, weekend, licensed"
+                placeholderTextColor="#5A7A82"
+                value={filters.keywords ?? ''}
+                onChangeText={(text) =>
+                  setFilters((prev) => ({ ...prev, keywords: text || undefined }))
+                }
+              />
+              {filters.keywords && (
+                <Pressable
+                  onPress={() => setFilters((prev) => ({ ...prev, keywords: undefined }))}
+                >
+                  <X color="#5A7A82" size={14} />
+                </Pressable>
+              )}
             </View>
 
             {/* Service Category */}
