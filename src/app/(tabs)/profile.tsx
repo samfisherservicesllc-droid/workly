@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { View, Text, Pressable, ScrollView, Alert } from 'react-native';
 import { Image } from 'expo-image';
 import { Video, ResizeMode } from 'expo-av';
@@ -20,11 +21,14 @@ import {
   Megaphone,
   Sparkles,
   ClipboardList,
+  Zap,
+  Crown,
 } from 'lucide-react-native';
 import { useAuthStore } from '@/lib/state/auth-store';
 import { useReviewsStore } from '@/lib/state/reviews-store';
 import { getCategoryById } from '@/lib/categories';
 import { ProfessionalProfile, Review } from '@/lib/types';
+import { hasEntitlement, isRevenueCatEnabled } from '@/lib/revenuecatClient';
 import { format, formatDistanceToNow } from 'date-fns';
 import * as Haptics from 'expo-haptics';
 
@@ -34,6 +38,24 @@ export default function ProfileScreen() {
   const logout = useAuthStore((s) => s.logout);
   const getReviewsForProfessional = useReviewsStore((s) => s.getReviewsForProfessional);
   const getAverageRating = useReviewsStore((s) => s.getAverageRating);
+  const [hasProAccess, setHasProAccess] = useState(false);
+
+  useEffect(() => {
+    const checkSubscription = async () => {
+      if (user?.role !== 'professional') return;
+
+      if (!isRevenueCatEnabled()) {
+        setHasProAccess(true);
+        return;
+      }
+
+      const result = await hasEntitlement('leads_access');
+      if (result.ok) {
+        setHasProAccess(result.data);
+      }
+    };
+    checkSubscription();
+  }, [user]);
 
   const handleLogout = () => {
     Alert.alert('Sign Out', 'Are you sure you want to sign out?', [
@@ -520,6 +542,53 @@ export default function ProfileScreen() {
 
         {/* Actions */}
         <View className="px-6 mt-2">
+          {/* Subscription Card for Professionals */}
+          {isProfessional && isRevenueCatEnabled() && (
+            <View className="mb-3">
+              {hasProAccess ? (
+                <View className="bg-skillset-teal/20 rounded-xl p-4 border border-skillset-teal/30">
+                  <View className="flex-row items-center">
+                    <View className="w-10 h-10 bg-skillset-teal/30 rounded-full items-center justify-center">
+                      <Crown color="#4A9BAD" size={20} />
+                    </View>
+                    <View className="ml-3 flex-1">
+                      <Text className="text-white font-semibold">Skillset Pro</Text>
+                      <Text className="text-skillset-teal-light text-sm">Active Subscription</Text>
+                    </View>
+                    <View className="bg-skillset-teal/30 px-3 py-1 rounded-full">
+                      <Text className="text-skillset-teal-light text-xs font-medium">PRO</Text>
+                    </View>
+                  </View>
+                </View>
+              ) : (
+                <Pressable
+                  onPress={() => {
+                    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+                    router.push('/paywall');
+                  }}
+                >
+                  <LinearGradient
+                    colors={['#4A9BAD', '#3A8A9D']}
+                    start={{ x: 0, y: 0 }}
+                    end={{ x: 1, y: 0 }}
+                    style={{ borderRadius: 12, padding: 16 }}
+                  >
+                    <View className="flex-row items-center">
+                      <View className="w-10 h-10 bg-white/20 rounded-full items-center justify-center">
+                        <Zap color="white" size={20} fill="white" />
+                      </View>
+                      <View className="ml-3 flex-1">
+                        <Text className="text-white font-semibold">Upgrade to Pro</Text>
+                        <Text className="text-white/80 text-sm">Unlock job leads & more</Text>
+                      </View>
+                      <Text className="text-white font-bold">$9.99/mo</Text>
+                    </View>
+                  </LinearGradient>
+                </Pressable>
+              )}
+            </View>
+          )}
+
           {isProfessional && (
             <Pressable
               onPress={() => router.push('/complete-profile')}

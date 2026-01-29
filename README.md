@@ -90,10 +90,26 @@ Based on the Skillset logo featuring a paintbrush and trowel on a teal backgroun
 
 ### Search Functionality
 - **Find Professionals**: Search by name, trade, location, or service category
-- **Find Leads**: Search job posts from clients looking for services
-- **Filters**: Filter by service category
+- **Find Leads**: Search job posts from clients looking for services (Pro subscription required)
+- **Filters**: Filter by service category, city, state, keywords
 - **Professional Cards**: Show ratings, experience, and service categories
 - **Lead Cards**: Show job details with contact option
+
+### Job Requests
+- Clients can post job requests visible to professionals
+- Include title, description, service category, location details
+- Attach photos/videos to describe the job
+- Professionals with Pro subscription can view and respond to job requests
+
+### Subscription (Skillset Pro)
+- **Price**: $9.99/month
+- **Benefits**:
+  - Access to all job leads from clients
+  - Direct client contact
+  - Priority messaging
+  - Featured profile in search
+- **Entitlement**: `leads_access`
+- **Implementation**: RevenueCat for subscription management
 
 ## Project Structure
 
@@ -112,6 +128,9 @@ src/
 │   ├── complete-profile.tsx # Professional profile setup
 │   ├── create-post.tsx    # Create new post (modal)
 │   ├── edit-portfolio.tsx # Edit portfolio media (modal)
+│   ├── edit-banner.tsx    # Edit promotional banner (modal)
+│   ├── create-job-request.tsx # Create job request (modal)
+│   ├── paywall.tsx        # Subscription paywall (modal)
 │   ├── write-review/[professionalId].tsx # Write review (modal)
 │   ├── conversation/[id].tsx # Chat screen
 │   └── profile/[id].tsx   # View other profiles + reviews
@@ -125,7 +144,8 @@ src/
         ├── posts-store.ts # Posts and reactions (Zustand)
         ├── messages-store.ts # Conversations (Zustand)
         ├── reviews-store.ts # Reviews (Zustand)
-        └── professionals-store.ts # Professional search (Zustand)
+        ├── professionals-store.ts # Professional search (Zustand)
+        └── job-requests-store.ts # Job requests (Zustand)
 ```
 
 ## Data Models

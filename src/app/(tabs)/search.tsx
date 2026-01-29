@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
-import { View, Text, TextInput, Pressable, ScrollView } from 'react-native';
+import { View, Text, TextInput, Pressable, ScrollView, ActivityIndicator } from 'react-native';
 import { FlashList } from '@shopify/flash-list';
 import { Image } from 'expo-image';
 import { Video, ResizeMode } from 'expo-av';
@@ -21,6 +21,8 @@ import {
   Tag,
   Play,
   Home,
+  Lock,
+  Zap,
 } from 'lucide-react-native';
 import { useAuthStore } from '@/lib/state/auth-store';
 import { useProfessionalsStore, SearchFilters } from '@/lib/state/professionals-store';
@@ -28,6 +30,7 @@ import { useJobRequestsStore, JobRequestFilters } from '@/lib/state/job-requests
 import { useReviewsStore } from '@/lib/state/reviews-store';
 import { SERVICE_CATEGORIES } from '@/lib/categories';
 import { ProfessionalProfile, JobRequest } from '@/lib/types';
+import { hasEntitlement, isRevenueCatEnabled } from '@/lib/revenuecatClient';
 import * as Haptics from 'expo-haptics';
 import { formatDistanceToNow } from 'date-fns';
 
@@ -49,6 +52,33 @@ export default function SearchScreen() {
   );
   const [showFilters, setShowFilters] = useState(false);
   const [filters, setFilters] = useState<SearchFilters & JobRequestFilters>({});
+  const [hasLeadsAccess, setHasLeadsAccess] = useState(false);
+  const [isCheckingAccess, setIsCheckingAccess] = useState(true);
+
+  // Check subscription status
+  useEffect(() => {
+    const checkAccess = async () => {
+      if (!isProfessional) {
+        setIsCheckingAccess(false);
+        return;
+      }
+
+      if (!isRevenueCatEnabled()) {
+        // If RevenueCat is not enabled, grant access for testing
+        setHasLeadsAccess(true);
+        setIsCheckingAccess(false);
+        return;
+      }
+
+      const result = await hasEntitlement('leads_access');
+      if (result.ok) {
+        setHasLeadsAccess(result.data);
+      }
+      setIsCheckingAccess(false);
+    };
+
+    checkAccess();
+  }, [isProfessional]);
 
   useEffect(() => {
     loadProfessionals();
@@ -66,6 +96,13 @@ export default function SearchScreen() {
 
   const handleModeSwitch = (mode: SearchMode) => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+
+    // If switching to leads and no access, show paywall
+    if (mode === 'leads' && !hasLeadsAccess && isRevenueCatEnabled()) {
+      router.push('/paywall');
+      return;
+    }
+
     setSearchMode(mode);
     setFilters({});
   };
@@ -538,6 +575,47 @@ export default function SearchScreen() {
             contentContainerStyle={{ paddingTop: 8, paddingBottom: 100 }}
           />
         )
+      ) : isCheckingAccess ? (
+        <View className="flex-1 items-center justify-center">
+          <ActivityIndicator color="#4A9BAD" size="large" />
+        </View>
+      ) : !hasLeadsAccess && isRevenueCatEnabled() ? (
+        // Locked state - no subscription
+        <View className="flex-1 items-center justify-center px-8">
+          <View className="w-24 h-24 bg-skillset-teal/20 rounded-full items-center justify-center mb-6">
+            <Lock color="#4A9BAD" size={40} />
+          </View>
+          <Text className="text-white text-2xl font-bold text-center mb-2">
+            Unlock Job Leads
+          </Text>
+          <Text className="text-slate-400 text-center mb-6">
+            Subscribe to Skillset Pro to access job requests from clients in your area
+          </Text>
+          <Pressable
+            onPress={() => {
+              Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+              router.push('/paywall');
+            }}
+          >
+            <LinearGradient
+              colors={['#4A9BAD', '#3A8A9D']}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
+              style={{
+                borderRadius: 12,
+                paddingVertical: 14,
+                paddingHorizontal: 32,
+                flexDirection: 'row',
+                alignItems: 'center',
+              }}
+            >
+              <Zap color="white" size={20} fill="white" />
+              <Text className="text-white font-semibold text-lg ml-2">
+                Subscribe Now
+              </Text>
+            </LinearGradient>
+          </Pressable>
+        </View>
       ) : jobRequestResults.length === 0 ? (
         <View className="flex-1 items-center justify-center px-8">
           <View className="w-20 h-20 bg-skillset-bg-card rounded-full items-center justify-center mb-4">
