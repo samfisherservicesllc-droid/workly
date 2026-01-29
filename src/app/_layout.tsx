@@ -6,7 +6,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { KeyboardProvider } from 'react-native-keyboard-controller';
 import { useAuthStore } from '@/lib/state/auth-store';
-import { seedSampleData } from '@/lib/seed-data';
+import { seedSampleData, clearAllData } from '@/lib/seed-data';
 import { useEffect, useState } from 'react';
 
 export const unstable_settings = {
@@ -17,6 +17,9 @@ export const unstable_settings = {
 SplashScreen.preventAutoHideAsync();
 
 const queryClient = new QueryClient();
+
+// Set to true to reset all data and re-seed on next app launch
+const FORCE_RESEED = false;
 
 // Skillset brand theme with teal colors
 const SkillsetTheme = {
@@ -38,9 +41,14 @@ function RootLayoutNav() {
 
   useEffect(() => {
     // Seed sample data on app start
-    seedSampleData().then(() => {
+    const initData = async () => {
+      if (FORCE_RESEED) {
+        await clearAllData();
+      }
+      await seedSampleData();
       setIsReady(true);
-    });
+    };
+    initData();
   }, []);
 
   useEffect(() => {
