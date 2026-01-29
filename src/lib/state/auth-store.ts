@@ -76,7 +76,7 @@ export const useAuthStore = create<AuthState>()(
           newUser = {
             ...baseUser,
             role: 'client',
-            feedRadius: 9, // Default 9-mile radius
+            feedRadius: 20, // Default 20-mile radius
             neighborhood: neighborhood || undefined,
           } as ClientProfile;
         } else {
