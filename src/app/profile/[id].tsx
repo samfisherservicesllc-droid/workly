@@ -198,6 +198,15 @@ export default function ProfileViewScreen() {
           </View>
         )}
 
+        {/* Company Name */}
+        {review.companyName && (
+          <View className="mb-2">
+            <Text className="text-skillset-teal text-sm font-medium">
+              {review.companyName}
+            </Text>
+          </View>
+        )}
+
         {/* Description */}
         <Text className="text-slate-300 leading-5">{review.description}</Text>
 

@@ -21,6 +21,7 @@ import {
   Video as VideoIcon,
   X,
   Play,
+  Building2,
 } from 'lucide-react-native';
 import * as ImagePicker from 'expo-image-picker';
 import * as Haptics from 'expo-haptics';
@@ -45,6 +46,7 @@ export default function WriteReviewScreen() {
 
   const [rating, setRating] = useState(0);
   const [description, setDescription] = useState('');
+  const [companyName, setCompanyName] = useState('');
   const [media, setMedia] = useState<MediaItem[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [error, setError] = useState('');
@@ -132,6 +134,7 @@ export default function WriteReviewScreen() {
       clientPhotoUrl: user.photoUrl,
       rating,
       description: description.trim(),
+      companyName: companyName.trim() || undefined,
       media,
       serviceCategoryId: selectedCategory ?? undefined,
       serviceCategoryName: category?.name,
@@ -286,6 +289,27 @@ export default function WriteReviewScreen() {
                   </Pressable>
                 ))}
               </ScrollView>
+            </View>
+
+            {/* Company/Business Name */}
+            <View className="mb-6">
+              <Text className="text-white font-semibold mb-2">
+                Company/Business Name (optional)
+              </Text>
+              <Text className="text-slate-500 text-xs mb-3">
+                If the professional works for a company, enter the business name
+              </Text>
+              <View className="flex-row items-center bg-skillset-bg-card rounded-xl px-4 py-3 border border-skillset-border">
+                <Building2 color="#5A7A82" size={20} />
+                <TextInput
+                  className="flex-1 ml-3 text-white text-base"
+                  placeholder="e.g. ABC Plumbing Services"
+                  placeholderTextColor="#5A7A82"
+                  value={companyName}
+                  onChangeText={setCompanyName}
+                  maxLength={100}
+                />
+              </View>
             </View>
 
             {/* Description */}

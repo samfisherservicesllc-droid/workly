@@ -125,6 +125,7 @@ export interface Review {
   clientPhotoUrl?: string;
   rating: number; // 1-5 stars
   description: string; // Up to 250 words
+  companyName?: string; // Optional company/business name
   media: MediaItem[]; // Photos and videos
   serviceCategoryId?: string;
   serviceCategoryName?: string;
