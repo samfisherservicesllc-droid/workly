@@ -63,6 +63,12 @@ Based on the Skillset logo featuring a paintbrush and trowel on a teal backgroun
 - Share post link
 - Direct 1-to-1 messaging between clients and professionals
 
+#### Report System
+- Report users for harassment, spam, fake profiles, scams, or inappropriate content
+- Available from profile pages and conversation screens
+- Multi-step report flow with reason selection and description
+- Prevents duplicate reports from the same user
+
 #### Reviews System
 - 5-star rating system
 - Written reviews (up to 250 words)

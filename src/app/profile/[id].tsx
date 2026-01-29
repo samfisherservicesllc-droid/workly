@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { View, Text, Pressable, ScrollView } from 'react-native';
 import { useLocalSearchParams, useRouter, Stack } from 'expo-router';
 import { Image } from 'expo-image';
@@ -17,6 +18,8 @@ import {
   Play,
   Images,
   PenLine,
+  Flag,
+  MoreVertical,
 } from 'lucide-react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useQuery } from '@tanstack/react-query';
@@ -27,6 +30,7 @@ import { getCategoryById } from '@/lib/categories';
 import { User, ProfessionalProfile, Review } from '@/lib/types';
 import { format, formatDistanceToNow } from 'date-fns';
 import * as Haptics from 'expo-haptics';
+import ReportModal from '@/components/ReportModal';
 
 export default function ProfileViewScreen() {
   const { id: profileId } = useLocalSearchParams<{ id: string }>();
@@ -39,6 +43,8 @@ export default function ProfileViewScreen() {
   const hasClientReviewed = useReviewsStore((s) =>
     s.hasClientReviewedProfessional(currentUser?.id ?? '', profileId ?? '')
   );
+
+  const [showReportModal, setShowReportModal] = useState(false);
 
   // Fetch user from stored users
   const { data: profileUser, isLoading } = useQuery({
@@ -84,6 +90,11 @@ export default function ProfileViewScreen() {
       pathname: '/write-review/[professionalId]',
       params: { professionalId: profileUser.id, professionalName: profileUser.name },
     });
+  };
+
+  const handleReport = () => {
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+    setShowReportModal(true);
   };
 
   if (isLoading) {
@@ -216,6 +227,15 @@ export default function ProfileViewScreen() {
               <ArrowLeft color="white" size={24} />
             </Pressable>
           ),
+          headerRight: () =>
+            !isOwnProfile ? (
+              <Pressable
+                onPress={handleReport}
+                className="w-10 h-10 items-center justify-center"
+              >
+                <Flag color="#5A7A82" size={20} />
+              </Pressable>
+            ) : null,
         }}
       />
 
@@ -489,6 +509,14 @@ export default function ProfileViewScreen() {
           </View>
         )}
       </ScrollView>
+
+      {/* Report Modal */}
+      <ReportModal
+        visible={showReportModal}
+        onClose={() => setShowReportModal(false)}
+        reportedUserId={profileUser.id}
+        reportedUserName={profileUser.name}
+      />
     </View>
   );
 }

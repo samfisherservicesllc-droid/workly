@@ -125,3 +125,24 @@ export interface Review {
   serviceCategoryName?: string;
   createdAt: string;
 }
+
+// Reports
+export type ReportReason =
+  | 'harassment'
+  | 'spam'
+  | 'fake_profile'
+  | 'inappropriate_content'
+  | 'scam'
+  | 'other';
+
+export interface Report {
+  id: string;
+  reporterId: string;
+  reporterName: string;
+  reportedUserId: string;
+  reportedUserName: string;
+  reason: ReportReason;
+  description: string;
+  status: 'pending' | 'reviewed' | 'resolved';
+  createdAt: string;
+}

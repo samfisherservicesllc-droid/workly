@@ -11,12 +11,13 @@ import {
 import { useLocalSearchParams, useRouter, Stack } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Image } from 'expo-image';
-import { ArrowLeft, Send, Briefcase, UserCircle } from 'lucide-react-native';
+import { ArrowLeft, Send, Briefcase, UserCircle, Flag } from 'lucide-react-native';
 import { useAuthStore } from '@/lib/state/auth-store';
 import { useMessagesStore } from '@/lib/state/messages-store';
 import { Message } from '@/lib/types';
 import { format, isToday, isYesterday } from 'date-fns';
 import * as Haptics from 'expo-haptics';
+import ReportModal from '@/components/ReportModal';
 
 export default function ConversationScreen() {
   const { id: conversationId } = useLocalSearchParams<{ id: string }>();
@@ -28,6 +29,7 @@ export default function ConversationScreen() {
   const markAsRead = useMessagesStore((s) => s.markAsRead);
 
   const [messageText, setMessageText] = useState('');
+  const [showReportModal, setShowReportModal] = useState(false);
   const flatListRef = useRef<FlatList>(null);
 
   // Mark messages as read when opening conversation
@@ -63,6 +65,11 @@ export default function ConversationScreen() {
     setTimeout(() => {
       flatListRef.current?.scrollToEnd({ animated: true });
     }, 100);
+  };
+
+  const handleReport = () => {
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+    setShowReportModal(true);
   };
 
   const formatMessageTime = (dateString: string) => {
@@ -145,6 +152,14 @@ export default function ConversationScreen() {
               </View>
             </Pressable>
           ),
+          headerRight: () => (
+            <Pressable
+              onPress={handleReport}
+              className="w-10 h-10 items-center justify-center"
+            >
+              <Flag color="#5A7A82" size={20} />
+            </Pressable>
+          ),
         }}
       />
 
@@ -209,6 +224,14 @@ export default function ConversationScreen() {
           </View>
         </SafeAreaView>
       </KeyboardAvoidingView>
+
+      {/* Report Modal */}
+      <ReportModal
+        visible={showReportModal}
+        onClose={() => setShowReportModal(false)}
+        reportedUserId={otherUserId}
+        reportedUserName={otherName}
+      />
     </View>
   );
 }
