@@ -57,7 +57,7 @@ function RootLayoutNav() {
     const inAuthGroup = segments[0] === '(tabs)';
 
     // List of screens accessible when authenticated
-    const allowedAuthScreens = ['complete-profile', 'create-post', 'conversation', 'profile', 'write-review', 'edit-portfolio', 'rate-client', 'edit-banner'];
+    const allowedAuthScreens = ['complete-profile', 'create-post', 'conversation', 'profile', 'write-review', 'edit-portfolio', 'rate-client', 'edit-banner', 'create-job-request'];
 
     if (!isAuthenticated && inAuthGroup) {
       router.replace('/login');
@@ -82,6 +82,7 @@ function RootLayoutNav() {
         <Stack.Screen name="edit-portfolio" options={{ presentation: 'modal' }} />
         <Stack.Screen name="rate-client/[clientId]" options={{ presentation: 'modal' }} />
         <Stack.Screen name="edit-banner" options={{ presentation: 'modal' }} />
+        <Stack.Screen name="create-job-request" options={{ presentation: 'modal' }} />
       </Stack>
     </ThemeProvider>
   );

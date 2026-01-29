@@ -122,6 +122,26 @@ export interface FeedFilters {
   city?: string;
 }
 
+// Job Requests (from clients seeking professionals)
+export interface JobRequest {
+  id: string;
+  clientId: string;
+  clientName: string;
+  clientPhotoUrl?: string;
+  title: string;
+  description: string;
+  serviceCategoryId: string;
+  serviceCategoryName: string;
+  neighborhood: string;
+  city: string;
+  state: string;
+  zipCode: string;
+  media: MediaItem[]; // Photos and videos
+  status: 'open' | 'in_progress' | 'completed' | 'cancelled';
+  createdAt: string;
+  updatedAt: string;
+}
+
 // Reviews (from clients about professionals)
 export interface Review {
   id: string;

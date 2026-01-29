@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo, useCallback } from 'react';
 import { View, Text, TextInput, Pressable, ScrollView } from 'react-native';
 import { FlashList } from '@shopify/flash-list';
 import { Image } from 'expo-image';
+import { Video, ResizeMode } from 'expo-av';
 import { useRouter } from 'expo-router';
 import { LinearGradient } from 'expo-linear-gradient';
 import {
@@ -18,13 +19,15 @@ import {
   Building,
   Sparkles,
   Tag,
+  Play,
+  Home,
 } from 'lucide-react-native';
 import { useAuthStore } from '@/lib/state/auth-store';
 import { useProfessionalsStore, SearchFilters } from '@/lib/state/professionals-store';
-import { usePostsStore } from '@/lib/state/posts-store';
+import { useJobRequestsStore, JobRequestFilters } from '@/lib/state/job-requests-store';
 import { useReviewsStore } from '@/lib/state/reviews-store';
 import { SERVICE_CATEGORIES } from '@/lib/categories';
-import { ProfessionalProfile, Post } from '@/lib/types';
+import { ProfessionalProfile, JobRequest } from '@/lib/types';
 import * as Haptics from 'expo-haptics';
 import { formatDistanceToNow } from 'date-fns';
 
@@ -35,15 +38,17 @@ export default function SearchScreen() {
   const user = useAuthStore((s) => s.user);
   const loadProfessionals = useProfessionalsStore((s) => s.loadProfessionals);
   const searchProfessionals = useProfessionalsStore((s) => s.searchProfessionals);
-  const posts = usePostsStore((s) => s.posts);
+  const searchJobRequests = useJobRequestsStore((s) => s.searchJobRequests);
   const getAverageRating = useReviewsStore((s) => s.getAverageRating);
+
+  const isProfessional = user?.role === 'professional';
 
   const [searchQuery, setSearchQuery] = useState('');
   const [searchMode, setSearchMode] = useState<SearchMode>(
-    user?.role === 'professional' ? 'leads' : 'professionals'
+    isProfessional ? 'leads' : 'professionals'
   );
   const [showFilters, setShowFilters] = useState(false);
-  const [filters, setFilters] = useState<SearchFilters>({});
+  const [filters, setFilters] = useState<SearchFilters & JobRequestFilters>({});
 
   useEffect(() => {
     loadProfessionals();
@@ -54,52 +59,10 @@ export default function SearchScreen() {
     return searchProfessionals(searchQuery, filters);
   }, [searchQuery, filters, searchProfessionals]);
 
-  // Search job leads (posts from clients)
-  const leadResults = useMemo(() => {
-    let results = posts.filter((p) => p.authorRole === 'client');
-
-    const lowerQuery = searchQuery.toLowerCase().trim();
-    if (lowerQuery) {
-      results = results.filter(
-        (p) =>
-          p.title.toLowerCase().includes(lowerQuery) ||
-          p.description.toLowerCase().includes(lowerQuery) ||
-          p.serviceCategoryName.toLowerCase().includes(lowerQuery) ||
-          p.city.toLowerCase().includes(lowerQuery)
-      );
-    }
-
-    if (filters.categoryId) {
-      results = results.filter((p) => p.serviceCategoryId === filters.categoryId);
-    }
-
-    if (filters.city) {
-      const lowerCity = filters.city.toLowerCase();
-      results = results.filter((p) => p.city.toLowerCase().includes(lowerCity));
-    }
-
-    // State filter - check if city contains state abbreviation or state name
-    if (filters.state) {
-      const lowerState = filters.state.toLowerCase();
-      results = results.filter((p) => p.city.toLowerCase().includes(lowerState));
-    }
-
-    // Keywords filter - search in title and description
-    if (filters.keywords) {
-      const keywords = filters.keywords.toLowerCase().split(/\s+/).filter(Boolean);
-      results = results.filter((p) => {
-        const searchableText = [p.title, p.description].join(' ').toLowerCase();
-        return keywords.every((keyword) => searchableText.includes(keyword));
-      });
-    }
-
-    // Sort by date (newest first)
-    results.sort(
-      (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-    );
-
-    return results;
-  }, [posts, searchQuery, filters]);
+  // Search job requests (leads for professionals)
+  const jobRequestResults = useMemo(() => {
+    return searchJobRequests(searchQuery, filters);
+  }, [searchQuery, filters, searchJobRequests]);
 
   const handleModeSwitch = (mode: SearchMode) => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
@@ -220,24 +183,24 @@ export default function SearchScreen() {
     [router, getAverageRating]
   );
 
-  const renderLead = useCallback(
-    ({ item: post }: { item: Post }) => {
-      const timeAgo = formatDistanceToNow(new Date(post.createdAt), { addSuffix: true });
+  const renderJobRequest = useCallback(
+    ({ item: jobRequest }: { item: JobRequest }) => {
+      const timeAgo = formatDistanceToNow(new Date(jobRequest.createdAt), { addSuffix: true });
 
       return (
         <Pressable
           onPress={() => {
             Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-            router.push(`/profile/${post.authorId}`);
+            router.push(`/profile/${jobRequest.clientId}`);
           }}
           className="bg-skillset-bg-card mx-4 mb-3 rounded-2xl p-4 active:opacity-80"
         >
           {/* Header */}
           <View className="flex-row items-center">
             <View className="w-10 h-10 rounded-full bg-blue-500/20 items-center justify-center">
-              {post.authorPhotoUrl ? (
+              {jobRequest.clientPhotoUrl ? (
                 <Image
-                  source={{ uri: post.authorPhotoUrl }}
+                  source={{ uri: jobRequest.clientPhotoUrl }}
                   style={{ width: 40, height: 40, borderRadius: 20 }}
                 />
               ) : (
@@ -245,10 +208,12 @@ export default function SearchScreen() {
               )}
             </View>
             <View className="ml-3 flex-1">
-              <Text className="text-white font-medium">{post.authorName}</Text>
-              <View className="flex-row items-center">
+              <Text className="text-white font-medium">{jobRequest.clientName}</Text>
+              <View className="flex-row items-center flex-wrap">
                 <MapPin color="#5A7A82" size={10} />
-                <Text className="text-slate-500 text-xs ml-1">{post.city}</Text>
+                <Text className="text-slate-500 text-xs ml-1">
+                  {jobRequest.neighborhood ? `${jobRequest.neighborhood}, ` : ''}{jobRequest.city}, {jobRequest.state}
+                </Text>
                 <Text className="text-slate-600 text-xs ml-2">• {timeAgo}</Text>
               </View>
             </View>
@@ -261,35 +226,53 @@ export default function SearchScreen() {
           <View className="mt-3">
             <View className="flex-row items-center mb-2">
               <View className="bg-skillset-bg-input px-3 py-1 rounded-full">
-                <Text className="text-slate-300 text-sm">{post.serviceCategoryName}</Text>
+                <Text className="text-slate-300 text-sm">{jobRequest.serviceCategoryName}</Text>
+              </View>
+              <View className="bg-skillset-bg-input px-2 py-1 rounded ml-2">
+                <Text className="text-slate-400 text-xs">{jobRequest.zipCode}</Text>
               </View>
             </View>
-            <Text className="text-white font-medium">{post.title}</Text>
+            <Text className="text-white font-medium">{jobRequest.title}</Text>
             <Text className="text-slate-400 text-sm mt-1" numberOfLines={2}>
-              {post.description}
+              {jobRequest.description}
             </Text>
           </View>
 
-          {/* Images preview */}
-          {post.images.length > 0 && (
+          {/* Media preview */}
+          {jobRequest.media.length > 0 && (
             <ScrollView
               horizontal
               showsHorizontalScrollIndicator={false}
               className="mt-3"
               style={{ flexGrow: 0 }}
             >
-              {post.images.slice(0, 3).map((image, index) => (
-                <Image
-                  key={index}
-                  source={{ uri: image }}
-                  style={{ width: 80, height: 80, borderRadius: 8, marginRight: 8 }}
-                  contentFit="cover"
-                />
+              {jobRequest.media.slice(0, 3).map((item) => (
+                <View key={item.id} className="mr-2">
+                  {item.type === 'image' ? (
+                    <Image
+                      source={{ uri: item.uri }}
+                      style={{ width: 80, height: 80, borderRadius: 8 }}
+                      contentFit="cover"
+                    />
+                  ) : (
+                    <View className="w-20 h-20 rounded-lg bg-skillset-bg-input items-center justify-center overflow-hidden">
+                      <Video
+                        source={{ uri: item.uri }}
+                        style={{ width: 80, height: 80 }}
+                        resizeMode={ResizeMode.COVER}
+                        shouldPlay={false}
+                      />
+                      <View className="absolute bg-black/50 rounded-full p-1">
+                        <Play color="white" size={12} fill="white" />
+                      </View>
+                    </View>
+                  )}
+                </View>
               ))}
-              {post.images.length > 3 && (
+              {jobRequest.media.length > 3 && (
                 <View className="w-20 h-20 rounded-lg bg-skillset-bg-input items-center justify-center">
                   <Text className="text-slate-400 text-sm">
-                    +{post.images.length - 3}
+                    +{jobRequest.media.length - 3}
                   </Text>
                 </View>
               )}
@@ -300,7 +283,7 @@ export default function SearchScreen() {
           <Pressable
             onPress={() => {
               Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-              router.push(`/profile/${post.authorId}`);
+              router.push(`/profile/${jobRequest.clientId}`);
             }}
             className="mt-3 bg-skillset-teal/20 py-2 rounded-xl"
           >
@@ -328,7 +311,7 @@ export default function SearchScreen() {
             placeholder={
               searchMode === 'professionals'
                 ? 'Search professionals, trades...'
-                : 'Search job leads...'
+                : 'Search job requests...'
             }
             placeholderTextColor="#5A7A82"
             value={searchQuery}
@@ -341,49 +324,51 @@ export default function SearchScreen() {
           )}
         </View>
 
-        {/* Mode Toggle */}
-        <View className="flex-row mt-3">
-          <Pressable
-            onPress={() => handleModeSwitch('professionals')}
-            className={`flex-1 py-3 rounded-xl mr-2 ${
-              searchMode === 'professionals' ? 'bg-skillset-teal' : 'bg-skillset-bg-card'
-            }`}
-          >
-            <View className="flex-row items-center justify-center">
-              <Briefcase
-                color={searchMode === 'professionals' ? 'white' : '#5A7A82'}
-                size={18}
-              />
-              <Text
-                className={`ml-2 font-medium ${
-                  searchMode === 'professionals' ? 'text-white' : 'text-slate-400'
-                }`}
-              >
-                Find Pros
-              </Text>
-            </View>
-          </Pressable>
-          <Pressable
-            onPress={() => handleModeSwitch('leads')}
-            className={`flex-1 py-3 rounded-xl ml-2 ${
-              searchMode === 'leads' ? 'bg-skillset-teal' : 'bg-skillset-bg-card'
-            }`}
-          >
-            <View className="flex-row items-center justify-center">
-              <FileText
-                color={searchMode === 'leads' ? 'white' : '#5A7A82'}
-                size={18}
-              />
-              <Text
-                className={`ml-2 font-medium ${
-                  searchMode === 'leads' ? 'text-white' : 'text-slate-400'
-                }`}
-              >
-                Find Leads
-              </Text>
-            </View>
-          </Pressable>
-        </View>
+        {/* Mode Toggle - Only show for professionals */}
+        {isProfessional && (
+          <View className="flex-row mt-3">
+            <Pressable
+              onPress={() => handleModeSwitch('professionals')}
+              className={`flex-1 py-3 rounded-xl mr-2 ${
+                searchMode === 'professionals' ? 'bg-skillset-teal' : 'bg-skillset-bg-card'
+              }`}
+            >
+              <View className="flex-row items-center justify-center">
+                <Briefcase
+                  color={searchMode === 'professionals' ? 'white' : '#5A7A82'}
+                  size={18}
+                />
+                <Text
+                  className={`ml-2 font-medium ${
+                    searchMode === 'professionals' ? 'text-white' : 'text-slate-400'
+                  }`}
+                >
+                  Find Pros
+                </Text>
+              </View>
+            </Pressable>
+            <Pressable
+              onPress={() => handleModeSwitch('leads')}
+              className={`flex-1 py-3 rounded-xl ml-2 ${
+                searchMode === 'leads' ? 'bg-skillset-teal' : 'bg-skillset-bg-card'
+              }`}
+            >
+              <View className="flex-row items-center justify-center">
+                <FileText
+                  color={searchMode === 'leads' ? 'white' : '#5A7A82'}
+                  size={18}
+                />
+                <Text
+                  className={`ml-2 font-medium ${
+                    searchMode === 'leads' ? 'text-white' : 'text-slate-400'
+                  }`}
+                >
+                  Find Leads
+                </Text>
+              </View>
+            </Pressable>
+          </View>
+        )}
 
         {/* Filter Toggle */}
         <View className="flex-row items-center justify-between mt-3">
@@ -553,24 +538,24 @@ export default function SearchScreen() {
             contentContainerStyle={{ paddingTop: 8, paddingBottom: 100 }}
           />
         )
-      ) : leadResults.length === 0 ? (
+      ) : jobRequestResults.length === 0 ? (
         <View className="flex-1 items-center justify-center px-8">
           <View className="w-20 h-20 bg-skillset-bg-card rounded-full items-center justify-center mb-4">
             <FileText color="#5A7A82" size={32} />
           </View>
           <Text className="text-white text-xl font-semibold text-center">
-            {searchQuery ? 'No leads found' : 'Search for job leads'}
+            {searchQuery ? 'No job requests found' : 'No job requests yet'}
           </Text>
           <Text className="text-slate-400 text-center mt-2">
             {searchQuery
               ? 'Try adjusting your search or filters'
-              : 'Find clients looking for your services'}
+              : 'Check back later for new job requests from clients'}
           </Text>
         </View>
       ) : (
         <FlashList
-          data={leadResults}
-          renderItem={renderLead}
+          data={jobRequestResults}
+          renderItem={renderJobRequest}
           estimatedItemSize={200}
           contentContainerStyle={{ paddingTop: 8, paddingBottom: 100 }}
         />

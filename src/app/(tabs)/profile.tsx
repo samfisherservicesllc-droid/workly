@@ -19,6 +19,7 @@ import {
   Plus,
   Megaphone,
   Sparkles,
+  ClipboardList,
 } from 'lucide-react-native';
 import { useAuthStore } from '@/lib/state/auth-store';
 import { useReviewsStore } from '@/lib/state/reviews-store';
@@ -225,6 +226,36 @@ export default function ProfileScreen() {
                 </Text>
               </LinearGradient>
             </Pressable>
+
+            {/* Post Job Request Button - Only for Clients */}
+            {!isProfessional && (
+              <Pressable
+                onPress={() => {
+                  Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+                  router.push('/create-job-request');
+                }}
+                className="mt-3"
+              >
+                <LinearGradient
+                  colors={['#3B82F6', '#2563EB']}
+                  start={{ x: 0, y: 0 }}
+                  end={{ x: 1, y: 0 }}
+                  style={{
+                    borderRadius: 12,
+                    paddingVertical: 14,
+                    paddingHorizontal: 24,
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <ClipboardList color="white" size={20} />
+                  <Text className="text-white font-semibold text-base ml-2">
+                    Post Job Request
+                  </Text>
+                </LinearGradient>
+              </Pressable>
+            )}
           </View>
         </LinearGradient>
 
