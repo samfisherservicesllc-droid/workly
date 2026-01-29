@@ -400,7 +400,7 @@ export default function SearchScreen() {
                     searchMode === 'leads' ? 'text-white' : 'text-slate-400'
                   }`}
                 >
-                  Job Requests
+                  Find Leads
                 </Text>
               </View>
             </Pressable>
