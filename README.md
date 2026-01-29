@@ -78,8 +78,16 @@ Based on the Skillset logo featuring a paintbrush and trowel on a teal backgroun
 
 ### Navigation
 - **Feed Tab**: Main feed with posts and filters
+- **Search Tab**: Find professionals or job leads
 - **Messages Tab**: Direct conversations with badge for unread
 - **Profile Tab**: View and edit your profile, portfolio, see reviews
+
+### Search Functionality
+- **Find Professionals**: Search by name, trade, location, or service category
+- **Find Leads**: Search job posts from clients looking for services
+- **Filters**: Filter by service category
+- **Professional Cards**: Show ratings, experience, and service categories
+- **Lead Cards**: Show job details with contact option
 
 ## Project Structure
 
@@ -89,6 +97,7 @@ src/
 │   ├── (tabs)/            # Tab navigation
 │   │   ├── _layout.tsx    # Tab configuration
 │   │   ├── index.tsx      # Feed screen
+│   │   ├── search.tsx     # Search professionals & leads
 │   │   ├── messages.tsx   # Messages list
 │   │   └── profile.tsx    # User profile
 │   ├── _layout.tsx        # Root navigation
@@ -109,7 +118,8 @@ src/
         ├── auth-store.ts  # Authentication state (Zustand)
         ├── posts-store.ts # Posts and reactions (Zustand)
         ├── messages-store.ts # Conversations (Zustand)
-        └── reviews-store.ts # Reviews (Zustand)
+        ├── reviews-store.ts # Reviews (Zustand)
+        └── professionals-store.ts # Professional search (Zustand)
 ```
 
 ## Data Models

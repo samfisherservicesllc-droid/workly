@@ -1,5 +1,5 @@
 import { Tabs } from 'expo-router';
-import { Home, MessageSquare, User, Plus } from 'lucide-react-native';
+import { Home, MessageSquare, User, Plus, Search } from 'lucide-react-native';
 import { View, Pressable } from 'react-native';
 import { useRouter } from 'expo-router';
 import { useAuthStore } from '@/lib/state/auth-store';
@@ -58,6 +58,13 @@ export default function TabLayout() {
               <Plus color="white" size={22} />
             </Pressable>
           ),
+        }}
+      />
+      <Tabs.Screen
+        name="search"
+        options={{
+          title: 'Search',
+          tabBarIcon: ({ color, size }) => <Search color={color} size={size} />,
         }}
       />
       <Tabs.Screen
