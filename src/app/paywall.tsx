@@ -135,7 +135,7 @@ export default function PaywallScreen() {
   const price = monthlyPackage?.product?.priceString ?? '$9.99';
 
   return (
-    <View className="flex-1 bg-skillset-bg-dark">
+    <View className="flex-1 bg-workly-bg-dark">
       <Stack.Screen options={{ headerShown: false }} />
 
       <LinearGradient
@@ -162,7 +162,7 @@ export default function PaywallScreen() {
               entering={FadeInDown.delay(100).duration(500)}
               className="items-center pt-8 pb-6 px-6"
             >
-              <View className="w-20 h-20 rounded-2xl bg-skillset-teal/20 items-center justify-center mb-4">
+              <View className="w-20 h-20 rounded-2xl bg-workly-teal/20 items-center justify-center mb-4">
                 <Zap color="#4A9BAD" size={40} fill="#4A9BAD" />
               </View>
               <Text className="text-white text-3xl font-bold text-center mb-2">
@@ -182,9 +182,9 @@ export default function PaywallScreen() {
                 <Animated.View
                   key={feature.title}
                   entering={FadeInDown.delay(300 + index * 100).duration(400)}
-                  className="flex-row items-center bg-skillset-bg-card/50 rounded-xl p-4 mb-3 border border-skillset-border/50"
+                  className="flex-row items-center bg-workly-bg-card/50 rounded-xl p-4 mb-3 border border-workly-border/50"
                 >
-                  <View className="w-12 h-12 rounded-full bg-skillset-teal/20 items-center justify-center mr-4">
+                  <View className="w-12 h-12 rounded-full bg-workly-teal/20 items-center justify-center mr-4">
                     <feature.icon color="#4A9BAD" size={24} />
                   </View>
                   <View className="flex-1">
@@ -215,13 +215,13 @@ export default function PaywallScreen() {
                 className="px-6"
               >
                 {/* Price card */}
-                <View className="bg-skillset-bg-card rounded-2xl p-6 mb-4 border-2 border-skillset-teal">
+                <View className="bg-workly-bg-card rounded-2xl p-6 mb-4 border-2 border-workly-teal">
                   <View className="flex-row items-center justify-between mb-2">
                     <Text className="text-white text-lg font-semibold">
                       Monthly
                     </Text>
-                    <View className="bg-skillset-teal/20 px-3 py-1 rounded-full">
-                      <Text className="text-skillset-teal text-xs font-semibold">
+                    <View className="bg-workly-teal/20 px-3 py-1 rounded-full">
+                      <Text className="text-workly-teal text-xs font-semibold">
                         BEST VALUE
                       </Text>
                     </View>
@@ -270,7 +270,7 @@ export default function PaywallScreen() {
                   {isRestoring ? (
                     <ActivityIndicator color="#4A9BAD" size="small" />
                   ) : (
-                    <Text className="text-skillset-teal text-center font-medium">
+                    <Text className="text-workly-teal text-center font-medium">
                       Restore Purchases
                     </Text>
                   )}

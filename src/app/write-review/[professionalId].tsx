@@ -171,7 +171,7 @@ export default function WriteReviewScreen() {
 
   if (hasReviewed) {
     return (
-      <View className="flex-1 bg-skillset-bg-dark">
+      <View className="flex-1 bg-workly-bg-dark">
         <Stack.Screen
           options={{
             headerShown: true,
@@ -199,7 +199,7 @@ export default function WriteReviewScreen() {
   }
 
   return (
-    <View className="flex-1 bg-skillset-bg-dark">
+    <View className="flex-1 bg-workly-bg-dark">
       <Stack.Screen
         options={{
           headerShown: true,
@@ -238,7 +238,7 @@ export default function WriteReviewScreen() {
               </Text>
               {renderStars()}
               {rating > 0 && (
-                <Text className="text-skillset-teal text-center mt-2">
+                <Text className="text-workly-teal text-center mt-2">
                   {rating === 5
                     ? 'Excellent!'
                     : rating === 4
@@ -273,8 +273,8 @@ export default function WriteReviewScreen() {
                     }}
                     className={`px-4 py-2 rounded-full mr-2 ${
                       selectedCategory === category.id
-                        ? 'bg-skillset-teal'
-                        : 'bg-skillset-bg-card'
+                        ? 'bg-workly-teal'
+                        : 'bg-workly-bg-card'
                     }`}
                   >
                     <Text
@@ -299,7 +299,7 @@ export default function WriteReviewScreen() {
               <Text className="text-slate-500 text-xs mb-3">
                 If the professional works for a company, enter the business name
               </Text>
-              <View className="flex-row items-center bg-skillset-bg-card rounded-xl px-4 py-3 border border-skillset-border">
+              <View className="flex-row items-center bg-workly-bg-card rounded-xl px-4 py-3 border border-workly-border">
                 <Building2 color="#5A7A82" size={20} />
                 <TextInput
                   className="flex-1 ml-3 text-white text-base"
@@ -327,7 +327,7 @@ export default function WriteReviewScreen() {
                 </Text>
               </View>
               <TextInput
-                className="bg-skillset-bg-card rounded-xl px-4 py-3 text-white text-base border border-skillset-border min-h-[150px]"
+                className="bg-workly-bg-card rounded-xl px-4 py-3 text-white text-base border border-workly-border min-h-[150px]"
                 placeholder="Share details about the work quality, professionalism, communication, and whether you would recommend them..."
                 placeholderTextColor="#5A7A82"
                 value={description}
@@ -356,7 +356,7 @@ export default function WriteReviewScreen() {
                         contentFit="cover"
                       />
                     ) : (
-                      <View className="w-[100px] h-[100px] rounded-xl bg-skillset-bg-card items-center justify-center overflow-hidden">
+                      <View className="w-[100px] h-[100px] rounded-xl bg-workly-bg-card items-center justify-center overflow-hidden">
                         <Video
                           source={{ uri: item.uri }}
                           style={{ width: 100, height: 100 }}
@@ -381,7 +381,7 @@ export default function WriteReviewScreen() {
                   <View className="flex-row">
                     <Pressable
                       onPress={pickImage}
-                      className="w-[100px] h-[100px] bg-skillset-bg-card rounded-xl items-center justify-center border border-dashed border-skillset-border mr-3"
+                      className="w-[100px] h-[100px] bg-workly-bg-card rounded-xl items-center justify-center border border-dashed border-workly-border mr-3"
                     >
                       <Camera color="#5A7A82" size={28} />
                       <Text className="text-slate-500 text-xs mt-1">Photo</Text>
@@ -389,7 +389,7 @@ export default function WriteReviewScreen() {
 
                     <Pressable
                       onPress={pickVideo}
-                      className="w-[100px] h-[100px] bg-skillset-bg-card rounded-xl items-center justify-center border border-dashed border-skillset-border"
+                      className="w-[100px] h-[100px] bg-workly-bg-card rounded-xl items-center justify-center border border-dashed border-workly-border"
                     >
                       <VideoIcon color="#5A7A82" size={28} />
                       <Text className="text-slate-500 text-xs mt-1">Video</Text>

@@ -99,7 +99,7 @@ export default function ProfileScreen() {
     const timeAgo = formatDistanceToNow(new Date(review.createdAt), { addSuffix: true });
 
     return (
-      <View key={review.id} className="bg-skillset-bg-card rounded-xl p-4 mb-3">
+      <View key={review.id} className="bg-workly-bg-card rounded-xl p-4 mb-3">
         <View className="flex-row items-center mb-3">
           <View className="w-10 h-10 rounded-full bg-blue-500/20 items-center justify-center">
             {review.clientPhotoUrl ? (
@@ -122,7 +122,7 @@ export default function ProfileScreen() {
 
         {review.serviceCategoryName && (
           <View className="mb-2">
-            <View className="bg-skillset-bg-input/50 px-2 py-1 rounded self-start">
+            <View className="bg-workly-bg-input/50 px-2 py-1 rounded self-start">
               <Text className="text-slate-400 text-xs">{review.serviceCategoryName}</Text>
             </View>
           </View>
@@ -146,7 +146,7 @@ export default function ProfileScreen() {
                     contentFit="cover"
                   />
                 ) : (
-                  <View className="w-20 h-20 rounded-lg bg-skillset-bg-input items-center justify-center overflow-hidden">
+                  <View className="w-20 h-20 rounded-lg bg-workly-bg-input items-center justify-center overflow-hidden">
                     <Video
                       source={{ uri: item.uri }}
                       style={{ width: 80, height: 80 }}
@@ -167,7 +167,7 @@ export default function ProfileScreen() {
   };
 
   return (
-    <View className="flex-1 bg-skillset-bg-dark">
+    <View className="flex-1 bg-workly-bg-dark">
       <ScrollView contentContainerStyle={{ paddingBottom: 100 }}>
         {/* Profile Header */}
         <LinearGradient
@@ -177,7 +177,7 @@ export default function ProfileScreen() {
           <View className="items-center px-6">
             <View
               className={`w-24 h-24 rounded-full items-center justify-center ${
-                isProfessional ? 'bg-skillset-teal/20' : 'bg-blue-500/20'
+                isProfessional ? 'bg-workly-teal/20' : 'bg-blue-500/20'
               }`}
             >
               {user.photoUrl ? (
@@ -197,12 +197,12 @@ export default function ProfileScreen() {
             <View className="flex-row items-center mt-2">
               <View
                 className={`px-3 py-1 rounded-full ${
-                  isProfessional ? 'bg-skillset-teal/20' : 'bg-blue-500/20'
+                  isProfessional ? 'bg-workly-teal/20' : 'bg-blue-500/20'
                 }`}
               >
                 <Text
                   className={`text-sm font-medium ${
-                    isProfessional ? 'text-skillset-teal-light' : 'text-blue-400'
+                    isProfessional ? 'text-workly-teal-light' : 'text-blue-400'
                   }`}
                 >
                   {isProfessional ? 'Professional' : 'Client'}
@@ -293,9 +293,9 @@ export default function ProfileScreen() {
                 </View>
                 <Pressable
                   onPress={() => router.push('/edit-banner')}
-                  className="bg-skillset-bg-input px-3 py-1.5 rounded-lg"
+                  className="bg-workly-bg-input px-3 py-1.5 rounded-lg"
                 >
-                  <Text className="text-skillset-teal text-sm font-medium">
+                  <Text className="text-workly-teal text-sm font-medium">
                     {professionalUser.banner ? 'Edit' : 'Add'}
                   </Text>
                 </Pressable>
@@ -323,7 +323,7 @@ export default function ProfileScreen() {
               ) : (
                 <Pressable
                   onPress={() => router.push('/edit-banner')}
-                  className="bg-skillset-bg-card/50 rounded-xl p-4 items-center border border-dashed border-skillset-border"
+                  className="bg-workly-bg-card/50 rounded-xl p-4 items-center border border-dashed border-workly-border"
                 >
                   <Megaphone color="#5A7A82" size={28} />
                   <Text className="text-slate-400 text-center mt-2">
@@ -335,7 +335,7 @@ export default function ProfileScreen() {
 
             {/* Trade */}
             {professionalUser.trade && (
-              <View className="bg-skillset-bg-card rounded-xl p-4 mb-4">
+              <View className="bg-workly-bg-card rounded-xl p-4 mb-4">
                 <View className="flex-row items-center mb-2">
                   <Award color="#4A9BAD" size={20} />
                   <Text className="text-white font-semibold ml-2">Trade</Text>
@@ -346,7 +346,7 @@ export default function ProfileScreen() {
 
             {/* Experience & Rating */}
             <View className="flex-row mb-4">
-              <View className="flex-1 bg-skillset-bg-card rounded-xl p-4 mr-2">
+              <View className="flex-1 bg-workly-bg-card rounded-xl p-4 mr-2">
                 <View className="flex-row items-center mb-1">
                   <Clock color="#5A7A82" size={16} />
                   <Text className="text-slate-400 text-sm ml-1">Experience</Text>
@@ -356,7 +356,7 @@ export default function ProfileScreen() {
                 </Text>
               </View>
 
-              <View className="flex-1 bg-skillset-bg-card rounded-xl p-4 ml-2">
+              <View className="flex-1 bg-workly-bg-card rounded-xl p-4 ml-2">
                 <View className="flex-row items-center mb-1">
                   <Star color="#5A7A82" size={16} />
                   <Text className="text-slate-400 text-sm ml-1">Rating</Text>
@@ -374,7 +374,7 @@ export default function ProfileScreen() {
 
             {/* License */}
             {professionalUser.licenseNumber && (
-              <View className="bg-skillset-bg-card rounded-xl p-4 mb-4">
+              <View className="bg-workly-bg-card rounded-xl p-4 mb-4">
                 <View className="flex-row items-center mb-2">
                   <FileText color="#5A7A82" size={20} />
                   <Text className="text-white font-semibold ml-2">License Number</Text>
@@ -385,13 +385,13 @@ export default function ProfileScreen() {
 
             {/* Service Categories */}
             {professionalUser.serviceCategories.length > 0 && (
-              <View className="bg-skillset-bg-card rounded-xl p-4 mb-4">
+              <View className="bg-workly-bg-card rounded-xl p-4 mb-4">
                 <Text className="text-white font-semibold mb-3">Service Categories</Text>
                 <View className="flex-row flex-wrap gap-2">
                   {professionalUser.serviceCategories.map((catId) => {
                     const category = getCategoryById(catId);
                     return category ? (
-                      <View key={catId} className="bg-skillset-bg-input px-3 py-1.5 rounded-full">
+                      <View key={catId} className="bg-workly-bg-input px-3 py-1.5 rounded-full">
                         <Text className="text-slate-300 text-sm">{category.name}</Text>
                       </View>
                     ) : null;
@@ -402,14 +402,14 @@ export default function ProfileScreen() {
 
             {/* Service Areas */}
             {professionalUser.serviceArea.length > 0 && (
-              <View className="bg-skillset-bg-card rounded-xl p-4 mb-4">
+              <View className="bg-workly-bg-card rounded-xl p-4 mb-4">
                 <View className="flex-row items-center mb-3">
                   <MapPin color="#5A7A82" size={20} />
                   <Text className="text-white font-semibold ml-2">Service Areas</Text>
                 </View>
                 <View className="flex-row flex-wrap gap-2">
                   {professionalUser.serviceArea.map((area, index) => (
-                    <View key={index} className="bg-skillset-bg-input px-3 py-1.5 rounded-full">
+                    <View key={index} className="bg-workly-bg-input px-3 py-1.5 rounded-full">
                       <Text className="text-slate-300 text-sm">{area}</Text>
                     </View>
                   ))}
@@ -419,7 +419,7 @@ export default function ProfileScreen() {
 
             {/* Description */}
             {professionalUser.description && (
-              <View className="bg-skillset-bg-card rounded-xl p-4 mb-4">
+              <View className="bg-workly-bg-card rounded-xl p-4 mb-4">
                 <Text className="text-white font-semibold mb-2">About</Text>
                 <Text className="text-slate-300 leading-6">{professionalUser.description}</Text>
               </View>
@@ -434,9 +434,9 @@ export default function ProfileScreen() {
                 </View>
                 <Pressable
                   onPress={() => router.push('/edit-portfolio')}
-                  className="bg-skillset-bg-input px-3 py-1.5 rounded-lg"
+                  className="bg-workly-bg-input px-3 py-1.5 rounded-lg"
                 >
-                  <Text className="text-skillset-teal text-sm font-medium">Edit</Text>
+                  <Text className="text-workly-teal text-sm font-medium">Edit</Text>
                 </Pressable>
               </View>
 
@@ -455,7 +455,7 @@ export default function ProfileScreen() {
                           contentFit="cover"
                         />
                       ) : (
-                        <View className="w-[120px] h-[120px] rounded-xl bg-skillset-bg-card items-center justify-center overflow-hidden">
+                        <View className="w-[120px] h-[120px] rounded-xl bg-workly-bg-card items-center justify-center overflow-hidden">
                           <Video
                             source={{ uri: item.uri }}
                             style={{ width: 120, height: 120 }}
@@ -473,7 +473,7 @@ export default function ProfileScreen() {
               ) : (
                 <Pressable
                   onPress={() => router.push('/edit-portfolio')}
-                  className="bg-skillset-bg-card/50 rounded-xl p-6 items-center border border-dashed border-skillset-border"
+                  className="bg-workly-bg-card/50 rounded-xl p-6 items-center border border-dashed border-workly-border"
                 >
                   <Images color="#5A7A82" size={32} />
                   <Text className="text-slate-400 text-center mt-2">
@@ -494,7 +494,7 @@ export default function ProfileScreen() {
                 </View>
                 {ratingData.count > 0 && (
                   <View className="flex-row items-center">
-                    <Text className="text-skillset-teal font-bold mr-1">
+                    <Text className="text-workly-teal font-bold mr-1">
                       {ratingData.rating.toFixed(1)}
                     </Text>
                     {renderStars(Math.round(ratingData.rating), 12)}
@@ -505,7 +505,7 @@ export default function ProfileScreen() {
               {reviews.length > 0 ? (
                 reviews.slice(0, 3).map(renderReview)
               ) : (
-                <View className="bg-skillset-bg-card/50 rounded-xl p-6 items-center">
+                <View className="bg-workly-bg-card/50 rounded-xl p-6 items-center">
                   <Star color="#5A7A82" size={32} />
                   <Text className="text-slate-400 text-center mt-2">
                     No reviews yet. Complete great work to earn reviews!
@@ -516,9 +516,9 @@ export default function ProfileScreen() {
               {reviews.length > 3 && (
                 <Pressable
                   onPress={() => router.push(`/profile/${user.id}`)}
-                  className="bg-skillset-bg-card rounded-xl p-3 items-center mt-2"
+                  className="bg-workly-bg-card rounded-xl p-3 items-center mt-2"
                 >
-                  <Text className="text-skillset-teal font-medium">
+                  <Text className="text-workly-teal font-medium">
                     View All {reviews.length} Reviews
                   </Text>
                 </Pressable>
@@ -530,7 +530,7 @@ export default function ProfileScreen() {
         {/* Client - Member Since Card */}
         {!isProfessional && (
           <View className="px-6 mt-6">
-            <View className="bg-skillset-bg-card rounded-xl p-4 mb-4">
+            <View className="bg-workly-bg-card rounded-xl p-4 mb-4">
               <View className="flex-row items-center">
                 <Calendar color="#3B82F6" size={20} />
                 <Text className="text-white font-semibold ml-2">Member Since</Text>
@@ -546,17 +546,17 @@ export default function ProfileScreen() {
           {isProfessional && isRevenueCatEnabled() && (
             <View className="mb-3">
               {hasProAccess ? (
-                <View className="bg-skillset-teal/20 rounded-xl p-4 border border-skillset-teal/30">
+                <View className="bg-workly-teal/20 rounded-xl p-4 border border-workly-teal/30">
                   <View className="flex-row items-center">
-                    <View className="w-10 h-10 bg-skillset-teal/30 rounded-full items-center justify-center">
+                    <View className="w-10 h-10 bg-workly-teal/30 rounded-full items-center justify-center">
                       <Crown color="#4A9BAD" size={20} />
                     </View>
                     <View className="ml-3 flex-1">
                       <Text className="text-white font-semibold">Workly Pro</Text>
-                      <Text className="text-skillset-teal-light text-sm">Active Subscription</Text>
+                      <Text className="text-workly-teal-light text-sm">Active Subscription</Text>
                     </View>
-                    <View className="bg-skillset-teal/30 px-3 py-1 rounded-full">
-                      <Text className="text-skillset-teal-light text-xs font-medium">PRO</Text>
+                    <View className="bg-workly-teal/30 px-3 py-1 rounded-full">
+                      <Text className="text-workly-teal-light text-xs font-medium">PRO</Text>
                     </View>
                   </View>
                 </View>
@@ -592,7 +592,7 @@ export default function ProfileScreen() {
           {isProfessional && (
             <Pressable
               onPress={() => router.push('/complete-profile')}
-              className="flex-row items-center bg-skillset-bg-card rounded-xl p-4 mb-3 active:bg-skillset-bg-input"
+              className="flex-row items-center bg-workly-bg-card rounded-xl p-4 mb-3 active:bg-workly-bg-input"
             >
               <Edit3 color="#5A7A82" size={20} />
               <Text className="text-white font-medium ml-3">Edit Profile</Text>
@@ -601,7 +601,7 @@ export default function ProfileScreen() {
 
           <Pressable
             onPress={handleLogout}
-            className="flex-row items-center bg-skillset-bg-card rounded-xl p-4 active:bg-skillset-bg-input"
+            className="flex-row items-center bg-workly-bg-card rounded-xl p-4 active:bg-workly-bg-input"
           >
             <LogOut color="#EF4444" size={20} />
             <Text className="text-red-400 font-medium ml-3">Sign Out</Text>

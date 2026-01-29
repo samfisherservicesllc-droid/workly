@@ -41,7 +41,7 @@ export default function ConversationScreen() {
 
   if (!user || !conversation) {
     return (
-      <View className="flex-1 bg-skillset-bg-dark items-center justify-center">
+      <View className="flex-1 bg-workly-bg-dark items-center justify-center">
         <Text className="text-white">Conversation not found</Text>
       </View>
     );
@@ -92,8 +92,8 @@ export default function ConversationScreen() {
         <View
           className={`max-w-[80%] px-4 py-3 rounded-2xl ${
             isOwnMessage
-              ? 'bg-skillset-teal rounded-br-sm'
-              : 'bg-skillset-bg-card rounded-bl-sm'
+              ? 'bg-workly-teal rounded-br-sm'
+              : 'bg-workly-bg-card rounded-bl-sm'
           }`}
         >
           <Text className={isOwnMessage ? 'text-white' : 'text-slate-200'}>
@@ -108,7 +108,7 @@ export default function ConversationScreen() {
   };
 
   return (
-    <View className="flex-1 bg-skillset-bg-dark">
+    <View className="flex-1 bg-workly-bg-dark">
       <Stack.Screen
         options={{
           headerShown: true,
@@ -126,7 +126,7 @@ export default function ConversationScreen() {
             >
               <View
                 className={`w-9 h-9 rounded-full items-center justify-center ${
-                  otherRole === 'professional' ? 'bg-skillset-teal/20' : 'bg-blue-500/20'
+                  otherRole === 'professional' ? 'bg-workly-teal/20' : 'bg-blue-500/20'
                 }`}
               >
                 {otherPhoto ? (
@@ -144,7 +144,7 @@ export default function ConversationScreen() {
                 <Text className="text-white font-semibold">{otherName}</Text>
                 <Text
                   className={`text-xs ${
-                    otherRole === 'professional' ? 'text-skillset-teal-light' : 'text-blue-400'
+                    otherRole === 'professional' ? 'text-workly-teal-light' : 'text-blue-400'
                   }`}
                 >
                   {otherRole === 'professional' ? 'Professional' : 'Client'}
@@ -172,7 +172,7 @@ export default function ConversationScreen() {
           <View className="flex-1 items-center justify-center px-8">
             <View
               className={`w-16 h-16 rounded-full items-center justify-center ${
-                otherRole === 'professional' ? 'bg-skillset-teal/20' : 'bg-blue-500/20'
+                otherRole === 'professional' ? 'bg-workly-teal/20' : 'bg-blue-500/20'
               }`}
             >
               {otherRole === 'professional' ? (
@@ -198,10 +198,10 @@ export default function ConversationScreen() {
         )}
 
         {/* Message Input */}
-        <SafeAreaView edges={['bottom']} className="border-t border-skillset-border">
+        <SafeAreaView edges={['bottom']} className="border-t border-workly-border">
           <View className="flex-row items-center px-4 py-3">
             <TextInput
-              className="flex-1 bg-skillset-bg-card rounded-full px-4 py-3 text-white text-base mr-3"
+              className="flex-1 bg-workly-bg-card rounded-full px-4 py-3 text-white text-base mr-3"
               placeholder="Type a message..."
               placeholderTextColor="#5A7A82"
               value={messageText}
@@ -213,7 +213,7 @@ export default function ConversationScreen() {
               onPress={handleSend}
               disabled={!messageText.trim()}
               className={`w-12 h-12 rounded-full items-center justify-center ${
-                messageText.trim() ? 'bg-skillset-teal' : 'bg-skillset-bg-card'
+                messageText.trim() ? 'bg-workly-teal' : 'bg-workly-bg-card'
               }`}
             >
               <Send

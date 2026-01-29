@@ -104,7 +104,7 @@ export default function RegisterScreen() {
             <View className="space-y-4">
               <Pressable
                 onPress={() => handleRoleSelect('client')}
-                className="bg-skillset-bg-input/50 rounded-2xl p-6 border border-skillset-border active:scale-[0.98]"
+                className="bg-workly-bg-input/50 rounded-2xl p-6 border border-workly-border active:scale-[0.98]"
               >
                 <View className="flex-row items-center">
                   <View className="w-14 h-14 bg-blue-500/20 rounded-xl items-center justify-center">
@@ -123,10 +123,10 @@ export default function RegisterScreen() {
 
               <Pressable
                 onPress={() => handleRoleSelect('professional')}
-                className="bg-skillset-bg-input/50 rounded-2xl p-6 border border-skillset-border active:scale-[0.98] mt-4"
+                className="bg-workly-bg-input/50 rounded-2xl p-6 border border-workly-border active:scale-[0.98] mt-4"
               >
                 <View className="flex-row items-center">
-                  <View className="w-14 h-14 bg-skillset-teal/20 rounded-xl items-center justify-center">
+                  <View className="w-14 h-14 bg-workly-teal/20 rounded-xl items-center justify-center">
                     <Briefcase color="#4A9BAD" size={32} />
                   </View>
                   <View className="ml-4 flex-1">
@@ -144,7 +144,7 @@ export default function RegisterScreen() {
             <View className="flex-row justify-center mt-8">
               <Text className="text-slate-400">Already have an account? </Text>
               <Pressable onPress={() => router.push('/login')}>
-                <Text className="text-skillset-teal font-semibold">Sign In</Text>
+                <Text className="text-workly-teal font-semibold">Sign In</Text>
               </Pressable>
             </View>
           </View>
@@ -173,7 +173,7 @@ export default function RegisterScreen() {
               <View className="items-center mb-8">
                 <View
                   className={`w-16 h-16 rounded-2xl items-center justify-center mb-4 ${
-                    role === 'professional' ? 'bg-skillset-teal' : 'bg-blue-500'
+                    role === 'professional' ? 'bg-workly-teal' : 'bg-blue-500'
                   }`}
                 >
                   {role === 'professional' ? (
@@ -189,7 +189,7 @@ export default function RegisterScreen() {
 
               {/* Form */}
               <View className="space-y-4">
-                <View className="flex-row items-center bg-skillset-bg-input/50 rounded-xl px-4 py-3 border border-skillset-border">
+                <View className="flex-row items-center bg-workly-bg-input/50 rounded-xl px-4 py-3 border border-workly-border">
                   <User color="#5A7A82" size={20} />
                   <TextInput
                     className="flex-1 ml-3 text-white text-base"
@@ -201,7 +201,7 @@ export default function RegisterScreen() {
                   />
                 </View>
 
-                <View className="flex-row items-center bg-skillset-bg-input/50 rounded-xl px-4 py-3 border border-skillset-border mt-4">
+                <View className="flex-row items-center bg-workly-bg-input/50 rounded-xl px-4 py-3 border border-workly-border mt-4">
                   <Mail color="#5A7A82" size={20} />
                   <TextInput
                     className="flex-1 ml-3 text-white text-base"
@@ -215,7 +215,7 @@ export default function RegisterScreen() {
                   />
                 </View>
 
-                <View className="flex-row items-center bg-skillset-bg-input/50 rounded-xl px-4 py-3 border border-skillset-border mt-4">
+                <View className="flex-row items-center bg-workly-bg-input/50 rounded-xl px-4 py-3 border border-workly-border mt-4">
                   <MapPin color="#5A7A82" size={20} />
                   <TextInput
                     className="flex-1 ml-3 text-white text-base"
@@ -227,7 +227,7 @@ export default function RegisterScreen() {
                 </View>
 
                 {role === 'client' && (
-                  <View className="flex-row items-center bg-skillset-bg-input/50 rounded-xl px-4 py-3 border border-skillset-border mt-4">
+                  <View className="flex-row items-center bg-workly-bg-input/50 rounded-xl px-4 py-3 border border-workly-border mt-4">
                     <Home color="#5A7A82" size={20} />
                     <TextInput
                       className="flex-1 ml-3 text-white text-base"
@@ -239,7 +239,7 @@ export default function RegisterScreen() {
                   </View>
                 )}
 
-                <View className="flex-row items-center bg-skillset-bg-input/50 rounded-xl px-4 py-3 border border-skillset-border mt-4">
+                <View className="flex-row items-center bg-workly-bg-input/50 rounded-xl px-4 py-3 border border-workly-border mt-4">
                   <Lock color="#5A7A82" size={20} />
                   <TextInput
                     className="flex-1 ml-3 text-white text-base"
@@ -259,7 +259,7 @@ export default function RegisterScreen() {
                   </Pressable>
                 </View>
 
-                <View className="flex-row items-center bg-skillset-bg-input/50 rounded-xl px-4 py-3 border border-skillset-border mt-4">
+                <View className="flex-row items-center bg-workly-bg-input/50 rounded-xl px-4 py-3 border border-workly-border mt-4">
                   <Lock color="#5A7A82" size={20} />
                   <TextInput
                     className="flex-1 ml-3 text-white text-base"

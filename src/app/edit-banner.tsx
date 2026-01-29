@@ -84,14 +84,14 @@ export default function EditBannerScreen() {
 
   if (!user || user.role !== 'professional') {
     return (
-      <View className="flex-1 bg-skillset-bg-dark items-center justify-center">
+      <View className="flex-1 bg-workly-bg-dark items-center justify-center">
         <Text className="text-white">Only professionals can create banners</Text>
       </View>
     );
   }
 
   return (
-    <View className="flex-1 bg-skillset-bg-dark">
+    <View className="flex-1 bg-workly-bg-dark">
       <Stack.Screen
         options={{
           headerShown: true,
@@ -133,7 +133,7 @@ export default function EditBannerScreen() {
                   </View>
                 </LinearGradient>
               ) : (
-                <View className="bg-skillset-bg-card rounded-xl p-4 items-center border border-dashed border-skillset-border">
+                <View className="bg-workly-bg-card rounded-xl p-4 items-center border border-dashed border-workly-border">
                   <Megaphone color="#5A7A82" size={24} />
                   <Text className="text-slate-400 text-center mt-2">
                     Your banner preview will appear here
@@ -155,7 +155,7 @@ export default function EditBannerScreen() {
                 </Text>
               </View>
               <TextInput
-                className="bg-skillset-bg-card rounded-xl px-4 py-3 text-white text-base border border-skillset-border min-h-[100px]"
+                className="bg-workly-bg-card rounded-xl px-4 py-3 text-white text-base border border-workly-border min-h-[100px]"
                 placeholder="e.g. 20% off all electrical work this month! Book now and save."
                 placeholderTextColor="#5A7A82"
                 value={bannerText}
@@ -173,7 +173,7 @@ export default function EditBannerScreen() {
                   Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
                   setHasExpiration(!hasExpiration);
                 }}
-                className="flex-row items-center justify-between bg-skillset-bg-card rounded-xl p-4"
+                className="flex-row items-center justify-between bg-workly-bg-card rounded-xl p-4"
               >
                 <View className="flex-row items-center">
                   <Calendar color="#5A7A82" size={20} />
@@ -181,7 +181,7 @@ export default function EditBannerScreen() {
                 </View>
                 <View
                   className={`w-12 h-7 rounded-full justify-center ${
-                    hasExpiration ? 'bg-skillset-teal' : 'bg-skillset-bg-input'
+                    hasExpiration ? 'bg-workly-teal' : 'bg-workly-bg-input'
                   }`}
                 >
                   <View
@@ -196,7 +196,7 @@ export default function EditBannerScreen() {
                 <View className="mt-3">
                   <Pressable
                     onPress={() => setShowDatePicker(true)}
-                    className="bg-skillset-bg-input rounded-xl p-4 flex-row items-center justify-between"
+                    className="bg-workly-bg-input rounded-xl p-4 flex-row items-center justify-between"
                   >
                     <Text className="text-white">
                       Expires: {format(expirationDate, 'MMM d, yyyy')}
@@ -222,8 +222,8 @@ export default function EditBannerScreen() {
             </View>
 
             {/* Tips */}
-            <View className="bg-skillset-bg-card/50 rounded-xl p-4 mb-6">
-              <Text className="text-skillset-teal font-semibold mb-2">Tips for a great banner:</Text>
+            <View className="bg-workly-bg-card/50 rounded-xl p-4 mb-6">
+              <Text className="text-workly-teal font-semibold mb-2">Tips for a great banner:</Text>
               <Text className="text-slate-400 text-sm leading-5">
                 • Keep it short and attention-grabbing{'\n'}
                 • Include specific discounts or offers{'\n'}

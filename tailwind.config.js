@@ -12,8 +12,8 @@ module.exports = {
     // NOTE to AI: You can extend the theme with custom colors or styles here.
     extend: {
       colors: {
-        // Skillset brand colors based on logo
-        skillset: {
+        // Workly brand colors
+        workly: {
           teal: '#4A9BAD',
           'teal-light': '#5DB5C8',
           'teal-dark': '#3A7A8A',

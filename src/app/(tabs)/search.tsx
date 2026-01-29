@@ -128,11 +128,11 @@ export default function SearchScreen() {
             Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
             router.push(`/profile/${pro.id}`);
           }}
-          className="bg-skillset-bg-card mx-4 mb-3 rounded-2xl p-4 active:opacity-80"
+          className="bg-workly-bg-card mx-4 mb-3 rounded-2xl p-4 active:opacity-80"
         >
           <View className="flex-row">
             {/* Avatar */}
-            <View className="w-16 h-16 rounded-full bg-skillset-teal/20 items-center justify-center">
+            <View className="w-16 h-16 rounded-full bg-workly-teal/20 items-center justify-center">
               {pro.photoUrl ? (
                 <Image
                   source={{ uri: pro.photoUrl }}
@@ -150,7 +150,7 @@ export default function SearchScreen() {
                 {ratingData.count > 0 && (
                   <View className="flex-row items-center">
                     <Star color="#4A9BAD" size={14} fill="#4A9BAD" />
-                    <Text className="text-skillset-teal-light text-sm ml-1">
+                    <Text className="text-workly-teal-light text-sm ml-1">
                       {ratingData.rating.toFixed(1)}
                     </Text>
                     <Text className="text-slate-500 text-xs ml-1">
@@ -161,7 +161,7 @@ export default function SearchScreen() {
               </View>
 
               {pro.trade && (
-                <Text className="text-skillset-teal text-sm mt-0.5">{pro.trade}</Text>
+                <Text className="text-workly-teal text-sm mt-0.5">{pro.trade}</Text>
               )}
 
               <View className="flex-row items-center mt-2">
@@ -187,14 +187,14 @@ export default function SearchScreen() {
                     return category ? (
                       <View
                         key={catId}
-                        className="bg-skillset-bg-input px-2 py-1 rounded mr-2"
+                        className="bg-workly-bg-input px-2 py-1 rounded mr-2"
                       >
                         <Text className="text-slate-300 text-xs">{category.name}</Text>
                       </View>
                     ) : null;
                   })}
                   {pro.serviceCategories.length > 3 && (
-                    <View className="bg-skillset-bg-input px-2 py-1 rounded">
+                    <View className="bg-workly-bg-input px-2 py-1 rounded">
                       <Text className="text-slate-500 text-xs">
                         +{pro.serviceCategories.length - 3} more
                       </Text>
@@ -230,7 +230,7 @@ export default function SearchScreen() {
             Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
             router.push(`/profile/${jobRequest.clientId}`);
           }}
-          className="bg-skillset-bg-card mx-4 mb-3 rounded-2xl p-4 active:opacity-80"
+          className="bg-workly-bg-card mx-4 mb-3 rounded-2xl p-4 active:opacity-80"
         >
           {/* Header */}
           <View className="flex-row items-center">
@@ -262,10 +262,10 @@ export default function SearchScreen() {
           {/* Content */}
           <View className="mt-3">
             <View className="flex-row items-center mb-2">
-              <View className="bg-skillset-bg-input px-3 py-1 rounded-full">
+              <View className="bg-workly-bg-input px-3 py-1 rounded-full">
                 <Text className="text-slate-300 text-sm">{jobRequest.serviceCategoryName}</Text>
               </View>
-              <View className="bg-skillset-bg-input px-2 py-1 rounded ml-2">
+              <View className="bg-workly-bg-input px-2 py-1 rounded ml-2">
                 <Text className="text-slate-400 text-xs">{jobRequest.zipCode}</Text>
               </View>
             </View>
@@ -292,7 +292,7 @@ export default function SearchScreen() {
                       contentFit="cover"
                     />
                   ) : (
-                    <View className="w-20 h-20 rounded-lg bg-skillset-bg-input items-center justify-center overflow-hidden">
+                    <View className="w-20 h-20 rounded-lg bg-workly-bg-input items-center justify-center overflow-hidden">
                       <Video
                         source={{ uri: item.uri }}
                         style={{ width: 80, height: 80 }}
@@ -307,7 +307,7 @@ export default function SearchScreen() {
                 </View>
               ))}
               {jobRequest.media.length > 3 && (
-                <View className="w-20 h-20 rounded-lg bg-skillset-bg-input items-center justify-center">
+                <View className="w-20 h-20 rounded-lg bg-workly-bg-input items-center justify-center">
                   <Text className="text-slate-400 text-sm">
                     +{jobRequest.media.length - 3}
                   </Text>
@@ -322,9 +322,9 @@ export default function SearchScreen() {
               Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
               router.push(`/profile/${jobRequest.clientId}`);
             }}
-            className="mt-3 bg-skillset-teal/20 py-2 rounded-xl"
+            className="mt-3 bg-workly-teal/20 py-2 rounded-xl"
           >
-            <Text className="text-skillset-teal text-center font-medium">
+            <Text className="text-workly-teal text-center font-medium">
               Contact Client
             </Text>
           </Pressable>
@@ -337,11 +337,11 @@ export default function SearchScreen() {
   const hasActiveFilters = filters.categoryId || filters.city || filters.state || filters.keywords;
 
   return (
-    <View className="flex-1 bg-skillset-bg-dark">
+    <View className="flex-1 bg-workly-bg-dark">
       {/* Search Header */}
       <View className="px-4 pt-2 pb-3">
         {/* Search Input */}
-        <View className="flex-row items-center bg-skillset-bg-card rounded-xl px-4 py-3 border border-skillset-border">
+        <View className="flex-row items-center bg-workly-bg-card rounded-xl px-4 py-3 border border-workly-border">
           <SearchIcon color="#5A7A82" size={20} />
           <TextInput
             className="flex-1 ml-3 text-white text-base"
@@ -367,7 +367,7 @@ export default function SearchScreen() {
             <Pressable
               onPress={() => handleModeSwitch('professionals')}
               className={`flex-1 py-3 rounded-xl mr-2 ${
-                searchMode === 'professionals' ? 'bg-skillset-teal' : 'bg-skillset-bg-card'
+                searchMode === 'professionals' ? 'bg-workly-teal' : 'bg-workly-bg-card'
               }`}
             >
               <View className="flex-row items-center justify-center">
@@ -387,7 +387,7 @@ export default function SearchScreen() {
             <Pressable
               onPress={() => handleModeSwitch('leads')}
               className={`flex-1 py-3 rounded-xl ml-2 ${
-                searchMode === 'leads' ? 'bg-skillset-teal' : 'bg-skillset-bg-card'
+                searchMode === 'leads' ? 'bg-workly-teal' : 'bg-workly-bg-card'
               }`}
             >
               <View className="flex-row items-center justify-center">
@@ -415,7 +415,7 @@ export default function SearchScreen() {
               setShowFilters(!showFilters);
             }}
             className={`flex-row items-center px-3 py-2 rounded-full ${
-              hasActiveFilters ? 'bg-skillset-teal' : 'bg-skillset-bg-card'
+              hasActiveFilters ? 'bg-workly-teal' : 'bg-workly-bg-card'
             }`}
           >
             <Filter color={hasActiveFilters ? 'white' : '#5A7A82'} size={16} />
@@ -435,19 +435,19 @@ export default function SearchScreen() {
 
           {hasActiveFilters && (
             <Pressable onPress={clearFilters}>
-              <Text className="text-skillset-teal text-sm">Clear all</Text>
+              <Text className="text-workly-teal text-sm">Clear all</Text>
             </Pressable>
           )}
         </View>
 
         {/* Filter Panel */}
         {showFilters && (
-          <View className="mt-3 bg-skillset-bg-card rounded-xl p-4">
+          <View className="mt-3 bg-workly-bg-card rounded-xl p-4">
             {/* Location Filters */}
             <Text className="text-white font-medium mb-3">Location</Text>
             <View className="flex-row mb-4">
               <View className="flex-1 mr-2">
-                <View className="flex-row items-center bg-skillset-bg-input rounded-xl px-3 py-2.5 border border-skillset-border">
+                <View className="flex-row items-center bg-workly-bg-input rounded-xl px-3 py-2.5 border border-workly-border">
                   <MapPin color="#5A7A82" size={16} />
                   <TextInput
                     className="flex-1 ml-2 text-white text-sm"
@@ -468,7 +468,7 @@ export default function SearchScreen() {
                 </View>
               </View>
               <View className="flex-1 ml-2">
-                <View className="flex-row items-center bg-skillset-bg-input rounded-xl px-3 py-2.5 border border-skillset-border">
+                <View className="flex-row items-center bg-workly-bg-input rounded-xl px-3 py-2.5 border border-workly-border">
                   <Building color="#5A7A82" size={16} />
                   <TextInput
                     className="flex-1 ml-2 text-white text-sm"
@@ -494,7 +494,7 @@ export default function SearchScreen() {
 
             {/* Keywords Filter */}
             <Text className="text-white font-medium mb-3">Keywords</Text>
-            <View className="flex-row items-center bg-skillset-bg-input rounded-xl px-3 py-2.5 border border-skillset-border mb-4">
+            <View className="flex-row items-center bg-workly-bg-input rounded-xl px-3 py-2.5 border border-workly-border mb-4">
               <Tag color="#5A7A82" size={16} />
               <TextInput
                 className="flex-1 ml-2 text-white text-sm"
@@ -531,8 +531,8 @@ export default function SearchScreen() {
                   }
                   className={`px-3 py-2 rounded-full mr-2 ${
                     filters.categoryId === category.id
-                      ? 'bg-skillset-teal'
-                      : 'bg-skillset-bg-input'
+                      ? 'bg-workly-teal'
+                      : 'bg-workly-bg-input'
                   }`}
                 >
                   <Text
@@ -555,7 +555,7 @@ export default function SearchScreen() {
       {searchMode === 'professionals' ? (
         professionalResults.length === 0 ? (
           <View className="flex-1 items-center justify-center px-8">
-            <View className="w-20 h-20 bg-skillset-bg-card rounded-full items-center justify-center mb-4">
+            <View className="w-20 h-20 bg-workly-bg-card rounded-full items-center justify-center mb-4">
               <Briefcase color="#5A7A82" size={32} />
             </View>
             <Text className="text-white text-xl font-semibold text-center">
@@ -582,7 +582,7 @@ export default function SearchScreen() {
       ) : !hasLeadsAccess && isRevenueCatEnabled() ? (
         // Locked state - no subscription
         <View className="flex-1 items-center justify-center px-8">
-          <View className="w-24 h-24 bg-skillset-teal/20 rounded-full items-center justify-center mb-6">
+          <View className="w-24 h-24 bg-workly-teal/20 rounded-full items-center justify-center mb-6">
             <Lock color="#4A9BAD" size={40} />
           </View>
           <Text className="text-white text-2xl font-bold text-center mb-2">
@@ -618,7 +618,7 @@ export default function SearchScreen() {
         </View>
       ) : jobRequestResults.length === 0 ? (
         <View className="flex-1 items-center justify-center px-8">
-          <View className="w-20 h-20 bg-skillset-bg-card rounded-full items-center justify-center mb-4">
+          <View className="w-20 h-20 bg-workly-bg-card rounded-full items-center justify-center mb-4">
             <FileText color="#5A7A82" size={32} />
           </View>
           <Text className="text-white text-xl font-semibold text-center">

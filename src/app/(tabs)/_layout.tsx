@@ -45,7 +45,7 @@ export default function TabLayout() {
         name="index"
         options={{
           title: 'Feed',
-          headerTitle: 'Skillset',
+          headerTitle: 'Workly',
           tabBarIcon: ({ color, size }) => <Home color={color} size={size} />,
           headerRight: () => (
             <Pressable
@@ -53,7 +53,7 @@ export default function TabLayout() {
                 Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
                 router.push('/create-post');
               }}
-              className="mr-4 w-10 h-10 bg-skillset-teal rounded-full items-center justify-center"
+              className="mr-4 w-10 h-10 bg-workly-teal rounded-full items-center justify-center"
             >
               <Plus color="white" size={22} />
             </Pressable>

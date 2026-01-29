@@ -53,7 +53,7 @@ export default function LoginScreen() {
             <View className="flex-1 justify-center px-6">
               {/* Logo Area */}
               <View className="items-center mb-12">
-                <View className="w-20 h-20 bg-skillset-teal rounded-2xl items-center justify-center mb-4">
+                <View className="w-20 h-20 bg-workly-teal rounded-2xl items-center justify-center mb-4">
                   <Briefcase color="white" size={40} />
                 </View>
                 <Text className="text-white text-3xl font-bold">Workly</Text>
@@ -65,7 +65,7 @@ export default function LoginScreen() {
               {/* Form */}
               <View className="space-y-4">
                 <View>
-                  <View className="flex-row items-center bg-skillset-bg-input/50 rounded-xl px-4 py-3 border border-skillset-border">
+                  <View className="flex-row items-center bg-workly-bg-input/50 rounded-xl px-4 py-3 border border-workly-border">
                     <Mail color="#5A7A82" size={20} />
                     <TextInput
                       className="flex-1 ml-3 text-white text-base"
@@ -81,7 +81,7 @@ export default function LoginScreen() {
                 </View>
 
                 <View className="mt-4">
-                  <View className="flex-row items-center bg-skillset-bg-input/50 rounded-xl px-4 py-3 border border-skillset-border">
+                  <View className="flex-row items-center bg-workly-bg-input/50 rounded-xl px-4 py-3 border border-workly-border">
                     <Lock color="#5A7A82" size={20} />
                     <TextInput
                       className="flex-1 ml-3 text-white text-base"
@@ -128,7 +128,7 @@ export default function LoginScreen() {
               <View className="flex-row justify-center mt-8">
                 <Text className="text-slate-400">Don't have an account? </Text>
                 <Pressable onPress={() => router.push('/register')}>
-                  <Text className="text-skillset-teal font-semibold">Sign Up</Text>
+                  <Text className="text-workly-teal font-semibold">Sign Up</Text>
                 </Pressable>
               </View>
             </View>

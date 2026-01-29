@@ -108,7 +108,7 @@ export default function RateClientScreen() {
 
   if (hasReviewed) {
     return (
-      <View className="flex-1 bg-skillset-bg-dark">
+      <View className="flex-1 bg-workly-bg-dark">
         <Stack.Screen
           options={{
             headerShown: true,
@@ -136,7 +136,7 @@ export default function RateClientScreen() {
   }
 
   return (
-    <View className="flex-1 bg-skillset-bg-dark">
+    <View className="flex-1 bg-workly-bg-dark">
       <Stack.Screen
         options={{
           headerShown: true,
@@ -211,7 +211,7 @@ export default function RateClientScreen() {
                     className={`px-4 py-2 rounded-full mr-2 ${
                       selectedCategory === category.id
                         ? 'bg-blue-500'
-                        : 'bg-skillset-bg-card'
+                        : 'bg-workly-bg-card'
                     }`}
                   >
                     <Text
@@ -243,7 +243,7 @@ export default function RateClientScreen() {
                 </Text>
               </View>
               <TextInput
-                className="bg-skillset-bg-card rounded-xl px-4 py-3 text-white text-base border border-skillset-border min-h-[120px]"
+                className="bg-workly-bg-card rounded-xl px-4 py-3 text-white text-base border border-workly-border min-h-[120px]"
                 placeholder="Share details about communication, payment, respect for your time, clarity of requirements..."
                 placeholderTextColor="#5A7A82"
                 value={description}
@@ -254,7 +254,7 @@ export default function RateClientScreen() {
             </View>
 
             {/* Tips */}
-            <View className="bg-skillset-bg-card/50 rounded-xl p-4 mb-6">
+            <View className="bg-workly-bg-card/50 rounded-xl p-4 mb-6">
               <Text className="text-white font-medium mb-2">Rating Tips</Text>
               <Text className="text-slate-400 text-sm leading-5">
                 Consider: Was the client communicative? Did they pay on time? Were

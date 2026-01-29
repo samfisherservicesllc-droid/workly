@@ -117,7 +117,7 @@ export default function ProfileViewScreen() {
 
   if (isLoading) {
     return (
-      <View className="flex-1 bg-skillset-bg-dark items-center justify-center">
+      <View className="flex-1 bg-workly-bg-dark items-center justify-center">
         <Text className="text-white">Loading...</Text>
       </View>
     );
@@ -125,7 +125,7 @@ export default function ProfileViewScreen() {
 
   if (!profileUser) {
     return (
-      <View className="flex-1 bg-skillset-bg-dark items-center justify-center">
+      <View className="flex-1 bg-workly-bg-dark items-center justify-center">
         <Text className="text-white">User not found</Text>
       </View>
     );
@@ -168,7 +168,7 @@ export default function ProfileViewScreen() {
     const timeAgo = formatDistanceToNow(new Date(review.createdAt), { addSuffix: true });
 
     return (
-      <View key={review.id} className="bg-skillset-bg-card rounded-xl p-4 mb-3">
+      <View key={review.id} className="bg-workly-bg-card rounded-xl p-4 mb-3">
         {/* Review Header */}
         <View className="flex-row items-center mb-3">
           <View className="w-10 h-10 rounded-full bg-blue-500/20 items-center justify-center">
@@ -193,7 +193,7 @@ export default function ProfileViewScreen() {
         {/* Service Category */}
         {review.serviceCategoryName && (
           <View className="mb-2">
-            <View className="bg-skillset-bg-input/50 px-2 py-1 rounded self-start">
+            <View className="bg-workly-bg-input/50 px-2 py-1 rounded self-start">
               <Text className="text-slate-400 text-xs">{review.serviceCategoryName}</Text>
             </View>
           </View>
@@ -202,7 +202,7 @@ export default function ProfileViewScreen() {
         {/* Company Name */}
         {review.companyName && (
           <View className="mb-2">
-            <Text className="text-skillset-teal text-sm font-medium">
+            <Text className="text-workly-teal text-sm font-medium">
               {review.companyName}
             </Text>
           </View>
@@ -228,7 +228,7 @@ export default function ProfileViewScreen() {
                     contentFit="cover"
                   />
                 ) : (
-                  <View className="w-20 h-20 rounded-lg bg-skillset-bg-input items-center justify-center overflow-hidden">
+                  <View className="w-20 h-20 rounded-lg bg-workly-bg-input items-center justify-center overflow-hidden">
                     <Video
                       source={{ uri: item.uri }}
                       style={{ width: 80, height: 80 }}
@@ -252,10 +252,10 @@ export default function ProfileViewScreen() {
     const timeAgo = formatDistanceToNow(new Date(review.createdAt), { addSuffix: true });
 
     return (
-      <View key={review.id} className="bg-skillset-bg-card rounded-xl p-4 mb-3">
+      <View key={review.id} className="bg-workly-bg-card rounded-xl p-4 mb-3">
         {/* Review Header */}
         <View className="flex-row items-center mb-3">
-          <View className="w-10 h-10 rounded-full bg-skillset-teal/20 items-center justify-center">
+          <View className="w-10 h-10 rounded-full bg-workly-teal/20 items-center justify-center">
             {review.professionalPhotoUrl ? (
               <Image
                 source={{ uri: review.professionalPhotoUrl }}
@@ -277,7 +277,7 @@ export default function ProfileViewScreen() {
         {/* Service Category */}
         {review.serviceCategoryName && (
           <View className="mb-2">
-            <View className="bg-skillset-bg-input/50 px-2 py-1 rounded self-start">
+            <View className="bg-workly-bg-input/50 px-2 py-1 rounded self-start">
               <Text className="text-slate-400 text-xs">{review.serviceCategoryName}</Text>
             </View>
           </View>
@@ -290,7 +290,7 @@ export default function ProfileViewScreen() {
   };
 
   return (
-    <View className="flex-1 bg-skillset-bg-dark">
+    <View className="flex-1 bg-workly-bg-dark">
       <Stack.Screen
         options={{
           headerShown: true,
@@ -323,7 +323,7 @@ export default function ProfileViewScreen() {
           <View className="items-center px-6">
             <View
               className={`w-24 h-24 rounded-full items-center justify-center ${
-                isProfessional ? 'bg-skillset-teal/20' : 'bg-blue-500/20'
+                isProfessional ? 'bg-workly-teal/20' : 'bg-blue-500/20'
               }`}
             >
               {profileUser.photoUrl ? (
@@ -343,12 +343,12 @@ export default function ProfileViewScreen() {
             <View className="flex-row items-center mt-2">
               <View
                 className={`px-3 py-1 rounded-full ${
-                  isProfessional ? 'bg-skillset-teal/20' : 'bg-blue-500/20'
+                  isProfessional ? 'bg-workly-teal/20' : 'bg-blue-500/20'
                 }`}
               >
                 <Text
                   className={`text-sm font-medium ${
-                    isProfessional ? 'text-skillset-teal-light' : 'text-blue-400'
+                    isProfessional ? 'text-workly-teal-light' : 'text-blue-400'
                   }`}
                 >
                   {isProfessional ? 'Professional' : 'Client'}
@@ -391,7 +391,7 @@ export default function ProfileViewScreen() {
                 {canReview && (
                   <Pressable
                     onPress={handleWriteReview}
-                    className="bg-skillset-bg-input rounded-xl px-5 py-3 flex-row items-center"
+                    className="bg-workly-bg-input rounded-xl px-5 py-3 flex-row items-center"
                   >
                     <PenLine color="#5A7A82" size={18} />
                     <Text className="text-slate-300 font-semibold ml-2">Review</Text>
@@ -401,7 +401,7 @@ export default function ProfileViewScreen() {
                 {canRateClient && (
                   <Pressable
                     onPress={handleRateClient}
-                    className="bg-skillset-bg-input rounded-xl px-5 py-3 flex-row items-center"
+                    className="bg-workly-bg-input rounded-xl px-5 py-3 flex-row items-center"
                   >
                     <Star color="#5A7A82" size={18} />
                     <Text className="text-slate-300 font-semibold ml-2">Rate</Text>
@@ -436,7 +436,7 @@ export default function ProfileViewScreen() {
           <View className="px-6 mt-6">
             {/* Trade */}
             {professionalUser.trade && (
-              <View className="bg-skillset-bg-card rounded-xl p-4 mb-4">
+              <View className="bg-workly-bg-card rounded-xl p-4 mb-4">
                 <View className="flex-row items-center mb-2">
                   <Award color="#4A9BAD" size={20} />
                   <Text className="text-white font-semibold ml-2">Trade</Text>
@@ -447,7 +447,7 @@ export default function ProfileViewScreen() {
 
             {/* Experience & Rating */}
             <View className="flex-row mb-4">
-              <View className="flex-1 bg-skillset-bg-card rounded-xl p-4 mr-2">
+              <View className="flex-1 bg-workly-bg-card rounded-xl p-4 mr-2">
                 <View className="flex-row items-center mb-1">
                   <Clock color="#5A7A82" size={16} />
                   <Text className="text-slate-400 text-sm ml-1">Experience</Text>
@@ -457,7 +457,7 @@ export default function ProfileViewScreen() {
                 </Text>
               </View>
 
-              <View className="flex-1 bg-skillset-bg-card rounded-xl p-4 ml-2">
+              <View className="flex-1 bg-workly-bg-card rounded-xl p-4 ml-2">
                 <View className="flex-row items-center mb-1">
                   <Star color="#5A7A82" size={16} />
                   <Text className="text-slate-400 text-sm ml-1">Rating</Text>
@@ -477,7 +477,7 @@ export default function ProfileViewScreen() {
 
             {/* License */}
             {professionalUser.licenseNumber && (
-              <View className="bg-skillset-bg-card rounded-xl p-4 mb-4">
+              <View className="bg-workly-bg-card rounded-xl p-4 mb-4">
                 <View className="flex-row items-center mb-2">
                   <FileText color="#5A7A82" size={20} />
                   <Text className="text-white font-semibold ml-2">License Number</Text>
@@ -488,13 +488,13 @@ export default function ProfileViewScreen() {
 
             {/* Service Categories */}
             {professionalUser.serviceCategories.length > 0 && (
-              <View className="bg-skillset-bg-card rounded-xl p-4 mb-4">
+              <View className="bg-workly-bg-card rounded-xl p-4 mb-4">
                 <Text className="text-white font-semibold mb-3">Service Categories</Text>
                 <View className="flex-row flex-wrap gap-2">
                   {professionalUser.serviceCategories.map((catId) => {
                     const category = getCategoryById(catId);
                     return category ? (
-                      <View key={catId} className="bg-skillset-bg-input px-3 py-1.5 rounded-full">
+                      <View key={catId} className="bg-workly-bg-input px-3 py-1.5 rounded-full">
                         <Text className="text-slate-300 text-sm">{category.name}</Text>
                       </View>
                     ) : null;
@@ -505,14 +505,14 @@ export default function ProfileViewScreen() {
 
             {/* Service Areas */}
             {professionalUser.serviceArea.length > 0 && (
-              <View className="bg-skillset-bg-card rounded-xl p-4 mb-4">
+              <View className="bg-workly-bg-card rounded-xl p-4 mb-4">
                 <View className="flex-row items-center mb-3">
                   <MapPin color="#5A7A82" size={20} />
                   <Text className="text-white font-semibold ml-2">Service Areas</Text>
                 </View>
                 <View className="flex-row flex-wrap gap-2">
                   {professionalUser.serviceArea.map((area, index) => (
-                    <View key={index} className="bg-skillset-bg-input px-3 py-1.5 rounded-full">
+                    <View key={index} className="bg-workly-bg-input px-3 py-1.5 rounded-full">
                       <Text className="text-slate-300 text-sm">{area}</Text>
                     </View>
                   ))}
@@ -522,7 +522,7 @@ export default function ProfileViewScreen() {
 
             {/* Description */}
             {professionalUser.description && (
-              <View className="bg-skillset-bg-card rounded-xl p-4 mb-4">
+              <View className="bg-workly-bg-card rounded-xl p-4 mb-4">
                 <Text className="text-white font-semibold mb-2">About</Text>
                 <Text className="text-slate-300 leading-6">{professionalUser.description}</Text>
               </View>
@@ -549,7 +549,7 @@ export default function ProfileViewScreen() {
                           contentFit="cover"
                         />
                       ) : (
-                        <View className="w-[150px] h-[150px] rounded-xl bg-skillset-bg-card items-center justify-center overflow-hidden">
+                        <View className="w-[150px] h-[150px] rounded-xl bg-workly-bg-card items-center justify-center overflow-hidden">
                           <Video
                             source={{ uri: item.uri }}
                             style={{ width: 150, height: 150 }}
@@ -578,7 +578,7 @@ export default function ProfileViewScreen() {
                 </View>
                 {ratingData.count > 0 && (
                   <View className="flex-row items-center">
-                    <Text className="text-skillset-teal font-bold mr-1">
+                    <Text className="text-workly-teal font-bold mr-1">
                       {ratingData.rating.toFixed(1)}
                     </Text>
                     {renderStars(Math.round(ratingData.rating), 12)}
@@ -589,7 +589,7 @@ export default function ProfileViewScreen() {
               {reviews.length > 0 ? (
                 reviews.map(renderReview)
               ) : (
-                <View className="bg-skillset-bg-card/50 rounded-xl p-6 items-center">
+                <View className="bg-workly-bg-card/50 rounded-xl p-6 items-center">
                   <Star color="#5A7A82" size={32} />
                   <Text className="text-slate-400 text-center mt-2">
                     No reviews yet. Be the first to leave a review!
@@ -605,7 +605,7 @@ export default function ProfileViewScreen() {
           <View className="px-6 mt-6">
             {/* Location Info */}
             {clientUser.neighborhood && (
-              <View className="bg-skillset-bg-card rounded-xl p-4 mb-4">
+              <View className="bg-workly-bg-card rounded-xl p-4 mb-4">
                 <View className="flex-row items-center mb-2">
                   <MapPin color="#3B82F6" size={20} />
                   <Text className="text-white font-semibold ml-2">Location</Text>
@@ -618,7 +618,7 @@ export default function ProfileViewScreen() {
 
             {/* Rating & Member Info */}
             <View className="flex-row mb-4">
-              <View className="flex-1 bg-skillset-bg-card rounded-xl p-4 mr-2">
+              <View className="flex-1 bg-workly-bg-card rounded-xl p-4 mr-2">
                 <View className="flex-row items-center mb-1">
                   <Star color="#5A7A82" size={16} />
                   <Text className="text-slate-400 text-sm ml-1">Rating</Text>
@@ -635,7 +635,7 @@ export default function ProfileViewScreen() {
                 </View>
               </View>
 
-              <View className="flex-1 bg-skillset-bg-card rounded-xl p-4 ml-2">
+              <View className="flex-1 bg-workly-bg-card rounded-xl p-4 ml-2">
                 <View className="flex-row items-center mb-1">
                   <Calendar color="#5A7A82" size={16} />
                   <Text className="text-slate-400 text-sm ml-1">Member</Text>
@@ -666,7 +666,7 @@ export default function ProfileViewScreen() {
               {clientReviews.length > 0 ? (
                 clientReviews.map((review) => renderClientReview(review))
               ) : (
-                <View className="bg-skillset-bg-card/50 rounded-xl p-6 items-center">
+                <View className="bg-workly-bg-card/50 rounded-xl p-6 items-center">
                   <Star color="#5A7A82" size={32} />
                   <Text className="text-slate-400 text-center mt-2">
                     No reviews yet from professionals.

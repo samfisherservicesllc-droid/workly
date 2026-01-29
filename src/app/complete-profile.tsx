@@ -92,7 +92,7 @@ export default function CompleteProfileScreen() {
             <View className="px-6 pt-6">
               {/* Header */}
               <View className="items-center mb-8">
-                <View className="w-16 h-16 bg-skillset-teal rounded-2xl items-center justify-center mb-4">
+                <View className="w-16 h-16 bg-workly-teal rounded-2xl items-center justify-center mb-4">
                   <Briefcase color="white" size={32} />
                 </View>
                 <Text className="text-white text-2xl font-bold">
@@ -108,7 +108,7 @@ export default function CompleteProfileScreen() {
                 <Text className="text-white font-semibold mb-2">
                   Your Trade/Profession
                 </Text>
-                <View className="flex-row items-center bg-skillset-bg-input/50 rounded-xl px-4 py-3 border border-skillset-border">
+                <View className="flex-row items-center bg-workly-bg-input/50 rounded-xl px-4 py-3 border border-workly-border">
                   <Award color="#5A7A82" size={20} />
                   <TextInput
                     className="flex-1 ml-3 text-white text-base"
@@ -134,8 +134,8 @@ export default function CompleteProfileScreen() {
                         onPress={() => toggleCategory(category.id)}
                         className={`px-4 py-2 rounded-full border ${
                           isSelected
-                            ? 'bg-skillset-teal border-skillset-teal'
-                            : 'bg-skillset-bg-input/50 border-skillset-border'
+                            ? 'bg-workly-teal border-workly-teal'
+                            : 'bg-workly-bg-input/50 border-workly-border'
                         }`}
                       >
                         <View className="flex-row items-center">
@@ -157,7 +157,7 @@ export default function CompleteProfileScreen() {
                 <Text className="text-white font-semibold mb-2">
                   Years of Experience
                 </Text>
-                <View className="flex-row items-center bg-skillset-bg-input/50 rounded-xl px-4 py-3 border border-skillset-border">
+                <View className="flex-row items-center bg-workly-bg-input/50 rounded-xl px-4 py-3 border border-workly-border">
                   <TextInput
                     className="flex-1 text-white text-base"
                     placeholder="e.g., 5"
@@ -174,7 +174,7 @@ export default function CompleteProfileScreen() {
                 <Text className="text-white font-semibold mb-2">
                   License Number (optional)
                 </Text>
-                <View className="flex-row items-center bg-skillset-bg-input/50 rounded-xl px-4 py-3 border border-skillset-border">
+                <View className="flex-row items-center bg-workly-bg-input/50 rounded-xl px-4 py-3 border border-workly-border">
                   <FileText color="#5A7A82" size={20} />
                   <TextInput
                     className="flex-1 ml-3 text-white text-base"
@@ -191,7 +191,7 @@ export default function CompleteProfileScreen() {
                 <Text className="text-white font-semibold mb-2">
                   Service Areas (comma separated)
                 </Text>
-                <View className="flex-row items-center bg-skillset-bg-input/50 rounded-xl px-4 py-3 border border-skillset-border">
+                <View className="flex-row items-center bg-workly-bg-input/50 rounded-xl px-4 py-3 border border-workly-border">
                   <MapPin color="#5A7A82" size={20} />
                   <TextInput
                     className="flex-1 ml-3 text-white text-base"
@@ -208,7 +208,7 @@ export default function CompleteProfileScreen() {
                 <Text className="text-white font-semibold mb-2">
                   About Your Services
                 </Text>
-                <View className="bg-skillset-bg-input/50 rounded-xl px-4 py-3 border border-skillset-border">
+                <View className="bg-workly-bg-input/50 rounded-xl px-4 py-3 border border-workly-border">
                   <TextInput
                     className="text-white text-base min-h-[100px]"
                     placeholder="Describe your services, experience, and what makes you stand out..."

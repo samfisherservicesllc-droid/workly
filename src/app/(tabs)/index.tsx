@@ -82,7 +82,7 @@ export default function FeedScreen() {
     const timeAgo = formatDistanceToNow(new Date(post.createdAt), { addSuffix: true });
 
     return (
-      <View className="bg-skillset-bg-card mx-4 mb-4 rounded-2xl overflow-hidden">
+      <View className="bg-workly-bg-card mx-4 mb-4 rounded-2xl overflow-hidden">
         {/* Author Header */}
         <Pressable
           onPress={() => router.push(`/profile/${post.authorId}`)}
@@ -90,7 +90,7 @@ export default function FeedScreen() {
         >
           <View
             className={`w-12 h-12 rounded-full items-center justify-center ${
-              post.authorRole === 'professional' ? 'bg-skillset-teal/20' : 'bg-blue-500/20'
+              post.authorRole === 'professional' ? 'bg-workly-teal/20' : 'bg-blue-500/20'
             }`}
           >
             {post.authorPhotoUrl ? (
@@ -109,12 +109,12 @@ export default function FeedScreen() {
               <Text className="text-white font-semibold">{post.authorName}</Text>
               <View
                 className={`ml-2 px-2 py-0.5 rounded-full ${
-                  post.authorRole === 'professional' ? 'bg-skillset-teal/20' : 'bg-blue-500/20'
+                  post.authorRole === 'professional' ? 'bg-workly-teal/20' : 'bg-blue-500/20'
                 }`}
               >
                 <Text
                   className={`text-xs ${
-                    post.authorRole === 'professional' ? 'text-skillset-teal-light' : 'text-blue-400'
+                    post.authorRole === 'professional' ? 'text-workly-teal-light' : 'text-blue-400'
                   }`}
                 >
                   {post.authorRole === 'professional' ? 'Pro' : 'Client'}
@@ -132,10 +132,10 @@ export default function FeedScreen() {
         {/* Post Content */}
         <View className="px-4 pb-3">
           <View className="flex-row items-center mb-2">
-            <View className="bg-skillset-bg-input px-3 py-1 rounded-full">
+            <View className="bg-workly-bg-input px-3 py-1 rounded-full">
               <Text className="text-slate-300 text-sm">{post.serviceCategoryName}</Text>
             </View>
-            <View className="bg-skillset-bg-input/50 px-3 py-1 rounded-full ml-2">
+            <View className="bg-workly-bg-input/50 px-3 py-1 rounded-full ml-2">
               <Text className="text-slate-400 text-xs">
                 {post.type === 'completed_work' ? 'Completed Work' : 'Job Done'}
               </Text>
@@ -170,7 +170,7 @@ export default function FeedScreen() {
         )}
 
         {/* Actions */}
-        <View className="flex-row items-center px-4 py-3 border-t border-skillset-border">
+        <View className="flex-row items-center px-4 py-3 border-t border-workly-border">
           <Pressable
             onPress={() => handleReaction(post.id, 'like')}
             className={`flex-row items-center mr-6 ${
@@ -224,9 +224,9 @@ export default function FeedScreen() {
   };
 
   return (
-    <View className="flex-1 bg-skillset-bg-dark">
+    <View className="flex-1 bg-workly-bg-dark">
       {/* Filter Tabs */}
-      <View className="px-4 py-3 border-b border-skillset-border">
+      <View className="px-4 py-3 border-b border-workly-border">
         <View className="flex-row items-center justify-between">
           <View className="flex-row">
             {(['all', 'clients', 'professionals'] as const).map((type) => (
@@ -234,7 +234,7 @@ export default function FeedScreen() {
                 key={type}
                 onPress={() => handleFilterType(type)}
                 className={`px-4 py-2 rounded-full mr-2 ${
-                  filters.type === type ? 'bg-skillset-teal' : 'bg-skillset-bg-card'
+                  filters.type === type ? 'bg-workly-teal' : 'bg-workly-bg-card'
                 }`}
               >
                 <Text
@@ -251,7 +251,7 @@ export default function FeedScreen() {
           <Pressable
             onPress={() => setShowFilters(!showFilters)}
             className={`flex-row items-center px-3 py-2 rounded-full ${
-              filters.categoryId ? 'bg-skillset-teal' : 'bg-skillset-bg-card'
+              filters.categoryId ? 'bg-workly-teal' : 'bg-workly-bg-card'
             }`}
           >
             <Filter color={filters.categoryId ? 'white' : '#94A3B8'} size={16} />
@@ -265,7 +265,7 @@ export default function FeedScreen() {
 
         {/* Category Filter Dropdown */}
         {showFilters && (
-          <View className="mt-3 bg-skillset-bg-card rounded-xl p-3">
+          <View className="mt-3 bg-workly-bg-card rounded-xl p-3">
             <View className="flex-row items-center justify-between mb-2">
               <Text className="text-white font-medium">Filter by Category</Text>
               {filters.categoryId && (
@@ -283,7 +283,7 @@ export default function FeedScreen() {
                   key={category.id}
                   onPress={() => handleCategoryFilter(category.id)}
                   className={`px-3 py-2 rounded-full mr-2 ${
-                    filters.categoryId === category.id ? 'bg-skillset-teal' : 'bg-skillset-bg-input'
+                    filters.categoryId === category.id ? 'bg-workly-teal' : 'bg-workly-bg-input'
                   }`}
                 >
                   <Text
@@ -303,7 +303,7 @@ export default function FeedScreen() {
       {/* Posts List */}
       {filteredPosts.length === 0 ? (
         <View className="flex-1 items-center justify-center px-8">
-          <View className="w-20 h-20 bg-skillset-bg-card rounded-full items-center justify-center mb-4">
+          <View className="w-20 h-20 bg-workly-bg-card rounded-full items-center justify-center mb-4">
             <Briefcase color="#5A7A82" size={32} />
           </View>
           <Text className="text-white text-xl font-semibold text-center">No posts yet</Text>

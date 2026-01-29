@@ -167,14 +167,14 @@ export default function CreateJobRequestScreen() {
 
   if (!user || user.role !== 'client') {
     return (
-      <View className="flex-1 bg-skillset-bg-dark items-center justify-center">
+      <View className="flex-1 bg-workly-bg-dark items-center justify-center">
         <Text className="text-white">Only clients can create job requests</Text>
       </View>
     );
   }
 
   return (
-    <View className="flex-1 bg-skillset-bg-dark">
+    <View className="flex-1 bg-workly-bg-dark">
       <Stack.Screen
         options={{
           headerShown: true,
@@ -201,7 +201,7 @@ export default function CreateJobRequestScreen() {
             {/* Title */}
             <View className="mb-6">
               <Text className="text-white font-semibold mb-2">Job Title</Text>
-              <View className="flex-row items-center bg-skillset-bg-card rounded-xl px-4 py-3 border border-skillset-border">
+              <View className="flex-row items-center bg-workly-bg-card rounded-xl px-4 py-3 border border-workly-border">
                 <FileText color="#5A7A82" size={20} />
                 <TextInput
                   className="flex-1 ml-3 text-white text-base"
@@ -235,8 +235,8 @@ export default function CreateJobRequestScreen() {
                     }}
                     className={`px-4 py-2 rounded-full mr-2 ${
                       selectedCategory === category.id
-                        ? 'bg-skillset-teal'
-                        : 'bg-skillset-bg-card'
+                        ? 'bg-workly-teal'
+                        : 'bg-workly-bg-card'
                     }`}
                   >
                     <Text
@@ -268,7 +268,7 @@ export default function CreateJobRequestScreen() {
                 </Text>
               </View>
               <TextInput
-                className="bg-skillset-bg-card rounded-xl px-4 py-3 text-white text-base border border-skillset-border min-h-[120px]"
+                className="bg-workly-bg-card rounded-xl px-4 py-3 text-white text-base border border-workly-border min-h-[120px]"
                 placeholder="Describe the job in detail. What needs to be done? Any specific requirements or preferences?"
                 placeholderTextColor="#5A7A82"
                 value={description}
@@ -283,7 +283,7 @@ export default function CreateJobRequestScreen() {
               <Text className="text-white font-semibold mb-3">Location</Text>
 
               {/* Neighborhood */}
-              <View className="flex-row items-center bg-skillset-bg-card rounded-xl px-4 py-3 border border-skillset-border mb-3">
+              <View className="flex-row items-center bg-workly-bg-card rounded-xl px-4 py-3 border border-workly-border mb-3">
                 <Home color="#5A7A82" size={20} />
                 <TextInput
                   className="flex-1 ml-3 text-white text-base"
@@ -295,7 +295,7 @@ export default function CreateJobRequestScreen() {
               </View>
 
               {/* City */}
-              <View className="flex-row items-center bg-skillset-bg-card rounded-xl px-4 py-3 border border-skillset-border mb-3">
+              <View className="flex-row items-center bg-workly-bg-card rounded-xl px-4 py-3 border border-workly-border mb-3">
                 <MapPin color="#5A7A82" size={20} />
                 <TextInput
                   className="flex-1 ml-3 text-white text-base"
@@ -309,7 +309,7 @@ export default function CreateJobRequestScreen() {
               {/* State and Zip */}
               <View className="flex-row">
                 <View className="flex-1 mr-2">
-                  <View className="flex-row items-center bg-skillset-bg-card rounded-xl px-4 py-3 border border-skillset-border">
+                  <View className="flex-row items-center bg-workly-bg-card rounded-xl px-4 py-3 border border-workly-border">
                     <Building color="#5A7A82" size={20} />
                     <TextInput
                       className="flex-1 ml-3 text-white text-base"
@@ -323,7 +323,7 @@ export default function CreateJobRequestScreen() {
                   </View>
                 </View>
                 <View className="flex-1 ml-2">
-                  <View className="flex-row items-center bg-skillset-bg-card rounded-xl px-4 py-3 border border-skillset-border">
+                  <View className="flex-row items-center bg-workly-bg-card rounded-xl px-4 py-3 border border-workly-border">
                     <Hash color="#5A7A82" size={20} />
                     <TextInput
                       className="flex-1 ml-3 text-white text-base"
@@ -361,7 +361,7 @@ export default function CreateJobRequestScreen() {
                         contentFit="cover"
                       />
                     ) : (
-                      <View className="w-[100px] h-[100px] rounded-xl bg-skillset-bg-card items-center justify-center overflow-hidden">
+                      <View className="w-[100px] h-[100px] rounded-xl bg-workly-bg-card items-center justify-center overflow-hidden">
                         <Video
                           source={{ uri: item.uri }}
                           style={{ width: 100, height: 100 }}
@@ -386,7 +386,7 @@ export default function CreateJobRequestScreen() {
                   <View className="flex-row">
                     <Pressable
                       onPress={pickImage}
-                      className="w-[100px] h-[100px] bg-skillset-bg-card rounded-xl items-center justify-center border border-dashed border-skillset-border mr-3"
+                      className="w-[100px] h-[100px] bg-workly-bg-card rounded-xl items-center justify-center border border-dashed border-workly-border mr-3"
                     >
                       <Camera color="#5A7A82" size={28} />
                       <Text className="text-slate-500 text-xs mt-1">Photo</Text>
@@ -394,7 +394,7 @@ export default function CreateJobRequestScreen() {
 
                     <Pressable
                       onPress={pickVideo}
-                      className="w-[100px] h-[100px] bg-skillset-bg-card rounded-xl items-center justify-center border border-dashed border-skillset-border"
+                      className="w-[100px] h-[100px] bg-workly-bg-card rounded-xl items-center justify-center border border-dashed border-workly-border"
                     >
                       <VideoIcon color="#5A7A82" size={28} />
                       <Text className="text-slate-500 text-xs mt-1">Video</Text>
