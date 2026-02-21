@@ -8,8 +8,7 @@
     "ios": "expo start --ios",
     "web": "DARK_MODE=class expo start --web",
     "lint": "expo lint",
-    "typecheck": "tsc --noEmit",
-    "postinstall": "patch-package"
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@babel/plugin-proposal-export-namespace-from": "^7.18.9",
@@ -174,6 +173,7 @@
   },
   "patchedDependencies": {
     "react-native@0.79.6": "patches/react-native@0.79.6.patch",
-    "expo-asset@11.1.5": "patches/expo-asset@11.1.5.patch"
+    "expo-asset@11.1.5": "patches/expo-asset@11.1.5.patch",
+    "@react-native-menu/menu@1.2.2": "patches/@react-native-menu%2Fmenu@1.2.2.patch"
   }
 }
