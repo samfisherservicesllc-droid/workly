@@ -260,7 +260,7 @@ export default function CreatePostScreen() {
             <View className="px-4 mt-6">
               <Pressable onPress={handleSubmit}>
                 <LinearGradient
-                  colors={['#6B8AFE', '#4A6BE0']}
+                  colors={['#2979FF', '#1565C0']}
                   start={{ x: 0, y: 0 }}
                   end={{ x: 1, y: 0 }}
                   style={{ borderRadius: 12, paddingVertical: 16 }}

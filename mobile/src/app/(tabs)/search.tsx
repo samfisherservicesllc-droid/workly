@@ -139,7 +139,7 @@ export default function SearchScreen() {
                   style={{ width: 64, height: 64, borderRadius: 32 }}
                 />
               ) : (
-                <Briefcase color="#6B8AFE" size={28} />
+                <Briefcase color="#2979FF" size={28} />
               )}
             </View>
 
@@ -149,7 +149,7 @@ export default function SearchScreen() {
                 <Text className="text-white font-semibold text-lg">{pro.name}</Text>
                 {ratingData.count > 0 && (
                   <View className="flex-row items-center">
-                    <Star color="#6B8AFE" size={14} fill="#6B8AFE" />
+                    <Star color="#2979FF" size={14} fill="#2979FF" />
                     <Text className="text-workly-teal-light text-sm ml-1">
                       {ratingData.rating.toFixed(1)}
                     </Text>
@@ -552,13 +552,13 @@ export default function SearchScreen() {
         )
       ) : isCheckingAccess ? (
         <View className="flex-1 items-center justify-center">
-          <ActivityIndicator color="#6B8AFE" size="large" />
+          <ActivityIndicator color="#2979FF" size="large" />
         </View>
       ) : !hasLeadsAccess && isRevenueCatEnabled() ? (
         // Locked state - no subscription
         <View className="flex-1 items-center justify-center px-8">
           <View className="w-24 h-24 bg-workly-teal/20 rounded-full items-center justify-center mb-6">
-            <Lock color="#6B8AFE" size={40} />
+            <Lock color="#2979FF" size={40} />
           </View>
           <Text className="text-white text-2xl font-bold text-center mb-2">
             Unlock Job Requests
@@ -573,7 +573,7 @@ export default function SearchScreen() {
             }}
           >
             <LinearGradient
-              colors={['#6B8AFE', '#3A8A9D']}
+              colors={['#2979FF', '#1565C0']}
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 0 }}
               style={{

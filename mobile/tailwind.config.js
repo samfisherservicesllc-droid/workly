@@ -12,19 +12,22 @@ module.exports = {
     // NOTE to AI: You can extend the theme with custom colors or styles here.
     extend: {
       colors: {
-        // Workly brand colors - dark charcoal/slate theme
+        // Workly brand colors - vibrant royal blue theme matching the app icon
         workly: {
-          accent: '#6B8AFE',           // Soft blue accent
-          'accent-light': '#8BA3FF',   // Lighter blue
-          'accent-dark': '#4A6BE0',    // Darker blue
-          'bg-dark': '#1A1D23',        // Deep charcoal background
-          'bg-card': '#252932',        // Card background
-          'bg-input': '#2D323C',       // Input background
-          border: '#3A404D',           // Border color
+          accent: '#2979FF',           // Vibrant royal blue (primary CTA)
+          'accent-light': '#82B1FF',   // Light blue highlight
+          'accent-dark': '#1565C0',    // Deep navy blue (from icon bg)
+          'bg-dark': '#0D1B3E',        // Deep navy background
+          'bg-card': '#0F2152',        // Rich blue card background
+          'bg-input': '#163068',       // Blue input background
+          border: '#1E3A7A',           // Blue border
           // Keep teal as secondary for backwards compatibility
-          teal: '#6B8AFE',
-          'teal-light': '#8BA3FF',
-          'teal-dark': '#4A6BE0',
+          teal: '#2979FF',
+          'teal-light': '#82B1FF',
+          'teal-dark': '#1565C0',
+          // Additional palette
+          sky: '#5C9BFF',              // Sky blue for secondary elements
+          muted: '#7BA7E0',            // Muted blue for secondary text
         },
       },
       fontSize: {

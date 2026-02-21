@@ -179,7 +179,7 @@ export default function CreateJobRequestScreen() {
       <Stack.Screen
         options={{
           headerShown: true,
-          headerStyle: { backgroundColor: '#252932' },
+          headerStyle: { backgroundColor: '#0F2152' },
           headerTintColor: '#FFFFFF',
           headerTitle: 'Post Job Request',
           headerLeft: () => (

@@ -95,7 +95,7 @@ export default function EditBannerScreen() {
       <Stack.Screen
         options={{
           headerShown: true,
-          headerStyle: { backgroundColor: '#252932' },
+          headerStyle: { backgroundColor: '#0F2152' },
           headerTintColor: '#FFFFFF',
           headerTitle: 'Special Offer Banner',
           headerLeft: () => (
@@ -201,7 +201,7 @@ export default function EditBannerScreen() {
                     <Text className="text-white">
                       Expires: {format(expirationDate, 'MMM d, yyyy')}
                     </Text>
-                    <Calendar color="#6B8AFE" size={18} />
+                    <Calendar color="#2979FF" size={18} />
                   </Pressable>
 
                   {showDatePicker && (
@@ -239,7 +239,7 @@ export default function EditBannerScreen() {
             {/* Save Button */}
             <Pressable onPress={handleSave}>
               <LinearGradient
-                colors={['#6B8AFE', '#4A6BE0']}
+                colors={['#2979FF', '#1565C0']}
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 0 }}
                 style={{ borderRadius: 12, paddingVertical: 16 }}

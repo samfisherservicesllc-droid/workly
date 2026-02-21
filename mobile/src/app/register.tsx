@@ -129,7 +129,7 @@ export default function RegisterScreen() {
                 >
                   <View className="flex-row items-center">
                     <View className="w-14 h-14 bg-workly-accent/20 rounded-xl items-center justify-center">
-                      <Briefcase color="#6B8AFE" size={32} />
+                      <Briefcase color="#2979FF" size={32} />
                     </View>
                     <View className="ml-4 flex-1">
                       <Text className="text-white text-xl font-semibold">
@@ -281,7 +281,7 @@ export default function RegisterScreen() {
 
                   <Pressable onPress={handleRegister} disabled={isLoading} className="mt-6">
                     <LinearGradient
-                      colors={role === 'professional' ? ['#6B8AFE', '#4A6BE0'] : ['#3B82F6', '#2563EB']}
+                      colors={role === 'professional' ? ['#2979FF', '#1565C0'] : ['#2979FF', '#1565C0']}
                       start={{ x: 0, y: 0 }}
                       end={{ x: 1, y: 0 }}
                       style={{ borderRadius: 12, paddingVertical: 16 }}

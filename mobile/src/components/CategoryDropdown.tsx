@@ -98,7 +98,7 @@ export function CategoryDropdown({
             </Text>
           )}
         </View>
-        {isSelected && <Check color="#6B8AFE" size={20} />}
+        {isSelected && <Check color="#2979FF" size={20} />}
       </Pressable>
     );
   };
@@ -149,7 +149,7 @@ export function CategoryDropdown({
                 className="flex-row items-center bg-workly-teal/20 px-3 py-1.5 rounded-full mr-2"
               >
                 <Text className="text-workly-teal text-sm">{cat.name}</Text>
-                <X color="#6B8AFE" size={14} className="ml-1" />
+                <X color="#2979FF" size={14} className="ml-1" />
               </Pressable>
             );
           })}

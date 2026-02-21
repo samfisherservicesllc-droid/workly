@@ -103,7 +103,7 @@ export default function EditPortfolioScreen() {
       <Stack.Screen
         options={{
           headerShown: true,
-          headerStyle: { backgroundColor: '#252932' },
+          headerStyle: { backgroundColor: '#0F2152' },
           headerTintColor: '#FFFFFF',
           headerTitle: 'Edit Portfolio',
           headerLeft: () => (
@@ -119,7 +119,7 @@ export default function EditPortfolioScreen() {
           {/* Header */}
           <View className="items-center mb-6">
             <View className="w-16 h-16 bg-workly-teal/20 rounded-full items-center justify-center mb-3">
-              <Images color="#6B8AFE" size={32} />
+              <Images color="#2979FF" size={32} />
             </View>
             <Text className="text-white text-xl font-semibold">
               Showcase Your Work
@@ -213,7 +213,7 @@ export default function EditPortfolioScreen() {
           {/* Save Button */}
           <Pressable onPress={handleSave}>
             <LinearGradient
-              colors={['#6B8AFE', '#4A6BE0']}
+              colors={['#2979FF', '#1565C0']}
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 0 }}
               style={{ borderRadius: 12, paddingVertical: 16 }}

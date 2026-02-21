@@ -44,7 +44,7 @@ export default function MessagesScreen() {
               style={{ width: 56, height: 56, borderRadius: 28 }}
             />
           ) : otherRole === 'professional' ? (
-            <Briefcase color="#6B8AFE" size={26} />
+            <Briefcase color="#2979FF" size={26} />
           ) : (
             <UserCircle color="#3B82F6" size={26} />
           )}

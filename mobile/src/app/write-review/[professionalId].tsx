@@ -160,8 +160,8 @@ export default function WriteReviewScreen() {
           >
             <Star
               size={40}
-              color={star <= rating ? '#6B8AFE' : '#475569'}
-              fill={star <= rating ? '#6B8AFE' : 'transparent'}
+              color={star <= rating ? '#2979FF' : '#475569'}
+              fill={star <= rating ? '#2979FF' : 'transparent'}
             />
           </Pressable>
         ))}
@@ -175,7 +175,7 @@ export default function WriteReviewScreen() {
         <Stack.Screen
           options={{
             headerShown: true,
-            headerStyle: { backgroundColor: '#252932' },
+            headerStyle: { backgroundColor: '#0F2152' },
             headerTintColor: '#FFFFFF',
             headerTitle: 'Write Review',
             headerLeft: () => (
@@ -186,7 +186,7 @@ export default function WriteReviewScreen() {
           }}
         />
         <View className="flex-1 items-center justify-center px-8">
-          <Star color="#6B8AFE" size={48} fill="#6B8AFE" />
+          <Star color="#2979FF" size={48} fill="#2979FF" />
           <Text className="text-white text-xl font-semibold mt-4 text-center">
             Already Reviewed
           </Text>
@@ -203,7 +203,7 @@ export default function WriteReviewScreen() {
       <Stack.Screen
         options={{
           headerShown: true,
-          headerStyle: { backgroundColor: '#252932' },
+          headerStyle: { backgroundColor: '#0F2152' },
           headerTintColor: '#FFFFFF',
           headerTitle: 'Write Review',
           headerLeft: () => (
@@ -381,7 +381,7 @@ export default function WriteReviewScreen() {
             {/* Submit Button */}
             <Pressable onPress={handleSubmit}>
               <LinearGradient
-                colors={['#6B8AFE', '#4A6BE0']}
+                colors={['#2979FF', '#1565C0']}
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 0 }}
                 style={{ borderRadius: 12, paddingVertical: 16 }}

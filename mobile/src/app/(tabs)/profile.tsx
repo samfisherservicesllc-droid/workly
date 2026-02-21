@@ -87,8 +87,8 @@ export default function ProfileScreen() {
           <Star
             key={star}
             size={size}
-            color={star <= rating ? '#6B8AFE' : '#475569'}
-            fill={star <= rating ? '#6B8AFE' : 'transparent'}
+            color={star <= rating ? '#2979FF' : '#475569'}
+            fill={star <= rating ? '#2979FF' : 'transparent'}
           />
         ))}
       </View>
@@ -171,7 +171,7 @@ export default function ProfileScreen() {
       <ScrollView contentContainerStyle={{ paddingBottom: 100 }}>
         {/* Profile Header */}
         <LinearGradient
-          colors={['#252932', '#1A1D23']}
+          colors={['#0F2152', '#0D1B3E']}
           style={{ paddingTop: 20, paddingBottom: 30 }}
         >
           <View className="items-center px-6">
@@ -186,7 +186,7 @@ export default function ProfileScreen() {
                   style={{ width: 96, height: 96, borderRadius: 48 }}
                 />
               ) : isProfessional ? (
-                <Briefcase color="#6B8AFE" size={40} />
+                <Briefcase color="#2979FF" size={40} />
               ) : (
                 <UserCircle color="#3B82F6" size={40} />
               )}
@@ -230,7 +230,7 @@ export default function ProfileScreen() {
               className="mt-5"
             >
               <LinearGradient
-                colors={['#6B8AFE', '#4A6BE0']}
+                colors={['#2979FF', '#1565C0']}
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 0 }}
                 style={{
@@ -337,7 +337,7 @@ export default function ProfileScreen() {
             {professionalUser.trade && (
               <View className="bg-workly-bg-card rounded-xl p-4 mb-4">
                 <View className="flex-row items-center mb-2">
-                  <Award color="#6B8AFE" size={20} />
+                  <Award color="#2979FF" size={20} />
                   <Text className="text-white font-semibold ml-2">Trade</Text>
                 </View>
                 <Text className="text-slate-300">{professionalUser.trade}</Text>
@@ -487,7 +487,7 @@ export default function ProfileScreen() {
             <View className="mt-2 mb-4">
               <View className="flex-row items-center justify-between mb-4">
                 <View className="flex-row items-center">
-                  <Star color="#6B8AFE" size={20} fill="#6B8AFE" />
+                  <Star color="#2979FF" size={20} fill="#2979FF" />
                   <Text className="text-white font-semibold ml-2">
                     Your Reviews ({reviews.length})
                   </Text>
@@ -549,7 +549,7 @@ export default function ProfileScreen() {
                 <View className="bg-workly-teal/20 rounded-xl p-4 border border-workly-teal/30">
                   <View className="flex-row items-center">
                     <View className="w-10 h-10 bg-workly-teal/30 rounded-full items-center justify-center">
-                      <Crown color="#6B8AFE" size={20} />
+                      <Crown color="#2979FF" size={20} />
                     </View>
                     <View className="ml-3 flex-1">
                       <Text className="text-white font-semibold">Workly Pro</Text>
@@ -568,7 +568,7 @@ export default function ProfileScreen() {
                   }}
                 >
                   <LinearGradient
-                    colors={['#6B8AFE', '#3A8A9D']}
+                    colors={['#2979FF', '#1565C0']}
                     start={{ x: 0, y: 0 }}
                     end={{ x: 1, y: 0 }}
                     style={{ borderRadius: 12, padding: 16 }}

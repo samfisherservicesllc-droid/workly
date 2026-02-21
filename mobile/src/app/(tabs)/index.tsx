@@ -100,7 +100,7 @@ export default function FeedScreen() {
                 style={{ width: 48, height: 48, borderRadius: 24 }}
               />
             ) : post.authorRole === 'professional' ? (
-              <Briefcase color="#6B8AFE" size={24} />
+              <Briefcase color="#2979FF" size={24} />
             ) : (
               <UserCircle color="#3B82F6" size={24} />
             )}
@@ -292,7 +292,7 @@ export default function FeedScreen() {
             className="mt-6"
           >
             <LinearGradient
-              colors={['#6B8AFE', '#4A6BE0']}
+              colors={['#2979FF', '#1565C0']}
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 0 }}
               style={{ borderRadius: 12, paddingVertical: 12, paddingHorizontal: 24 }}
@@ -308,7 +308,7 @@ export default function FeedScreen() {
           estimatedItemSize={350}
           contentContainerStyle={{ paddingTop: 16, paddingBottom: 100 }}
           refreshControl={
-            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor="#6B8AFE" />
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor="#2979FF" />
           }
         />
       )}

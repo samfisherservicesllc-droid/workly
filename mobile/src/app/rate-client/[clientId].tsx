@@ -112,7 +112,7 @@ export default function RateClientScreen() {
         <Stack.Screen
           options={{
             headerShown: true,
-            headerStyle: { backgroundColor: '#252932' },
+            headerStyle: { backgroundColor: '#0F2152' },
             headerTintColor: '#FFFFFF',
             headerTitle: 'Rate Client',
             headerLeft: () => (
@@ -140,7 +140,7 @@ export default function RateClientScreen() {
       <Stack.Screen
         options={{
           headerShown: true,
-          headerStyle: { backgroundColor: '#252932' },
+          headerStyle: { backgroundColor: '#0F2152' },
           headerTintColor: '#FFFFFF',
           headerTitle: 'Rate Client',
           headerLeft: () => (

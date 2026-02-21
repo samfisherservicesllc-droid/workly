@@ -112,7 +112,7 @@ export default function ConversationScreen() {
       <Stack.Screen
         options={{
           headerShown: true,
-          headerStyle: { backgroundColor: '#252932' },
+          headerStyle: { backgroundColor: '#0F2152' },
           headerTintColor: '#FFFFFF',
           headerLeft: () => (
             <Pressable onPress={() => router.back()} className="mr-4">
@@ -135,7 +135,7 @@ export default function ConversationScreen() {
                     style={{ width: 36, height: 36, borderRadius: 18 }}
                   />
                 ) : otherRole === 'professional' ? (
-                  <Briefcase color="#6B8AFE" size={18} />
+                  <Briefcase color="#2979FF" size={18} />
                 ) : (
                   <UserCircle color="#3B82F6" size={18} />
                 )}
@@ -176,7 +176,7 @@ export default function ConversationScreen() {
               }`}
             >
               {otherRole === 'professional' ? (
-                <Briefcase color="#6B8AFE" size={32} />
+                <Briefcase color="#2979FF" size={32} />
               ) : (
                 <UserCircle color="#3B82F6" size={32} />
               )}

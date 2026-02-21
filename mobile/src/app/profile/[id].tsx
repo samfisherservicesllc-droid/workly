@@ -156,8 +156,8 @@ export default function ProfileViewScreen() {
           <Star
             key={star}
             size={size}
-            color={star <= rating ? '#6B8AFE' : '#475569'}
-            fill={star <= rating ? '#6B8AFE' : 'transparent'}
+            color={star <= rating ? '#2979FF' : '#475569'}
+            fill={star <= rating ? '#2979FF' : 'transparent'}
           />
         ))}
       </View>
@@ -262,7 +262,7 @@ export default function ProfileViewScreen() {
                 style={{ width: 40, height: 40, borderRadius: 20 }}
               />
             ) : (
-              <Briefcase color="#6B8AFE" size={20} />
+              <Briefcase color="#2979FF" size={20} />
             )}
           </View>
           <View className="ml-3 flex-1">
@@ -294,7 +294,7 @@ export default function ProfileViewScreen() {
       <Stack.Screen
         options={{
           headerShown: true,
-          headerStyle: { backgroundColor: '#252932' },
+          headerStyle: { backgroundColor: '#0F2152' },
           headerTintColor: '#FFFFFF',
           headerTitle: profileUser.name,
           headerLeft: () => (
@@ -317,7 +317,7 @@ export default function ProfileViewScreen() {
       <ScrollView contentContainerStyle={{ paddingBottom: 100 }}>
         {/* Profile Header */}
         <LinearGradient
-          colors={['#252932', '#1A1D23']}
+          colors={['#0F2152', '#0D1B3E']}
           style={{ paddingTop: 20, paddingBottom: 30 }}
         >
           <View className="items-center px-6">
@@ -332,7 +332,7 @@ export default function ProfileViewScreen() {
                   style={{ width: 96, height: 96, borderRadius: 48 }}
                 />
               ) : isProfessional ? (
-                <Briefcase color="#6B8AFE" size={40} />
+                <Briefcase color="#2979FF" size={40} />
               ) : (
                 <UserCircle color="#3B82F6" size={40} />
               )}
@@ -372,7 +372,7 @@ export default function ProfileViewScreen() {
               <View className="flex-row mt-6 gap-3">
                 <Pressable onPress={handleMessage}>
                   <LinearGradient
-                    colors={['#6B8AFE', '#4A6BE0']}
+                    colors={['#2979FF', '#1565C0']}
                     start={{ x: 0, y: 0 }}
                     end={{ x: 1, y: 0 }}
                     style={{
@@ -438,7 +438,7 @@ export default function ProfileViewScreen() {
             {professionalUser.trade && (
               <View className="bg-workly-bg-card rounded-xl p-4 mb-4">
                 <View className="flex-row items-center mb-2">
-                  <Award color="#6B8AFE" size={20} />
+                  <Award color="#2979FF" size={20} />
                   <Text className="text-white font-semibold ml-2">Trade</Text>
                 </View>
                 <Text className="text-slate-300">{professionalUser.trade}</Text>
@@ -571,7 +571,7 @@ export default function ProfileViewScreen() {
             <View className="mt-2">
               <View className="flex-row items-center justify-between mb-4">
                 <View className="flex-row items-center">
-                  <Star color="#6B8AFE" size={20} fill="#6B8AFE" />
+                  <Star color="#2979FF" size={20} fill="#2979FF" />
                   <Text className="text-white font-semibold ml-2">
                     Reviews ({reviews.length})
                   </Text>

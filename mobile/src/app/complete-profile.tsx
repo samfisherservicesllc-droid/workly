@@ -68,7 +68,7 @@ export default function CompleteProfileScreen() {
   return (
     <View className="flex-1">
       <LinearGradient
-        colors={['#1A1D23', '#252932', '#2D323C']}
+        colors={['#0D1B3E', '#0F2152', '#163068']}
         style={{ position: 'absolute', left: 0, right: 0, top: 0, bottom: 0 }}
       />
       <SafeAreaView className="flex-1">
@@ -199,7 +199,7 @@ export default function CompleteProfileScreen() {
 
               <Pressable onPress={handleComplete}>
                 <LinearGradient
-                  colors={['#6B8AFE', '#4A6BE0']}
+                  colors={['#2979FF', '#1565C0']}
                   start={{ x: 0, y: 0 }}
                   end={{ x: 1, y: 0 }}
                   style={{ borderRadius: 12, paddingVertical: 16 }}

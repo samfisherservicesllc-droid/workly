@@ -139,7 +139,7 @@ export default function PaywallScreen() {
       <Stack.Screen options={{ headerShown: false }} />
 
       <LinearGradient
-        colors={['#1A1D23', '#1A1D23', '#1A1D23']}
+        colors={['#0D1B3E', '#0D1B3E', '#0D1B3E']}
         style={{ flex: 1 }}
       >
         <SafeAreaView style={{ flex: 1 }} edges={['top']}>
@@ -163,7 +163,7 @@ export default function PaywallScreen() {
               className="items-center pt-8 pb-6 px-6"
             >
               <View className="w-20 h-20 rounded-2xl bg-workly-teal/20 items-center justify-center mb-4">
-                <Zap color="#6B8AFE" size={40} fill="#6B8AFE" />
+                <Zap color="#2979FF" size={40} fill="#2979FF" />
               </View>
               <Text className="text-white text-3xl font-bold text-center mb-2">
                 Workly Pro
@@ -185,7 +185,7 @@ export default function PaywallScreen() {
                   className="flex-row items-center bg-workly-bg-card/50 rounded-xl p-4 mb-3 border border-workly-border/50"
                 >
                   <View className="w-12 h-12 rounded-full bg-workly-teal/20 items-center justify-center mr-4">
-                    <feature.icon color="#6B8AFE" size={24} />
+                    <feature.icon color="#2979FF" size={24} />
                   </View>
                   <View className="flex-1">
                     <Text className="text-white font-semibold text-base">
@@ -195,7 +195,7 @@ export default function PaywallScreen() {
                       {feature.description}
                     </Text>
                   </View>
-                  <Check color="#6B8AFE" size={20} />
+                  <Check color="#2979FF" size={20} />
                 </Animated.View>
               ))}
             </Animated.View>
@@ -203,7 +203,7 @@ export default function PaywallScreen() {
             {/* Pricing */}
             {isLoading ? (
               <View className="items-center py-8">
-                <ActivityIndicator color="#6B8AFE" size="large" />
+                <ActivityIndicator color="#2979FF" size="large" />
               </View>
             ) : error ? (
               <View className="px-6 mb-6">
@@ -242,7 +242,7 @@ export default function PaywallScreen() {
                   className="mb-4"
                 >
                   <LinearGradient
-                    colors={['#6B8AFE', '#3A8A9D']}
+                    colors={['#2979FF', '#1565C0']}
                     start={{ x: 0, y: 0 }}
                     end={{ x: 1, y: 0 }}
                     style={{
@@ -268,7 +268,7 @@ export default function PaywallScreen() {
                   className="py-3"
                 >
                   {isRestoring ? (
-                    <ActivityIndicator color="#6B8AFE" size="small" />
+                    <ActivityIndicator color="#2979FF" size="small" />
                   ) : (
                     <Text className="text-workly-teal text-center font-medium">
                       Restore Purchases
