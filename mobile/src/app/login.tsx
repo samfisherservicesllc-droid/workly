@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { View, Text, TextInput, Pressable, KeyboardAvoidingView, Platform, ScrollView, ImageBackground } from 'react-native';
-import { Image } from 'expo-image';
+import { View, Text, TextInput, Pressable, KeyboardAvoidingView, Platform, ScrollView, ImageBackground, Image } from 'react-native';
 import { useRouter } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -59,7 +58,7 @@ export default function LoginScreen() {
                     <Image
                       source={require('../../assets/images/icon.png')}
                       style={{ width: 96, height: 96, marginLeft: -8, marginTop: -8 }}
-                      contentFit="cover"
+                      resizeMode="cover"
                     />
                   </View>
                   <Text className="text-white text-3xl font-bold">Workly</Text>

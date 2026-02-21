@@ -9,7 +9,7 @@ import {
   ScrollView,
   ImageBackground,
 } from 'react-native';
-import { Image } from 'expo-image';
+import { Image } from 'react-native';
 import { useRouter } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -180,7 +180,7 @@ export default function RegisterScreen() {
                     <Image
                       source={require('../../assets/images/icon.png')}
                       style={{ width: 96, height: 96, marginLeft: -8, marginTop: -8 }}
-                      contentFit="cover"
+                      resizeMode="cover"
                     />
                   </View>
                   <Text className="text-white text-2xl font-bold">
