@@ -25,7 +25,7 @@
         "backgroundColor": "#1565C0"
       }
     },
-    "plugins": ["expo-router", "./plugins/withMenuFix"],
+    "plugins": ["expo-router"],
     "experiments": {
       "typedRoutes": true
     }
