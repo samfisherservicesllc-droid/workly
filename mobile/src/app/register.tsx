@@ -9,6 +9,7 @@ import {
   ScrollView,
   ImageBackground,
 } from 'react-native';
+import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -175,16 +176,12 @@ export default function RegisterScreen() {
               <View className="flex-1 justify-center px-6">
                 {/* Header */}
                 <View className="items-center mb-8">
-                  <View
-                    className={`w-16 h-16 rounded-2xl items-center justify-center mb-4 ${
-                      role === 'professional' ? 'bg-workly-accent' : 'bg-blue-500'
-                    }`}
-                  >
-                    {role === 'professional' ? (
-                      <Briefcase color="white" size={32} />
-                    ) : (
-                      <UserCircle color="white" size={32} />
-                    )}
+                  <View className="w-20 h-20 rounded-2xl items-center justify-center mb-4 overflow-hidden">
+                    <Image
+                      source={require('../../assets/images/icon.png')}
+                      style={{ width: 80, height: 80, borderRadius: 16 }}
+                      resizeMode="cover"
+                    />
                   </View>
                   <Text className="text-white text-2xl font-bold">
                     Create {role === 'professional' ? 'Professional' : 'Client'} Account
