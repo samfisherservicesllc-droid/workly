@@ -179,7 +179,7 @@ export default function RegisterScreen() {
                   <View className="w-20 h-20 rounded-2xl overflow-hidden mb-4">
                     <Image
                       source={require('../../assets/images/icon.png')}
-                      style={{ width: 96, height: 96, marginLeft: -8, marginTop: -8 }}
+                      style={{ width: 80, height: 80 }}
                       resizeMode="cover"
                     />
                   </View>
