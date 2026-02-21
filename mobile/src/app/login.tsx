@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { View, Text, TextInput, Pressable, KeyboardAvoidingView, Platform, ScrollView, ImageBackground } from 'react-native';
+import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
-import { Briefcase, Mail, Lock, Eye, EyeOff } from 'lucide-react-native';
+import { Mail, Lock, Eye, EyeOff } from 'lucide-react-native';
 import { useAuthStore } from '@/lib/state/auth-store';
 import * as Haptics from 'expo-haptics';
 
@@ -54,8 +55,12 @@ export default function LoginScreen() {
               <View className="flex-1 justify-center px-6">
                 {/* Logo Area */}
                 <View className="items-center mb-12">
-                  <View className="w-20 h-20 bg-workly-accent rounded-2xl items-center justify-center mb-4">
-                    <Briefcase color="white" size={40} />
+                  <View className="w-20 h-20 rounded-2xl overflow-hidden mb-4">
+                    <Image
+                      source={require('../../assets/images/icon.png')}
+                      style={{ width: 80, height: 80 }}
+                      contentFit="cover"
+                    />
                   </View>
                   <Text className="text-white text-3xl font-bold">Workly</Text>
                   <Text className="text-slate-400 text-base mt-2">
