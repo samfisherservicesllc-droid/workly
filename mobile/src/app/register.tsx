@@ -176,11 +176,11 @@ export default function RegisterScreen() {
               <View className="flex-1 justify-center px-6">
                 {/* Header */}
                 <View className="items-center mb-8">
-                  <View className="w-20 h-20 rounded-2xl items-center justify-center mb-4 overflow-hidden">
+                  <View className="w-20 h-20 rounded-2xl overflow-hidden mb-4">
                     <Image
                       source={require('../../assets/images/icon.png')}
-                      style={{ width: 80, height: 80, borderRadius: 16 }}
-                      resizeMode="cover"
+                      style={{ width: 96, height: 96, marginLeft: -8, marginTop: -8 }}
+                      contentFit="cover"
                     />
                   </View>
                   <Text className="text-white text-2xl font-bold">
