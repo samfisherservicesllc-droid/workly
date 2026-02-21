@@ -96,11 +96,11 @@ export default function ConversationScreen() {
               : 'bg-workly-bg-card rounded-bl-sm'
           }`}
         >
-          <Text className={isOwnMessage ? 'text-white' : 'text-slate-200'}>
+          <Text className={isOwnMessage ? 'text-white' : 'text-blue-200'}>
             {message.content}
           </Text>
         </View>
-        <Text className="text-slate-500 text-xs mt-1">
+        <Text className="text-workly-text-subtle text-xs mt-1">
           {formatMessageTime(message.createdAt)}
         </Text>
       </View>
@@ -157,7 +157,7 @@ export default function ConversationScreen() {
               onPress={handleReport}
               className="w-10 h-10 items-center justify-center"
             >
-              <Flag color="#6B7280" size={20} />
+              <Flag color="#4A6FA5" size={20} />
             </Pressable>
           ),
         }}
@@ -182,7 +182,7 @@ export default function ConversationScreen() {
               )}
             </View>
             <Text className="text-white font-semibold mt-4">{otherName}</Text>
-            <Text className="text-slate-400 text-center mt-2">
+            <Text className="text-workly-muted text-center mt-2">
               Start a conversation about their services
             </Text>
           </View>
@@ -203,7 +203,7 @@ export default function ConversationScreen() {
             <TextInput
               className="flex-1 bg-workly-bg-card rounded-full px-4 py-3 text-white text-base mr-3"
               placeholder="Type a message..."
-              placeholderTextColor="#6B7280"
+              placeholderTextColor="#4A6FA5"
               value={messageText}
               onChangeText={setMessageText}
               multiline
@@ -217,7 +217,7 @@ export default function ConversationScreen() {
               }`}
             >
               <Send
-                color={messageText.trim() ? 'white' : '#6B7280'}
+                color={messageText.trim() ? 'white' : '#4A6FA5'}
                 size={20}
               />
             </Pressable>

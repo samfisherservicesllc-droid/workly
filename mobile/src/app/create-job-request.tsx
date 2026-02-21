@@ -203,11 +203,11 @@ export default function CreateJobRequestScreen() {
             <View className="mb-6">
               <Text className="text-white font-semibold mb-2">Job Title</Text>
               <View className="flex-row items-center bg-workly-bg-card rounded-xl px-4 py-3 border border-workly-border">
-                <FileText color="#6B7280" size={20} />
+                <FileText color="#4A6FA5" size={20} />
                 <TextInput
                   className="flex-1 ml-3 text-white text-base"
                   placeholder="e.g. Need plumber for bathroom leak"
-                  placeholderTextColor="#6B7280"
+                  placeholderTextColor="#4A6FA5"
                   value={title}
                   onChangeText={setTitle}
                   maxLength={100}
@@ -233,7 +233,7 @@ export default function CreateJobRequestScreen() {
                 </Text>
                 <Text
                   className={`text-sm ${
-                    wordCount > MAX_WORDS ? 'text-red-400' : 'text-slate-400'
+                    wordCount > MAX_WORDS ? 'text-red-400' : 'text-workly-muted'
                   }`}
                 >
                   {wordCount}/{MAX_WORDS} words
@@ -242,7 +242,7 @@ export default function CreateJobRequestScreen() {
               <TextInput
                 className="bg-workly-bg-card rounded-xl px-4 py-3 text-white text-base border border-workly-border min-h-[120px]"
                 placeholder="Describe the job in detail. What needs to be done? Any specific requirements or preferences?"
-                placeholderTextColor="#6B7280"
+                placeholderTextColor="#4A6FA5"
                 value={description}
                 onChangeText={setDescription}
                 multiline
@@ -256,11 +256,11 @@ export default function CreateJobRequestScreen() {
 
               {/* Neighborhood */}
               <View className="flex-row items-center bg-workly-bg-card rounded-xl px-4 py-3 border border-workly-border mb-3">
-                <Home color="#6B7280" size={20} />
+                <Home color="#4A6FA5" size={20} />
                 <TextInput
                   className="flex-1 ml-3 text-white text-base"
                   placeholder="Neighborhood (optional)"
-                  placeholderTextColor="#6B7280"
+                  placeholderTextColor="#4A6FA5"
                   value={neighborhood}
                   onChangeText={setNeighborhood}
                 />
@@ -268,11 +268,11 @@ export default function CreateJobRequestScreen() {
 
               {/* City */}
               <View className="flex-row items-center bg-workly-bg-card rounded-xl px-4 py-3 border border-workly-border mb-3">
-                <MapPin color="#6B7280" size={20} />
+                <MapPin color="#4A6FA5" size={20} />
                 <TextInput
                   className="flex-1 ml-3 text-white text-base"
                   placeholder="City"
-                  placeholderTextColor="#6B7280"
+                  placeholderTextColor="#4A6FA5"
                   value={city}
                   onChangeText={setCity}
                 />
@@ -282,11 +282,11 @@ export default function CreateJobRequestScreen() {
               <View className="flex-row">
                 <View className="flex-1 mr-2">
                   <View className="flex-row items-center bg-workly-bg-card rounded-xl px-4 py-3 border border-workly-border">
-                    <Building color="#6B7280" size={20} />
+                    <Building color="#4A6FA5" size={20} />
                     <TextInput
                       className="flex-1 ml-3 text-white text-base"
                       placeholder="State"
-                      placeholderTextColor="#6B7280"
+                      placeholderTextColor="#4A6FA5"
                       value={state}
                       onChangeText={setState}
                       autoCapitalize="characters"
@@ -296,11 +296,11 @@ export default function CreateJobRequestScreen() {
                 </View>
                 <View className="flex-1 ml-2">
                   <View className="flex-row items-center bg-workly-bg-card rounded-xl px-4 py-3 border border-workly-border">
-                    <Hash color="#6B7280" size={20} />
+                    <Hash color="#4A6FA5" size={20} />
                     <TextInput
                       className="flex-1 ml-3 text-white text-base"
                       placeholder="Zip Code"
-                      placeholderTextColor="#6B7280"
+                      placeholderTextColor="#4A6FA5"
                       value={zipCode}
                       onChangeText={setZipCode}
                       keyboardType="number-pad"
@@ -316,7 +316,7 @@ export default function CreateJobRequestScreen() {
               <Text className="text-white font-semibold mb-3">
                 Photos or Videos (optional)
               </Text>
-              <Text className="text-slate-500 text-sm mb-3">
+              <Text className="text-workly-text-subtle text-sm mb-3">
                 Add photos or videos to help professionals understand the job better
               </Text>
               <ScrollView
@@ -360,21 +360,21 @@ export default function CreateJobRequestScreen() {
                       onPress={pickImage}
                       className="w-[100px] h-[100px] bg-workly-bg-card rounded-xl items-center justify-center border border-dashed border-workly-border mr-3"
                     >
-                      <Camera color="#6B7280" size={28} />
-                      <Text className="text-slate-500 text-xs mt-1">Photo</Text>
+                      <Camera color="#4A6FA5" size={28} />
+                      <Text className="text-workly-text-subtle text-xs mt-1">Photo</Text>
                     </Pressable>
 
                     <Pressable
                       onPress={pickVideo}
                       className="w-[100px] h-[100px] bg-workly-bg-card rounded-xl items-center justify-center border border-dashed border-workly-border"
                     >
-                      <VideoIcon color="#6B7280" size={28} />
-                      <Text className="text-slate-500 text-xs mt-1">Video</Text>
+                      <VideoIcon color="#4A6FA5" size={28} />
+                      <Text className="text-workly-text-subtle text-xs mt-1">Video</Text>
                     </Pressable>
                   </View>
                 )}
               </ScrollView>
-              <Text className="text-slate-500 text-xs mt-2">
+              <Text className="text-workly-text-subtle text-xs mt-2">
                 Up to 5 photos/videos. Videos limited to 60 seconds.
               </Text>
             </View>

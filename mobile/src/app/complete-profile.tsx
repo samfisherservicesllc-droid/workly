@@ -89,7 +89,7 @@ export default function CompleteProfileScreen() {
                 <Text className="text-white text-2xl font-bold">
                   Complete Your Profile
                 </Text>
-                <Text className="text-slate-400 mt-2 text-center">
+                <Text className="text-workly-muted mt-2 text-center">
                   Help clients find you by adding your professional details
                 </Text>
               </View>
@@ -100,11 +100,11 @@ export default function CompleteProfileScreen() {
                   Your Trade/Profession
                 </Text>
                 <View className="flex-row items-center bg-workly-bg-input/50 rounded-xl px-4 py-3 border border-workly-border">
-                  <Award color="#6B7280" size={20} />
+                  <Award color="#4A6FA5" size={20} />
                   <TextInput
                     className="flex-1 ml-3 text-white text-base"
                     placeholder="e.g., Electrician, Plumber, Cleaner"
-                    placeholderTextColor="#6B7280"
+                    placeholderTextColor="#4A6FA5"
                     value={trade}
                     onChangeText={setTrade}
                   />
@@ -133,7 +133,7 @@ export default function CompleteProfileScreen() {
                   <TextInput
                     className="flex-1 text-white text-base"
                     placeholder="e.g., 5"
-                    placeholderTextColor="#6B7280"
+                    placeholderTextColor="#4A6FA5"
                     value={yearsExperience}
                     onChangeText={setYearsExperience}
                     keyboardType="number-pad"
@@ -147,11 +147,11 @@ export default function CompleteProfileScreen() {
                   License Number (optional)
                 </Text>
                 <View className="flex-row items-center bg-workly-bg-input/50 rounded-xl px-4 py-3 border border-workly-border">
-                  <FileText color="#6B7280" size={20} />
+                  <FileText color="#4A6FA5" size={20} />
                   <TextInput
                     className="flex-1 ml-3 text-white text-base"
                     placeholder="Your professional license number"
-                    placeholderTextColor="#6B7280"
+                    placeholderTextColor="#4A6FA5"
                     value={licenseNumber}
                     onChangeText={setLicenseNumber}
                   />
@@ -164,11 +164,11 @@ export default function CompleteProfileScreen() {
                   Service Areas (comma separated)
                 </Text>
                 <View className="flex-row items-center bg-workly-bg-input/50 rounded-xl px-4 py-3 border border-workly-border">
-                  <MapPin color="#6B7280" size={20} />
+                  <MapPin color="#4A6FA5" size={20} />
                   <TextInput
                     className="flex-1 ml-3 text-white text-base"
                     placeholder="e.g., Los Angeles, Santa Monica, Pasadena"
-                    placeholderTextColor="#6B7280"
+                    placeholderTextColor="#4A6FA5"
                     value={serviceAreas}
                     onChangeText={setServiceAreas}
                   />
@@ -184,7 +184,7 @@ export default function CompleteProfileScreen() {
                   <TextInput
                     className="text-white text-base min-h-[100px]"
                     placeholder="Describe your services, experience, and what makes you stand out..."
-                    placeholderTextColor="#6B7280"
+                    placeholderTextColor="#4A6FA5"
                     value={description}
                     onChangeText={setDescription}
                     multiline

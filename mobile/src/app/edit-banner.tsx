@@ -134,8 +134,8 @@ export default function EditBannerScreen() {
                 </LinearGradient>
               ) : (
                 <View className="bg-workly-bg-card rounded-xl p-4 items-center border border-dashed border-workly-border">
-                  <Megaphone color="#6B7280" size={24} />
-                  <Text className="text-slate-400 text-center mt-2">
+                  <Megaphone color="#4A6FA5" size={24} />
+                  <Text className="text-workly-muted text-center mt-2">
                     Your banner preview will appear here
                   </Text>
                 </View>
@@ -148,7 +148,7 @@ export default function EditBannerScreen() {
                 <Text className="text-white font-semibold">Your Message</Text>
                 <Text
                   className={`text-sm ${
-                    bannerText.length > MAX_CHARS ? 'text-red-400' : 'text-slate-400'
+                    bannerText.length > MAX_CHARS ? 'text-red-400' : 'text-workly-muted'
                   }`}
                 >
                   {bannerText.length}/{MAX_CHARS}
@@ -157,7 +157,7 @@ export default function EditBannerScreen() {
               <TextInput
                 className="bg-workly-bg-card rounded-xl px-4 py-3 text-white text-base border border-workly-border min-h-[100px]"
                 placeholder="e.g. 20% off all electrical work this month! Book now and save."
-                placeholderTextColor="#6B7280"
+                placeholderTextColor="#4A6FA5"
                 value={bannerText}
                 onChangeText={setBannerText}
                 multiline
@@ -176,7 +176,7 @@ export default function EditBannerScreen() {
                 className="flex-row items-center justify-between bg-workly-bg-card rounded-xl p-4"
               >
                 <View className="flex-row items-center">
-                  <Calendar color="#6B7280" size={20} />
+                  <Calendar color="#4A6FA5" size={20} />
                   <Text className="text-white font-medium ml-3">Set Expiration Date</Text>
                 </View>
                 <View
@@ -224,7 +224,7 @@ export default function EditBannerScreen() {
             {/* Tips */}
             <View className="bg-workly-bg-card/50 rounded-xl p-4 mb-6">
               <Text className="text-workly-teal font-semibold mb-2">Tips for a great banner:</Text>
-              <Text className="text-slate-400 text-sm leading-5">
+              <Text className="text-workly-muted text-sm leading-5">
                 • Keep it short and attention-grabbing{'\n'}
                 • Include specific discounts or offers{'\n'}
                 • Add urgency (limited time, first 10 customers){'\n'}

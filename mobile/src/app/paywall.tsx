@@ -168,7 +168,7 @@ export default function PaywallScreen() {
               <Text className="text-white text-3xl font-bold text-center mb-2">
                 Workly Pro
               </Text>
-              <Text className="text-slate-400 text-center text-base">
+              <Text className="text-workly-muted text-center text-base">
                 Unlock unlimited access to job requests{'\n'}and grow your business
               </Text>
             </Animated.View>
@@ -191,7 +191,7 @@ export default function PaywallScreen() {
                     <Text className="text-white font-semibold text-base">
                       {feature.title}
                     </Text>
-                    <Text className="text-slate-400 text-sm">
+                    <Text className="text-workly-muted text-sm">
                       {feature.description}
                     </Text>
                   </View>
@@ -228,9 +228,9 @@ export default function PaywallScreen() {
                   </View>
                   <View className="flex-row items-baseline">
                     <Text className="text-white text-4xl font-bold">{price}</Text>
-                    <Text className="text-slate-400 text-base ml-1">/month</Text>
+                    <Text className="text-workly-muted text-base ml-1">/month</Text>
                   </View>
-                  <Text className="text-slate-400 text-sm mt-2">
+                  <Text className="text-workly-muted text-sm mt-2">
                     Cancel anytime. No commitment.
                   </Text>
                 </View>
@@ -277,7 +277,7 @@ export default function PaywallScreen() {
                 </Pressable>
 
                 {/* Terms */}
-                <Text className="text-slate-500 text-xs text-center mt-4 px-4">
+                <Text className="text-workly-text-subtle text-xs text-center mt-4 px-4">
                   Payment will be charged to your App Store account. Subscription
                   automatically renews unless canceled at least 24 hours before the
                   end of the current period.

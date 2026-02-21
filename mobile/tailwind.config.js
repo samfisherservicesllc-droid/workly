@@ -28,6 +28,10 @@ module.exports = {
           // Additional palette
           sky: '#5C9BFF',              // Sky blue for secondary elements
           muted: '#7BA7E0',            // Muted blue for secondary text
+          // Blue-toned replacements for grey/slate
+          'text-dim': '#7BA7E0',       // Replaces slate-400 (dim text)
+          'text-subtle': '#4A6FA5',    // Replaces slate-500/600 (subtle text)
+          'icon-dim': '#4A6FA5',       // Replaces grey icons
         },
       },
       fontSize: {

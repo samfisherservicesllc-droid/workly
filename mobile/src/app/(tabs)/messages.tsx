@@ -70,11 +70,11 @@ export default function MessagesScreen() {
                 </Text>
               </View>
             </View>
-            {timeAgo && <Text className="text-slate-500 text-xs">{timeAgo}</Text>}
+            {timeAgo && <Text className="text-workly-text-subtle text-xs">{timeAgo}</Text>}
           </View>
 
           <View className="flex-row items-center justify-between mt-1">
-            <Text className="text-slate-400 flex-1 mr-2" numberOfLines={1}>
+            <Text className="text-workly-muted flex-1 mr-2" numberOfLines={1}>
               {conversation.lastMessage || 'No messages yet'}
             </Text>
             {conversation.unreadCount > 0 && (
@@ -93,10 +93,10 @@ export default function MessagesScreen() {
       {userConversations.length === 0 ? (
         <View className="flex-1 items-center justify-center px-8">
           <View className="w-20 h-20 bg-workly-bg-card rounded-full items-center justify-center mb-4">
-            <MessageSquare color="#6B7280" size={32} />
+            <MessageSquare color="#4A6FA5" size={32} />
           </View>
           <Text className="text-white text-xl font-semibold text-center">No messages yet</Text>
-          <Text className="text-slate-400 text-center mt-2">
+          <Text className="text-workly-muted text-center mt-2">
             Start a conversation by tapping on a profile from the feed
           </Text>
         </View>

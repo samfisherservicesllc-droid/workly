@@ -93,7 +93,7 @@ export function CategoryDropdown({
             {category.name}
           </Text>
           {category.description && (
-            <Text className="text-slate-500 text-xs mt-0.5" numberOfLines={1}>
+            <Text className="text-workly-text-subtle text-xs mt-0.5" numberOfLines={1}>
               {category.description}
             </Text>
           )}
@@ -121,14 +121,14 @@ export function CategoryDropdown({
           className={`text-base ${
             selectedCategory || (multiSelect && selectedValues.length > 0)
               ? 'text-white'
-              : 'text-slate-500'
+              : 'text-workly-text-subtle'
           }`}
         >
           {multiSelect && selectedValues.length > 0
             ? `${selectedValues.length} selected`
             : displayText}
         </Text>
-        <ChevronDown color="#6B7280" size={20} />
+        <ChevronDown color="#4A6FA5" size={20} />
       </Pressable>
 
       {/* Selected categories chips for multi-select */}
@@ -184,7 +184,7 @@ export function CategoryDropdown({
                   onPress={() => setIsOpen(false)}
                   className="w-8 h-8 bg-workly-bg-card rounded-full items-center justify-center"
                 >
-                  <X color="#6B7280" size={18} />
+                  <X color="#4A6FA5" size={18} />
                 </Pressable>
               </View>
             </View>
@@ -192,18 +192,18 @@ export function CategoryDropdown({
             {/* Search */}
             <View className="px-4 py-3">
               <View className="flex-row items-center bg-workly-bg-card rounded-xl px-3 py-2.5 border border-workly-border">
-                <Search color="#6B7280" size={18} />
+                <Search color="#4A6FA5" size={18} />
                 <TextInput
                   className="flex-1 ml-2 text-white text-base"
                   placeholder="Search categories..."
-                  placeholderTextColor="#6B7280"
+                  placeholderTextColor="#4A6FA5"
                   value={searchQuery}
                   onChangeText={setSearchQuery}
                   autoCapitalize="none"
                 />
                 {searchQuery.length > 0 && (
                   <Pressable onPress={() => setSearchQuery('')}>
-                    <X color="#6B7280" size={16} />
+                    <X color="#4A6FA5" size={16} />
                   </Pressable>
                 )}
               </View>
@@ -225,7 +225,7 @@ export function CategoryDropdown({
                   return (
                     <View key={group.title}>
                       <View className="px-4 py-2 bg-workly-bg-input/50">
-                        <Text className="text-slate-400 text-xs font-medium uppercase tracking-wide">
+                        <Text className="text-workly-muted text-xs font-medium uppercase tracking-wide">
                           {group.title}
                         </Text>
                       </View>
@@ -237,7 +237,7 @@ export function CategoryDropdown({
 
               {filteredCategories.length === 0 && (
                 <View className="items-center py-8">
-                  <Text className="text-slate-400">No categories found</Text>
+                  <Text className="text-workly-muted">No categories found</Text>
                 </View>
               )}
 

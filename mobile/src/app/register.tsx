@@ -99,7 +99,7 @@ export default function RegisterScreen() {
             <View className="flex-1 justify-center px-6">
               <View className="items-center mb-12">
                 <Text className="text-white text-3xl font-bold">Join Workly</Text>
-                <Text className="text-slate-400 text-base mt-2 text-center">
+                <Text className="text-workly-muted text-base mt-2 text-center">
                   Are you looking for services or offering them?
                 </Text>
               </View>
@@ -117,7 +117,7 @@ export default function RegisterScreen() {
                       <Text className="text-white text-xl font-semibold">
                         I'm a Client
                       </Text>
-                      <Text className="text-slate-400 mt-1">
+                      <Text className="text-workly-muted mt-1">
                         Looking for service professionals
                       </Text>
                     </View>
@@ -136,7 +136,7 @@ export default function RegisterScreen() {
                       <Text className="text-white text-xl font-semibold">
                         I'm a Professional
                       </Text>
-                      <Text className="text-slate-400 mt-1">
+                      <Text className="text-workly-muted mt-1">
                         Offering my services to clients
                       </Text>
                     </View>
@@ -145,7 +145,7 @@ export default function RegisterScreen() {
               </View>
 
               <View className="flex-row justify-center mt-8">
-                <Text className="text-slate-400">Already have an account? </Text>
+                <Text className="text-workly-muted">Already have an account? </Text>
                 <Pressable onPress={() => router.push('/login')}>
                   <Text className="text-workly-accent font-semibold">Sign In</Text>
                 </Pressable>
@@ -191,11 +191,11 @@ export default function RegisterScreen() {
                 {/* Form */}
                 <View className="space-y-4">
                   <View className="flex-row items-center bg-workly-bg-input/70 rounded-xl px-4 py-3 border border-workly-border">
-                    <User color="#6B7280" size={20} />
+                    <User color="#4A6FA5" size={20} />
                     <TextInput
                       className="flex-1 ml-3 text-white text-base"
                       placeholder="Full name"
-                      placeholderTextColor="#6B7280"
+                      placeholderTextColor="#4A6FA5"
                       value={name}
                       onChangeText={setName}
                       autoComplete="name"
@@ -203,11 +203,11 @@ export default function RegisterScreen() {
                   </View>
 
                   <View className="flex-row items-center bg-workly-bg-input/70 rounded-xl px-4 py-3 border border-workly-border mt-4">
-                    <Mail color="#6B7280" size={20} />
+                    <Mail color="#4A6FA5" size={20} />
                     <TextInput
                       className="flex-1 ml-3 text-white text-base"
                       placeholder="Email address"
-                      placeholderTextColor="#6B7280"
+                      placeholderTextColor="#4A6FA5"
                       value={email}
                       onChangeText={setEmail}
                       keyboardType="email-address"
@@ -217,11 +217,11 @@ export default function RegisterScreen() {
                   </View>
 
                   <View className="flex-row items-center bg-workly-bg-input/70 rounded-xl px-4 py-3 border border-workly-border mt-4">
-                    <MapPin color="#6B7280" size={20} />
+                    <MapPin color="#4A6FA5" size={20} />
                     <TextInput
                       className="flex-1 ml-3 text-white text-base"
                       placeholder="City"
-                      placeholderTextColor="#6B7280"
+                      placeholderTextColor="#4A6FA5"
                       value={city}
                       onChangeText={setCity}
                     />
@@ -229,11 +229,11 @@ export default function RegisterScreen() {
 
                   {role === 'client' && (
                     <View className="flex-row items-center bg-workly-bg-input/70 rounded-xl px-4 py-3 border border-workly-border mt-4">
-                      <Home color="#6B7280" size={20} />
+                      <Home color="#4A6FA5" size={20} />
                       <TextInput
                         className="flex-1 ml-3 text-white text-base"
                         placeholder="Neighborhood (optional)"
-                        placeholderTextColor="#6B7280"
+                        placeholderTextColor="#4A6FA5"
                         value={neighborhood}
                         onChangeText={setNeighborhood}
                       />
@@ -241,11 +241,11 @@ export default function RegisterScreen() {
                   )}
 
                   <View className="flex-row items-center bg-workly-bg-input/70 rounded-xl px-4 py-3 border border-workly-border mt-4">
-                    <Lock color="#6B7280" size={20} />
+                    <Lock color="#4A6FA5" size={20} />
                     <TextInput
                       className="flex-1 ml-3 text-white text-base"
                       placeholder="Password"
-                      placeholderTextColor="#6B7280"
+                      placeholderTextColor="#4A6FA5"
                       value={password}
                       onChangeText={setPassword}
                       secureTextEntry={!showPassword}
@@ -253,19 +253,19 @@ export default function RegisterScreen() {
                     />
                     <Pressable onPress={() => setShowPassword(!showPassword)}>
                       {showPassword ? (
-                        <EyeOff color="#6B7280" size={20} />
+                        <EyeOff color="#4A6FA5" size={20} />
                       ) : (
-                        <Eye color="#6B7280" size={20} />
+                        <Eye color="#4A6FA5" size={20} />
                       )}
                     </Pressable>
                   </View>
 
                   <View className="flex-row items-center bg-workly-bg-input/70 rounded-xl px-4 py-3 border border-workly-border mt-4">
-                    <Lock color="#6B7280" size={20} />
+                    <Lock color="#4A6FA5" size={20} />
                     <TextInput
                       className="flex-1 ml-3 text-white text-base"
                       placeholder="Confirm password"
-                      placeholderTextColor="#6B7280"
+                      placeholderTextColor="#4A6FA5"
                       value={confirmPassword}
                       onChangeText={setConfirmPassword}
                       secureTextEntry={!showPassword}
@@ -290,7 +290,7 @@ export default function RegisterScreen() {
                   </Pressable>
 
                   <Pressable onPress={() => setStep('role')} className="mt-4">
-                    <Text className="text-slate-400 text-center">
+                    <Text className="text-workly-muted text-center">
                       ← Back to role selection
                     </Text>
                   </Pressable>

@@ -160,7 +160,7 @@ export default function WriteReviewScreen() {
           >
             <Star
               size={40}
-              color={star <= rating ? '#2979FF' : '#475569'}
+              color={star <= rating ? '#2979FF' : '#1E3A7A'}
               fill={star <= rating ? '#2979FF' : 'transparent'}
             />
           </Pressable>
@@ -190,7 +190,7 @@ export default function WriteReviewScreen() {
           <Text className="text-white text-xl font-semibold mt-4 text-center">
             Already Reviewed
           </Text>
-          <Text className="text-slate-400 text-center mt-2">
+          <Text className="text-workly-muted text-center mt-2">
             You have already submitted a review for this professional.
           </Text>
         </View>
@@ -225,7 +225,7 @@ export default function WriteReviewScreen() {
           <View className="px-6 pt-6">
             {/* Professional Name */}
             <View className="items-center mb-6">
-              <Text className="text-slate-400 text-sm">Reviewing</Text>
+              <Text className="text-workly-muted text-sm">Reviewing</Text>
               <Text className="text-white text-xl font-semibold mt-1">
                 {professionalName ?? 'Professional'}
               </Text>
@@ -268,15 +268,15 @@ export default function WriteReviewScreen() {
               <Text className="text-white font-semibold mb-2">
                 Company/Business Name (optional)
               </Text>
-              <Text className="text-slate-500 text-xs mb-3">
+              <Text className="text-workly-text-subtle text-xs mb-3">
                 If the professional works for a company, enter the business name
               </Text>
               <View className="flex-row items-center bg-workly-bg-card rounded-xl px-4 py-3 border border-workly-border">
-                <Building2 color="#6B7280" size={20} />
+                <Building2 color="#4A6FA5" size={20} />
                 <TextInput
                   className="flex-1 ml-3 text-white text-base"
                   placeholder="e.g. ABC Plumbing Services"
-                  placeholderTextColor="#6B7280"
+                  placeholderTextColor="#4A6FA5"
                   value={companyName}
                   onChangeText={setCompanyName}
                   maxLength={100}
@@ -292,7 +292,7 @@ export default function WriteReviewScreen() {
                 </Text>
                 <Text
                   className={`text-sm ${
-                    wordCount > MAX_WORDS ? 'text-red-400' : 'text-slate-400'
+                    wordCount > MAX_WORDS ? 'text-red-400' : 'text-workly-muted'
                   }`}
                 >
                   {wordCount}/{MAX_WORDS} words
@@ -301,7 +301,7 @@ export default function WriteReviewScreen() {
               <TextInput
                 className="bg-workly-bg-card rounded-xl px-4 py-3 text-white text-base border border-workly-border min-h-[150px]"
                 placeholder="Share details about the work quality, professionalism, communication, and whether you would recommend them..."
-                placeholderTextColor="#6B7280"
+                placeholderTextColor="#4A6FA5"
                 value={description}
                 onChangeText={setDescription}
                 multiline
@@ -355,21 +355,21 @@ export default function WriteReviewScreen() {
                       onPress={pickImage}
                       className="w-[100px] h-[100px] bg-workly-bg-card rounded-xl items-center justify-center border border-dashed border-workly-border mr-3"
                     >
-                      <Camera color="#6B7280" size={28} />
-                      <Text className="text-slate-500 text-xs mt-1">Photo</Text>
+                      <Camera color="#4A6FA5" size={28} />
+                      <Text className="text-workly-text-subtle text-xs mt-1">Photo</Text>
                     </Pressable>
 
                     <Pressable
                       onPress={pickVideo}
                       className="w-[100px] h-[100px] bg-workly-bg-card rounded-xl items-center justify-center border border-dashed border-workly-border"
                     >
-                      <VideoIcon color="#6B7280" size={28} />
-                      <Text className="text-slate-500 text-xs mt-1">Video</Text>
+                      <VideoIcon color="#4A6FA5" size={28} />
+                      <Text className="text-workly-text-subtle text-xs mt-1">Video</Text>
                     </Pressable>
                   </View>
                 )}
               </ScrollView>
-              <Text className="text-slate-500 text-xs mt-2">
+              <Text className="text-workly-text-subtle text-xs mt-2">
                 Up to 5 photos/videos. Videos limited to 60 seconds.
               </Text>
             </View>

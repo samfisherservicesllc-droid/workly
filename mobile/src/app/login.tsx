@@ -62,7 +62,7 @@ export default function LoginScreen() {
                     />
                   </View>
                   <Text className="text-white text-3xl font-bold">Workly</Text>
-                  <Text className="text-slate-400 text-base mt-2">
+                  <Text className="text-workly-muted text-base mt-2">
                     Find local service professionals
                   </Text>
                 </View>
@@ -71,11 +71,11 @@ export default function LoginScreen() {
                 <View className="space-y-4">
                   <View>
                     <View className="flex-row items-center bg-workly-bg-input/70 rounded-xl px-4 py-3 border border-workly-border">
-                      <Mail color="#6B7280" size={20} />
+                      <Mail color="#4A6FA5" size={20} />
                       <TextInput
                         className="flex-1 ml-3 text-white text-base"
                         placeholder="Email address"
-                        placeholderTextColor="#6B7280"
+                        placeholderTextColor="#4A6FA5"
                         value={email}
                         onChangeText={setEmail}
                         keyboardType="email-address"
@@ -87,11 +87,11 @@ export default function LoginScreen() {
 
                   <View className="mt-4">
                     <View className="flex-row items-center bg-workly-bg-input/70 rounded-xl px-4 py-3 border border-workly-border">
-                      <Lock color="#6B7280" size={20} />
+                      <Lock color="#4A6FA5" size={20} />
                       <TextInput
                         className="flex-1 ml-3 text-white text-base"
                         placeholder="Password"
-                        placeholderTextColor="#6B7280"
+                        placeholderTextColor="#4A6FA5"
                         value={password}
                         onChangeText={setPassword}
                         secureTextEntry={!showPassword}
@@ -99,9 +99,9 @@ export default function LoginScreen() {
                       />
                       <Pressable onPress={() => setShowPassword(!showPassword)}>
                         {showPassword ? (
-                          <EyeOff color="#6B7280" size={20} />
+                          <EyeOff color="#4A6FA5" size={20} />
                         ) : (
-                          <Eye color="#6B7280" size={20} />
+                          <Eye color="#4A6FA5" size={20} />
                         )}
                       </Pressable>
                     </View>
@@ -131,7 +131,7 @@ export default function LoginScreen() {
 
                 {/* Register Link */}
                 <View className="flex-row justify-center mt-8">
-                  <Text className="text-slate-400">Don't have an account? </Text>
+                  <Text className="text-workly-muted">Don't have an account? </Text>
                   <Pressable onPress={() => router.push('/register')}>
                     <Text className="text-workly-accent font-semibold">Sign Up</Text>
                   </Pressable>

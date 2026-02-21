@@ -123,9 +123,9 @@ export default function FeedScreen() {
               </View>
             </View>
             <View className="flex-row items-center mt-0.5">
-              <MapPin color="#6B7280" size={12} />
-              <Text className="text-slate-400 text-xs ml-1">{post.city}</Text>
-              <Text className="text-slate-500 text-xs ml-2">• {timeAgo}</Text>
+              <MapPin color="#4A6FA5" size={12} />
+              <Text className="text-workly-muted text-xs ml-1">{post.city}</Text>
+              <Text className="text-workly-text-subtle text-xs ml-2">• {timeAgo}</Text>
             </View>
           </View>
         </Pressable>
@@ -134,16 +134,16 @@ export default function FeedScreen() {
         <View className="px-4 pb-3">
           <View className="flex-row items-center mb-2">
             <View className="bg-workly-bg-input px-3 py-1 rounded-full">
-              <Text className="text-slate-300 text-sm">{post.serviceCategoryName}</Text>
+              <Text className="text-blue-200 text-sm">{post.serviceCategoryName}</Text>
             </View>
             <View className="bg-workly-bg-input/50 px-3 py-1 rounded-full ml-2">
-              <Text className="text-slate-400 text-xs">
+              <Text className="text-workly-muted text-xs">
                 {post.type === 'completed_work' ? 'Completed Work' : 'Job Done'}
               </Text>
             </View>
           </View>
           <Text className="text-white font-medium text-lg mb-1">{post.title}</Text>
-          <Text className="text-slate-300">{post.description}</Text>
+          <Text className="text-blue-200">{post.description}</Text>
         </View>
 
         {/* Images */}
@@ -185,7 +185,7 @@ export default function FeedScreen() {
             />
             <Text
               className={`ml-1.5 ${
-                post.userReaction === 'like' ? 'text-green-500' : 'text-slate-400'
+                post.userReaction === 'like' ? 'text-green-500' : 'text-workly-muted'
               }`}
             >
               {post.likes}
@@ -205,7 +205,7 @@ export default function FeedScreen() {
             />
             <Text
               className={`ml-1.5 ${
-                post.userReaction === 'dislike' ? 'text-red-500' : 'text-slate-400'
+                post.userReaction === 'dislike' ? 'text-red-500' : 'text-workly-muted'
               }`}
             >
               {post.dislikes}
@@ -217,7 +217,7 @@ export default function FeedScreen() {
             className="flex-row items-center opacity-70"
           >
             <Share2 color="#94A3B8" size={20} />
-            <Text className="text-slate-400 ml-1.5">Share</Text>
+            <Text className="text-workly-muted ml-1.5">Share</Text>
           </Pressable>
         </View>
       </View>
@@ -240,7 +240,7 @@ export default function FeedScreen() {
               >
                 <Text
                   className={`text-sm font-medium ${
-                    filters.type === type ? 'text-white' : 'text-slate-400'
+                    filters.type === type ? 'text-white' : 'text-workly-muted'
                   }`}
                 >
                   {type === 'all' ? 'All' : type === 'clients' ? 'Clients' : 'Pros'}
@@ -281,10 +281,10 @@ export default function FeedScreen() {
       {filteredPosts.length === 0 ? (
         <View className="flex-1 items-center justify-center px-8">
           <View className="w-20 h-20 bg-workly-bg-card rounded-full items-center justify-center mb-4">
-            <Briefcase color="#6B7280" size={32} />
+            <Briefcase color="#4A6FA5" size={32} />
           </View>
           <Text className="text-white text-xl font-semibold text-center">No posts yet</Text>
-          <Text className="text-slate-400 text-center mt-2">
+          <Text className="text-workly-muted text-center mt-2">
             Be the first to share your work or a job you had done!
           </Text>
           <Pressable

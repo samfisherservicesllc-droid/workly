@@ -104,7 +104,7 @@ export default function CreatePostScreen() {
             onPress={() => router.back()}
             className="w-10 h-10 items-center justify-center"
           >
-            <X color="#6B7280" size={24} />
+            <X color="#4A6FA5" size={24} />
           </Pressable>
           <Text className="text-white text-lg font-semibold">New Post</Text>
           <Pressable
@@ -138,7 +138,7 @@ export default function CreatePostScreen() {
                 >
                   <Text
                     className={`text-center font-medium ${
-                      postType === 'completed_work' ? 'text-white' : 'text-slate-400'
+                      postType === 'completed_work' ? 'text-white' : 'text-workly-muted'
                     }`}
                   >
                     Completed Work
@@ -155,14 +155,14 @@ export default function CreatePostScreen() {
                 >
                   <Text
                     className={`text-center font-medium ${
-                      postType === 'job_done' ? 'text-white' : 'text-slate-400'
+                      postType === 'job_done' ? 'text-white' : 'text-workly-muted'
                     }`}
                   >
                     Job I Had Done
                   </Text>
                 </Pressable>
               </View>
-              <Text className="text-slate-500 text-xs mt-2">
+              <Text className="text-workly-text-subtle text-xs mt-2">
                 {postType === 'completed_work'
                   ? 'Share work you completed as a professional'
                   : 'Share a job you hired someone to do'}
@@ -175,7 +175,7 @@ export default function CreatePostScreen() {
               <TextInput
                 className="bg-workly-bg-card rounded-xl px-4 py-3 text-white text-base border border-workly-border"
                 placeholder="e.g., Kitchen remodel completed"
-                placeholderTextColor="#6B7280"
+                placeholderTextColor="#4A6FA5"
                 value={title}
                 onChangeText={setTitle}
               />
@@ -187,7 +187,7 @@ export default function CreatePostScreen() {
               <TextInput
                 className="bg-workly-bg-card rounded-xl px-4 py-3 text-white text-base border border-workly-border min-h-[100px]"
                 placeholder="Describe the work, materials used, timeline, etc."
-                placeholderTextColor="#6B7280"
+                placeholderTextColor="#4A6FA5"
                 value={description}
                 onChangeText={setDescription}
                 multiline
@@ -209,11 +209,11 @@ export default function CreatePostScreen() {
             <View className="px-4 mt-4">
               <Text className="text-white font-semibold mb-2">Location</Text>
               <View className="flex-row items-center bg-workly-bg-card rounded-xl px-4 py-3 border border-workly-border">
-                <MapPin color="#6B7280" size={20} />
+                <MapPin color="#4A6FA5" size={20} />
                 <TextInput
                   className="flex-1 ml-3 text-white text-base"
                   placeholder="City where work was done"
-                  placeholderTextColor="#6B7280"
+                  placeholderTextColor="#4A6FA5"
                   value={city}
                   onChangeText={setCity}
                 />
@@ -245,8 +245,8 @@ export default function CreatePostScreen() {
                     onPress={pickImage}
                     className="w-[120px] h-[120px] bg-workly-bg-card rounded-xl items-center justify-center border border-dashed border-workly-border"
                   >
-                    <Camera color="#6B7280" size={32} />
-                    <Text className="text-slate-500 text-xs mt-2">Add Photo</Text>
+                    <Camera color="#4A6FA5" size={32} />
+                    <Text className="text-workly-text-subtle text-xs mt-2">Add Photo</Text>
                   </Pressable>
                 )}
               </ScrollView>

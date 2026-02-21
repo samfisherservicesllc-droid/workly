@@ -97,7 +97,7 @@ export default function RateClientScreen() {
           >
             <Star
               size={40}
-              color={star <= rating ? '#3B82F6' : '#475569'}
+              color={star <= rating ? '#3B82F6' : '#1E3A7A'}
               fill={star <= rating ? '#3B82F6' : 'transparent'}
             />
           </Pressable>
@@ -127,7 +127,7 @@ export default function RateClientScreen() {
           <Text className="text-white text-xl font-semibold mt-4 text-center">
             Already Rated
           </Text>
-          <Text className="text-slate-400 text-center mt-2">
+          <Text className="text-workly-muted text-center mt-2">
             You have already submitted a rating for this client.
           </Text>
         </View>
@@ -162,7 +162,7 @@ export default function RateClientScreen() {
           <View className="px-6 pt-6">
             {/* Client Name */}
             <View className="items-center mb-6">
-              <Text className="text-slate-400 text-sm">Rating</Text>
+              <Text className="text-workly-muted text-sm">Rating</Text>
               <Text className="text-white text-xl font-semibold mt-1">
                 {clientName ?? 'Client'}
               </Text>
@@ -218,7 +218,7 @@ export default function RateClientScreen() {
                       className={`text-sm ${
                         selectedCategory === category.id
                           ? 'text-white'
-                          : 'text-slate-300'
+                          : 'text-blue-200'
                       }`}
                     >
                       {category.name}
@@ -236,7 +236,7 @@ export default function RateClientScreen() {
                 </Text>
                 <Text
                   className={`text-sm ${
-                    wordCount > MAX_WORDS ? 'text-red-400' : 'text-slate-400'
+                    wordCount > MAX_WORDS ? 'text-red-400' : 'text-workly-muted'
                   }`}
                 >
                   {wordCount}/{MAX_WORDS} words
@@ -245,7 +245,7 @@ export default function RateClientScreen() {
               <TextInput
                 className="bg-workly-bg-card rounded-xl px-4 py-3 text-white text-base border border-workly-border min-h-[120px]"
                 placeholder="Share details about communication, payment, respect for your time, clarity of requirements..."
-                placeholderTextColor="#6B7280"
+                placeholderTextColor="#4A6FA5"
                 value={description}
                 onChangeText={setDescription}
                 multiline
@@ -256,7 +256,7 @@ export default function RateClientScreen() {
             {/* Tips */}
             <View className="bg-workly-bg-card/50 rounded-xl p-4 mb-6">
               <Text className="text-white font-medium mb-2">Rating Tips</Text>
-              <Text className="text-slate-400 text-sm leading-5">
+              <Text className="text-workly-muted text-sm leading-5">
                 Consider: Was the client communicative? Did they pay on time? Were
                 they respectful of your schedule? Were job requirements clear?
               </Text>

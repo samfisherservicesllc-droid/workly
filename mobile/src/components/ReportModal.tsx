@@ -84,14 +84,14 @@ export default function ReportModal({
         <Text className="text-white text-xl font-bold text-center">
           Report {reportedUserName}
         </Text>
-        <Text className="text-slate-400 text-center mt-2">
+        <Text className="text-workly-muted text-center mt-2">
           Select the reason for your report
         </Text>
       </View>
 
       {alreadyReported ? (
         <View className="bg-workly-bg-input rounded-xl p-4 mb-4">
-          <Text className="text-slate-300 text-center">
+          <Text className="text-blue-200 text-center">
             You have already reported this user. Our team will review your report.
           </Text>
         </View>
@@ -105,11 +105,11 @@ export default function ReportModal({
             >
               <View className="flex-1 mr-3">
                 <Text className="text-white font-medium">{reason.label}</Text>
-                <Text className="text-slate-400 text-sm mt-0.5">
+                <Text className="text-blue-200 text-sm mt-0.5">
                   {reason.description}
                 </Text>
               </View>
-              <ChevronRight color="#6B7280" size={20} />
+              <ChevronRight color="#4A6FA5" size={20} />
             </Pressable>
           ))}
         </View>
@@ -130,7 +130,7 @@ export default function ReportModal({
             <Text className="text-white text-lg font-semibold">
               {selectedReasonInfo?.label}
             </Text>
-            <Text className="text-slate-400 text-sm mt-1">
+            <Text className="text-workly-muted text-sm mt-1">
               {selectedReasonInfo?.description}
             </Text>
           </View>
@@ -142,7 +142,7 @@ export default function ReportModal({
             <TextInput
               className="bg-workly-bg-card rounded-xl px-4 py-3 text-white text-base border border-workly-border min-h-[120px]"
               placeholder="Please provide specific details about what happened..."
-              placeholderTextColor="#6B7280"
+              placeholderTextColor="#4A6FA5"
               value={description}
               onChangeText={(text) => {
                 setDescription(text);
@@ -157,7 +157,7 @@ export default function ReportModal({
           </View>
 
           <View className="bg-workly-bg-card/50 rounded-xl p-4 mb-6">
-            <Text className="text-slate-400 text-sm">
+            <Text className="text-workly-muted text-sm">
               Your report will be reviewed by our team. We may contact you for
               additional information. False reports may result in action against your
               account.
@@ -172,7 +172,7 @@ export default function ReportModal({
               }}
               className="flex-1 bg-workly-bg-card py-4 rounded-xl mr-2"
             >
-              <Text className="text-slate-300 text-center font-medium">Back</Text>
+              <Text className="text-blue-200 text-center font-medium">Back</Text>
             </Pressable>
             <Pressable onPress={handleSubmit} className="flex-1 ml-2">
               <LinearGradient
@@ -200,7 +200,7 @@ export default function ReportModal({
       <Text className="text-white text-xl font-bold text-center mb-2">
         Report Submitted
       </Text>
-      <Text className="text-slate-400 text-center mb-8 px-4">
+      <Text className="text-workly-muted text-center mb-8 px-4">
         Thank you for helping keep Workly safe. Our team will review your report
         and take appropriate action.
       </Text>
@@ -235,7 +235,7 @@ export default function ReportModal({
             onPress={handleClose}
             className="w-10 h-10 items-center justify-center"
           >
-            <X color="#6B7280" size={24} />
+            <X color="#4A6FA5" size={24} />
           </Pressable>
         </View>
 

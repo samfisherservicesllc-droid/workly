@@ -124,7 +124,7 @@ export default function EditPortfolioScreen() {
             <Text className="text-white text-xl font-semibold">
               Showcase Your Work
             </Text>
-            <Text className="text-slate-400 text-center mt-2">
+            <Text className="text-workly-muted text-center mt-2">
               Add photos and videos of your completed projects to attract more
               clients.
             </Text>
@@ -133,7 +133,7 @@ export default function EditPortfolioScreen() {
           {/* Media Count */}
           <View className="flex-row items-center justify-between mb-4">
             <Text className="text-white font-semibold">Portfolio Items</Text>
-            <Text className="text-slate-400">
+            <Text className="text-workly-muted">
               {media.length}/{MAX_PORTFOLIO_ITEMS}
             </Text>
           </View>
@@ -173,8 +173,8 @@ export default function EditPortfolioScreen() {
             </View>
           ) : (
             <View className="bg-workly-bg-card/50 rounded-xl p-8 items-center mb-6">
-              <Images color="#6B7280" size={48} />
-              <Text className="text-slate-400 text-center mt-3">
+              <Images color="#4A6FA5" size={48} />
+              <Text className="text-workly-muted text-center mt-3">
                 No portfolio items yet. Add photos and videos of your work to
                 showcase your skills.
               </Text>
@@ -188,8 +188,8 @@ export default function EditPortfolioScreen() {
                 onPress={pickImages}
                 className="flex-1 bg-workly-bg-card rounded-xl p-4 items-center border border-workly-border"
               >
-                <Camera color="#6B7280" size={28} />
-                <Text className="text-slate-300 font-medium mt-2">
+                <Camera color="#4A6FA5" size={28} />
+                <Text className="text-blue-200 font-medium mt-2">
                   Add Photos
                 </Text>
               </Pressable>
@@ -198,15 +198,15 @@ export default function EditPortfolioScreen() {
                 onPress={pickVideo}
                 className="flex-1 bg-workly-bg-card rounded-xl p-4 items-center border border-workly-border"
               >
-                <VideoIcon color="#6B7280" size={28} />
-                <Text className="text-slate-300 font-medium mt-2">
+                <VideoIcon color="#4A6FA5" size={28} />
+                <Text className="text-blue-200 font-medium mt-2">
                   Add Video
                 </Text>
               </Pressable>
             </View>
           )}
 
-          <Text className="text-slate-500 text-xs text-center mb-6">
+          <Text className="text-workly-text-subtle text-xs text-center mb-6">
             Videos limited to 2 minutes. Supported formats: JPG, PNG, MP4, MOV.
           </Text>
 
