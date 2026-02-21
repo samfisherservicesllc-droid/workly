@@ -178,7 +178,7 @@ export default function RegisterScreen() {
                 <View className="items-center mb-8">
                   <View className="w-20 h-20 rounded-2xl overflow-hidden mb-4">
                     <Image
-                      source={require('../../assets/images/icon.png')}
+                      source={require('../../public/icon.png')}
                       style={{ width: 80, height: 80 }}
                       resizeMode="cover"
                     />
