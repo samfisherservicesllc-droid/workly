@@ -54,13 +54,11 @@ export default function LoginScreen() {
               <View className="flex-1 justify-center px-6">
                 {/* Logo Area */}
                 <View className="items-center mb-12">
-                  <View className="w-20 h-20 rounded-2xl overflow-hidden mb-4">
-                    <Image
-                      source={require('../../public/icon.png')}
-                      style={{ width: 80, height: 80 }}
-                      resizeMode="cover"
-                    />
-                  </View>
+                  <Image
+                    source={require('../../public/icon.png')}
+                    style={{ width: 80, height: 80, borderRadius: 16, marginBottom: 16 }}
+                    resizeMode="cover"
+                  />
                   <Text className="text-white text-3xl font-bold">Workly</Text>
                   <Text className="text-workly-muted text-base mt-2">
                     Find local service professionals
