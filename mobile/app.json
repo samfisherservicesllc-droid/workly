@@ -19,7 +19,6 @@
     },
     "android": {
       "package": "com.workly.app",
-      "edgeToEdgeEnabled": true,
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/icon.png",
         "backgroundColor": "#1565C0"
