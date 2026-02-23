@@ -15,6 +15,7 @@
     },
     "ios": {
       "supportsTablet": true,
+      "bundleIdentifier": "com.workly.app",
       "icon": "./assets/images/icon.png",
       "infoPlist": {
         "NSPhotoLibraryUsageDescription": "Workly needs access to your photo library to upload images and videos to your posts, portfolio, and reviews.",
