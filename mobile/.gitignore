@@ -43,3 +43,6 @@ yarn-error.*
 # Expo log
 expo.log
 package-lock.json
+
+# EAS CLI regenerates this file on each build — don't track it
+eas.json
