@@ -25,7 +25,8 @@
       }
     },
     "android": {
-      "package": "com.workly.app",
+  "package": "com.workly.vibecode"
+},
       "versionCode": 1,
       "compileSdkVersion": 35,
       "targetSdkVersion": 35,
